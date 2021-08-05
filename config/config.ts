@@ -7,6 +7,8 @@ import routes from './routes';
 const { REACT_APP_ENV } = process.env;
 export default defineConfig({
   hash: true,
+  base: '/umijs-next-dashboard-boilerplate',
+  publicPath: '/umijs-next-dashboard-boilerplate/',
   antd: {},
   dva: {
     hmr: true,
