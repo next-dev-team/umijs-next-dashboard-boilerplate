@@ -1,0 +1,50 @@
+{
+    "name": "@next-dev/component",
+    "version": "0.6.1+43673e00",
+    "description": "@wetrial/component",
+    "module": "es/index.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "es"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rimsila/next-dev"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "Firefox ESR",
+        "> 1%",
+        "ie >= 11"
+    ],
+    "keywords": [
+        "antd",
+        "admin",
+        "ant-design",
+        "wetrial"
+    ],
+    "authors": [
+        "xiexingen <1002275364@qq.com> (https://github.com/xiexingen)"
+    ],
+    "license": "MIT",
+    "bugs": "https://github.com/rimsila/next-dev/issues",
+    "homepage": "https://github.com/rimsila/next-dev/tree/master/packages/component#readme",
+    "peerDependencies": {
+        "@ant-design/icons": "^4.x",
+        "antd": "^4.x",
+        "react": "^16.x"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@ant-design/pro-card": "1.5.1",
+        "rc-banner-anim": "^2.4.5",
+        "rc-footer": "^0.6.6",
+        "rc-queue-anim": "^1.8.5",
+        "rc-scroll-anim": "^2.7.6",
+        "rc-texty": "^0.2.0",
+        "rc-tween-one": "^3.0.0-beta.7"
+    },
+    "yalcSig": "43673e0089eaf0eccb968f3fc333c8e9"
+}
