@@ -1,14 +1,14 @@
 // https://umijs.org/config/
-import { defineConfig } from 'umi';
 import { join } from 'path';
+import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
 const { REACT_APP_ENV } = process.env;
 export default defineConfig({
   hash: true,
-  base: '/umijs-next-dashboard-boilerplate',
-  publicPath: '/umijs-next-dashboard-boilerplate/',
+  // base: '/umijs-next-dashboard-boilerplate',
+  // publicPath: '/umijs-next-dashboard-boilerplate/',
   antd: {},
   dva: {
     hmr: true,
