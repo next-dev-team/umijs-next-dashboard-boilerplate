@@ -3,6 +3,8 @@ import type { DropDownProps } from 'antd/es/dropdown';
 // @ts-ignore
 import type { ClickParam } from 'antd/es/menu';
 import React from 'react';
+// @ts-ignore
+import { getAllLocales, getLocale, setLocale } from 'umi';
 import { defaultLangUConfigMap } from './country';
 
 export type HeaderDropdownProps = {
@@ -28,9 +30,6 @@ type SelectLangProps = {
   className?: string;
   reload?: boolean;
   style?: any;
-  getAllLocales?: () => string[];
-  getLocale?: any;
-  setLocale?: (lang: string, realReload?: boolean) => void;
 };
 
 export const transformArrayToObject = (allLangUIConfig: LocalData[]) => {
@@ -46,53 +45,39 @@ export const transformArrayToObject = (allLangUIConfig: LocalData[]) => {
 };
 
 export const SelectLang: React.FC<SelectLangProps> = (props) => {
-  const {
-    globalIconClassName,
-    postLocalesData,
-    onItemClick,
-    style,
-    reload,
-    getAllLocales,
-    getLocale,
-    setLocale,
-    ...restProps
-  } = props;
-
-  const selectedLang = getLocale();
+  const { globalIconClassName, postLocalesData, onItemClick, style, reload, ...restProps } = props;
+  const selectedLang = getLocale?.();
 
   const changeLang = ({ key }: ClickParam): void => {
-    return setLocale && setLocale(key, reload);
+    return setLocale(key, reload);
   };
 
-  const defaultLangUConfig =
-    getAllLocales &&
-    getAllLocales().map(
-      (key) =>
-        defaultLangUConfigMap[key] || {
-          lang: key,
-          label: key,
-          icon: '🌐',
-          title: key,
-        },
-    );
+  const defaultLangUConfig = getAllLocales?.().map(
+    (key: any) =>
+      defaultLangUConfigMap[key] || {
+        lang: key,
+        label: key,
+        icon: '🌐',
+        title: key,
+      },
+  );
 
-  const allLangUIConfig = postLocalesData?.(defaultLangUConfig as any[]) || defaultLangUConfig;
+  const allLangUIConfig = postLocalesData?.(defaultLangUConfig) || defaultLangUConfig || [];
   const handleClick = onItemClick ? (params: ClickParam) => onItemClick(params) : changeLang;
 
   const menuItemStyle = { minWidth: '160px' };
   const langMenu = (
     <Menu selectedKeys={[selectedLang]} onClick={handleClick}>
-      {allLangUIConfig &&
-        allLangUIConfig.map((localeObj) => {
-          return (
-            <Menu.Item key={localeObj.lang || localeObj.key} style={menuItemStyle}>
-              <span role="img" aria-label={localeObj?.label || 'en-US'}>
-                {localeObj?.icon || '🌐'}
-              </span>
-              {localeObj?.label || 'en-US'}
-            </Menu.Item>
-          );
-        })}
+      {allLangUIConfig.map((localeObj: any) => {
+        return (
+          <Menu.Item key={localeObj.lang || localeObj.key} style={menuItemStyle}>
+            <span role="img" aria-label={localeObj?.label || 'en-US'}>
+              {localeObj?.icon || '🌐'}
+            </span>
+            {localeObj?.label || 'en-US'}
+          </Menu.Item>
+        );
+      })}
     </Menu>
   );
 
@@ -110,7 +95,7 @@ export const SelectLang: React.FC<SelectLangProps> = (props) => {
   return (
     <HeaderDropdown overlay={langMenu} placement="bottomRight" {...restProps}>
       <span className={globalIconClassName} style={inlineStyle}>
-        <i className="anticon" title={allLangUIConfig && allLangUIConfig[selectedLang]?.title}>
+        <i className="anticon" title={allLangUIConfig[selectedLang]?.title}>
           <svg
             viewBox="0 0 24 24"
             focusable="false"

@@ -32,7 +32,7 @@ export const initialStateConfig = {
 export async function getInitialState(): Promise<{
   settings?: Partial<LayoutSettings>;
   currentUser?: GetProfileQuery['getProfile'];
-  fetchUserInfo?: () => Promise<GetProfileQuery>;
+  fetchUserInfo?: () => Promise<GetProfileQuery | undefined>;
 }> {
   const fetchUserInfo = async () => {
     const msg = await commonService.userProfile();
@@ -101,9 +101,6 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
-    // waterMarkProps: {
-    //   content: initialState?.currentUser?.firstName,
-    // },
     footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
