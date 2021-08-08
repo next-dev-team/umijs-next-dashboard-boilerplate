@@ -1,0 +1,58 @@
+mutation logout($accessKey: String!) {
+  logout(accessKey: $accessKey)
+}
+
+mutation login($password: String!, $username: String!) {
+  login(password: $password, username: $username) {
+    token
+    accessKey
+  }
+}
+
+mutation requestApiKey($authKey: String!) {
+  requestApiKey(authKey: $authKey) {
+    apiKey
+  }
+}
+
+query getProfile {
+  getProfile {
+    id
+    type
+    accessKey
+    avatar
+    firstName
+    lastName
+    fullName
+    gender
+    dob
+    email
+    mobileDetail {
+      mobileNumber
+    }
+    vendors {
+      company {
+        id
+        nameKh
+        nameEn
+      }
+    }
+    employee {
+      company {
+        id
+        nameKh
+        nameEn
+      }
+      companyBranch {
+        id
+        nameKh
+        nameEn
+      }
+      job {
+        id
+        title
+      }
+      hiredAt
+    }
+  }
+}

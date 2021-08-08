@@ -5,7 +5,7 @@
     "license": "MIT",
     "scripts": {
         "-------------------------graph ---------------------------------": "",
-        "schemas": "graphql-codegen --config codegen.yml",
+        "schemas": "graphql-codegen --config codegen.yml && yarn lint:fix",
         "schemas:watch": "npm run schemas -- --watch",
         "start": "cross-env UMI_ENV=dev umi dev",
         "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none UMI_ENV=dev umi dev",

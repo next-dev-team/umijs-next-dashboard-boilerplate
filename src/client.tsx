@@ -5,7 +5,7 @@ import { notification } from 'antd';
 import Text from 'antd/lib/typography/Text';
 
 export const cache: InMemoryCache = new InMemoryCache({});
-const isDev = process.env.NODE_ENV === 'development';
+// const isDev = process.env.NODE_ENV === 'development';
 const httpLink = new HttpLink({
   uri: 'https://ybiztech-pos-api.herokuapp.com/graphql',
   headers: {
@@ -17,7 +17,8 @@ const httpLink = new HttpLink({
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     graphQLErrors.forEach(({ message, locations, path }) => {
-      if (isDev) {
+      console.log('message', message);
+      if (false) {
         notification.error({
           message: (
             <>
@@ -33,7 +34,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
           ),
         });
       } else {
-        notification.error({ description: 'Something Went wrong. please try again!', message });
+        notification.error({ message, description: 'Please try again!' });
+        // notification.error({ description: 'Something Went wrong. please try again!', message });
       }
     });
   }
