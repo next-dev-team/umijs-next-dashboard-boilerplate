@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
 import RightContent from '@/components/RightContent';
-import { BookOutlined, LinkOutlined } from '@ant-design/icons';
+import { BookOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { PageLoading } from '@ant-design/pro-layout';
 import { enUSIntl, IntlProvider } from '@ant-design/pro-table';
@@ -13,34 +13,37 @@ import React from 'react';
 import type { RunTimeLayoutConfig } from 'umi';
 import { history, Link } from 'umi';
 import client from './client';
-import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
+import type { GetProfileQuery } from './graphQl/operations';
+import { commonService } from './services/common/auth';
 
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
-/** 获取用户信息比较慢的时候会展示一个 loading */
+/** When obtaining user information is slow, a loading */
 export const initialStateConfig = {
   loading: <PageLoading />,
 };
 
 /**
- * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
+ * initState also check user if unsuccess will push to login
+ * @see https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */
+
 export async function getInitialState(): Promise<{
   settings?: Partial<LayoutSettings>;
-  currentUser?: API.CurrentUser;
-  fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
+  currentUser?: GetProfileQuery['getProfile'];
+  fetchUserInfo?: () => Promise<GetProfileQuery>;
 }> {
   const fetchUserInfo = async () => {
-    try {
-      const msg = await queryCurrentUser();
-      return msg.data;
-    } catch (error) {
+    const msg = await commonService.userProfile();
+    const getProfile = msg?.data?.data?.getProfile;
+    if (!getProfile) {
       history.push(loginPath);
+      return undefined;
     }
-    return undefined;
+    return getProfile;
   };
-  // 如果是登录页面，不执行
+  // If it is a login page, do not execute
   if (history.location.pathname !== loginPath) {
     const currentUser = await fetchUserInfo();
     return {
@@ -55,9 +58,11 @@ export async function getInitialState(): Promise<{
   };
 }
 
-const AppRoot = (props: any) => {
-  // const initialState = useModel('@@initialState');
-
+/**
+ *  Root App
+ *
+ */
+const RootApp = (props: any) => {
   const { children, routes } = props;
 
   return (
@@ -88,39 +93,35 @@ const AppRoot = (props: any) => {
 };
 
 export function rootContainer(container: any) {
-  return React.createElement(AppRoot, null, container);
+  return React.createElement(RootApp, null, container);
 }
 
-// ProLayout 支持的api https://procomponents.ant.design/components/layout
+// API supported by ProLayout https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
-    waterMarkProps: {
-      content: initialState?.currentUser?.name,
-    },
+    // waterMarkProps: {
+    //   content: initialState?.currentUser?.firstName,
+    // },
     footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
-      // 如果没有登录，重定向到 login
+      // If you are not logged in, redirect to login
       if (!initialState?.currentUser && location.pathname !== loginPath) {
         history.push(loginPath);
       }
     },
     links: isDev
       ? [
-          <Link key="api" to="/umi/plugin/openapi" target="_blank">
-            <LinkOutlined />
-            <span>OpenAPI 文档</span>
-          </Link>,
           <Link key="doc" to="/~docs">
             <BookOutlined />
-            <span>业务组件文档</span>
+            <span>component documentation</span>
           </Link>,
         ]
       : [],
     menuHeaderRender: undefined,
-    // 自定义 403 页面
+    // Customize the 403 page
     // unAccessible: <div>unAccessible</div>,
     ...initialState?.settings,
   };

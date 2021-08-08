@@ -5,14 +5,14 @@ import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
 const { REACT_APP_ENV } = process.env;
+
+console.log('REACT_APP_ENV', REACT_APP_ENV);
+
 export default defineConfig({
-  hash: true,
   // base: '/umijs-next-dashboard-boilerplate',
   // publicPath: '/umijs-next-dashboard-boilerplate/',
   antd: {},
-  dva: {
-    hmr: true,
-  },
+
   layout: {
     // https://umijs.org/zh-CN/plugins/plugin-layout
     locale: true,
@@ -40,8 +40,6 @@ export default defineConfig({
   manifest: {
     basePath: '/',
   },
-  // Fast Refresh 热更新
-  fastRefresh: {},
   openAPI: [
     {
       requestLibPath: "import { request } from 'umi'",
