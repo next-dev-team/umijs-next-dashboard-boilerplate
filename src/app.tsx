@@ -3,9 +3,16 @@ import RightContent from '@/components/RightContent';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { PageLoading } from '@ant-design/pro-layout';
+import { enUSIntl, IntlProvider } from '@ant-design/pro-table';
+import { ApolloProvider } from '@apollo/client';
 import '@next-dev/component/es/style/index.less';
+import validateMessages from '@next-dev/core/es/validation';
+import { ConfigProvider } from 'antd';
+import enUS from 'antd/lib/locale/en_US';
+import React from 'react';
 import type { RunTimeLayoutConfig } from 'umi';
 import { history, Link } from 'umi';
+import client from './client';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -46,6 +53,42 @@ export async function getInitialState(): Promise<{
     fetchUserInfo,
     settings: {},
   };
+}
+
+const AppRoot = (props: any) => {
+  // const initialState = useModel('@@initialState');
+
+  const { children, routes } = props;
+
+  return (
+    <ConfigProvider
+      {...{
+        form: { validateMessages },
+        input: {
+          autoComplete: 'off',
+        },
+        locale: enUS,
+      }}
+    >
+      <IntlProvider
+        value={{
+          intl: enUSIntl,
+          valueTypeMap: {},
+        }}
+      >
+        <ApolloProvider client={client}>
+          {React.cloneElement(children, {
+            ...children.props,
+            routes,
+          })}
+        </ApolloProvider>
+      </IntlProvider>
+    </ConfigProvider>
+  );
+};
+
+export function rootContainer(container: any) {
+  return React.createElement(AppRoot, null, container);
 }
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
