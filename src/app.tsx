@@ -65,6 +65,8 @@ export async function getInitialState(): Promise<{
 const RootApp = (props: any) => {
   const { children, routes } = props;
 
+  // console.log('routes', routes);
+
   return (
     <ConfigProvider
       {...{

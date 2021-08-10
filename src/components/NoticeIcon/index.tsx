@@ -1,7 +1,6 @@
 import { message, Tag } from 'antd';
 import { groupBy } from 'lodash';
 import { useState } from 'react';
-import { useModel } from 'umi';
 import styles from './index.less';
 import NoticeIcon from './NoticeIcon';
 
@@ -64,8 +63,8 @@ const getUnreadData = (noticeData: Record<string, any[]>) => {
 };
 
 const NoticeIconView = () => {
-  const { initialState } = useModel('@@initialState');
-  const { currentUser } = initialState || {};
+  // const { initialState } = useModel('@@initialState');
+  // const { currentUser } = initialState || {};
   const [notices, setNotices] = useState<any[]>([]);
 
   const noticeData = getNoticeData(notices);

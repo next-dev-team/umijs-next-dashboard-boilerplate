@@ -77,7 +77,6 @@
         "react": "^17.0.2",
         "react-dev-inspector": "^1.1.1",
         "react-dom": "^17.0.2",
-        "react-helmet-async": "^1.0.4",
         "umi": "^3.5.15",
         "umi-serve": "^1.9.10",
         "@apollo/client": "^3.3.18"
