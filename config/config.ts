@@ -13,10 +13,10 @@ export default defineConfig({
   mock: false,
   request: false,
   dva: false,
-  locale: {},
+  locale: { antd: false },
   layout: {
     // https://umijs.org/plugins/plugin-layout
-    locale: true,
+    locale: false,
     siderWidth: 208,
     ...defaultSettings,
   },

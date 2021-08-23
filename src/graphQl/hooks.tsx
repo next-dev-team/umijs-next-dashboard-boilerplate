@@ -1,15 +1,16 @@
 import type * as Types from './operations';
 
-import gql from 'graphql-tag';
-import type * as ApolloReactCommon from '@apollo/client';
-import * as ApolloReactHooks from '@apollo/client';
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
+
+const defaultOptions = {};
 
 export const LogoutDocument = gql`
   mutation logout($accessKey: String!) {
     logout(accessKey: $accessKey)
   }
 `;
-export type LogoutMutationFn = ApolloReactCommon.MutationFunction<
+export type LogoutMutationFn = Apollo.MutationFunction<
   Types.LogoutMutation,
   Types.LogoutMutationVariables
 >;
@@ -32,19 +33,17 @@ export type LogoutMutationFn = ApolloReactCommon.MutationFunction<
  * });
  */
 export function useLogoutMutation(
-  baseOptions?: ApolloReactHooks.MutationHookOptions<
-    Types.LogoutMutation,
-    Types.LogoutMutationVariables
-  >,
+  baseOptions?: Apollo.MutationHookOptions<Types.LogoutMutation, Types.LogoutMutationVariables>,
 ) {
-  return ApolloReactHooks.useMutation<Types.LogoutMutation, Types.LogoutMutationVariables>(
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<Types.LogoutMutation, Types.LogoutMutationVariables>(
     LogoutDocument,
-    baseOptions,
+    options,
   );
 }
 export type LogoutMutationHookResult = ReturnType<typeof useLogoutMutation>;
-export type LogoutMutationResult = ApolloReactCommon.MutationResult<Types.LogoutMutation>;
-export type LogoutMutationOptions = ApolloReactCommon.BaseMutationOptions<
+export type LogoutMutationResult = Apollo.MutationResult<Types.LogoutMutation>;
+export type LogoutMutationOptions = Apollo.BaseMutationOptions<
   Types.LogoutMutation,
   Types.LogoutMutationVariables
 >;
@@ -56,7 +55,7 @@ export const LoginDocument = gql`
     }
   }
 `;
-export type LoginMutationFn = ApolloReactCommon.MutationFunction<
+export type LoginMutationFn = Apollo.MutationFunction<
   Types.LoginMutation,
   Types.LoginMutationVariables
 >;
@@ -80,19 +79,17 @@ export type LoginMutationFn = ApolloReactCommon.MutationFunction<
  * });
  */
 export function useLoginMutation(
-  baseOptions?: ApolloReactHooks.MutationHookOptions<
-    Types.LoginMutation,
-    Types.LoginMutationVariables
-  >,
+  baseOptions?: Apollo.MutationHookOptions<Types.LoginMutation, Types.LoginMutationVariables>,
 ) {
-  return ApolloReactHooks.useMutation<Types.LoginMutation, Types.LoginMutationVariables>(
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<Types.LoginMutation, Types.LoginMutationVariables>(
     LoginDocument,
-    baseOptions,
+    options,
   );
 }
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
-export type LoginMutationResult = ApolloReactCommon.MutationResult<Types.LoginMutation>;
-export type LoginMutationOptions = ApolloReactCommon.BaseMutationOptions<
+export type LoginMutationResult = Apollo.MutationResult<Types.LoginMutation>;
+export type LoginMutationOptions = Apollo.BaseMutationOptions<
   Types.LoginMutation,
   Types.LoginMutationVariables
 >;
@@ -103,7 +100,7 @@ export const RequestApiKeyDocument = gql`
     }
   }
 `;
-export type RequestApiKeyMutationFn = ApolloReactCommon.MutationFunction<
+export type RequestApiKeyMutationFn = Apollo.MutationFunction<
   Types.RequestApiKeyMutation,
   Types.RequestApiKeyMutationVariables
 >;
@@ -126,20 +123,20 @@ export type RequestApiKeyMutationFn = ApolloReactCommon.MutationFunction<
  * });
  */
 export function useRequestApiKeyMutation(
-  baseOptions?: ApolloReactHooks.MutationHookOptions<
+  baseOptions?: Apollo.MutationHookOptions<
     Types.RequestApiKeyMutation,
     Types.RequestApiKeyMutationVariables
   >,
 ) {
-  return ApolloReactHooks.useMutation<
-    Types.RequestApiKeyMutation,
-    Types.RequestApiKeyMutationVariables
-  >(RequestApiKeyDocument, baseOptions);
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<Types.RequestApiKeyMutation, Types.RequestApiKeyMutationVariables>(
+    RequestApiKeyDocument,
+    options,
+  );
 }
 export type RequestApiKeyMutationHookResult = ReturnType<typeof useRequestApiKeyMutation>;
-export type RequestApiKeyMutationResult =
-  ApolloReactCommon.MutationResult<Types.RequestApiKeyMutation>;
-export type RequestApiKeyMutationOptions = ApolloReactCommon.BaseMutationOptions<
+export type RequestApiKeyMutationResult = Apollo.MutationResult<Types.RequestApiKeyMutation>;
+export type RequestApiKeyMutationOptions = Apollo.BaseMutationOptions<
   Types.RequestApiKeyMutation,
   Types.RequestApiKeyMutationVariables
 >;
@@ -203,30 +200,26 @@ export const GetProfileDocument = gql`
  * });
  */
 export function useGetProfileQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    Types.GetProfileQuery,
-    Types.GetProfileQueryVariables
-  >,
+  baseOptions?: Apollo.QueryHookOptions<Types.GetProfileQuery, Types.GetProfileQueryVariables>,
 ) {
-  return ApolloReactHooks.useQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(
     GetProfileDocument,
-    baseOptions,
+    options,
   );
 }
 export function useGetProfileLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    Types.GetProfileQuery,
-    Types.GetProfileQueryVariables
-  >,
+  baseOptions?: Apollo.LazyQueryHookOptions<Types.GetProfileQuery, Types.GetProfileQueryVariables>,
 ) {
-  return ApolloReactHooks.useLazyQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(
     GetProfileDocument,
-    baseOptions,
+    options,
   );
 }
 export type GetProfileQueryHookResult = ReturnType<typeof useGetProfileQuery>;
 export type GetProfileLazyQueryHookResult = ReturnType<typeof useGetProfileLazyQuery>;
-export type GetProfileQueryResult = ApolloReactCommon.QueryResult<
+export type GetProfileQueryResult = Apollo.QueryResult<
   Types.GetProfileQuery,
   Types.GetProfileQueryVariables
 >;

@@ -4,62 +4,69 @@ export type LogoutMutationVariables = Types.Exact<{
   accessKey: Types.Scalars['String'];
 }>;
 
-export type LogoutMutation = { __typename?: 'Mutation' } & Pick<Types.Mutation, 'logout'>;
+export type LogoutMutation = { __typename?: 'Mutation'; logout: boolean };
 
 export type LoginMutationVariables = Types.Exact<{
   password: Types.Scalars['String'];
   username: Types.Scalars['String'];
 }>;
 
-export type LoginMutation = { __typename?: 'Mutation' } & {
-  login: { __typename?: 'LoginType' } & Pick<Types.LoginType, 'token' | 'accessKey'>;
+export type LoginMutation = {
+  __typename?: 'Mutation';
+  login: { __typename?: 'LoginType'; token?: Types.Maybe<string>; accessKey: string };
 };
 
 export type RequestApiKeyMutationVariables = Types.Exact<{
   authKey: Types.Scalars['String'];
 }>;
 
-export type RequestApiKeyMutation = { __typename?: 'Mutation' } & {
-  requestApiKey: { __typename?: 'AuthType' } & Pick<Types.AuthType, 'apiKey'>;
+export type RequestApiKeyMutation = {
+  __typename?: 'Mutation';
+  requestApiKey: { __typename?: 'AuthType'; apiKey: string };
 };
 
 export type GetProfileQueryVariables = Types.Exact<Record<string, never>>;
 
-export type GetProfileQuery = { __typename?: 'Query' } & {
-  getProfile: { __typename?: 'ProfileType' } & Pick<
-    Types.ProfileType,
-    | 'id'
-    | 'type'
-    | 'accessKey'
-    | 'avatar'
-    | 'firstName'
-    | 'lastName'
-    | 'fullName'
-    | 'gender'
-    | 'dob'
-    | 'email'
-  > & {
-      mobileDetail: { __typename?: 'MobileDetails' } & Pick<Types.MobileDetails, 'mobileNumber'>;
-      vendors: Types.Maybe<
-        { __typename?: 'Vendor' } & {
-          company?: Types.Maybe<
-            { __typename?: 'CompanyType' } & Pick<Types.CompanyType, 'id' | 'nameKh' | 'nameEn'>
-          >;
-        }
-      >[];
-      employee?: Types.Maybe<
-        { __typename?: 'EmployeeInfoType' } & Pick<Types.EmployeeInfoType, 'hiredAt'> & {
-            company?: Types.Maybe<
-              { __typename?: 'CompanyType' } & Pick<Types.CompanyType, 'id' | 'nameKh' | 'nameEn'>
-            >;
-            companyBranch?: Types.Maybe<
-              { __typename?: 'CompanyBranchType' } & Pick<
-                Types.CompanyBranchType,
-                'id' | 'nameKh' | 'nameEn'
-              >
-            >;
-            job?: Types.Maybe<{ __typename?: 'JobType' } & Pick<Types.JobType, 'id' | 'title'>>;
-          }
-      >;
-    };
+export type GetProfileQuery = {
+  __typename?: 'Query';
+  getProfile: {
+    __typename?: 'ProfileType';
+    id: string;
+    type: string;
+    accessKey: string;
+    avatar?: Types.Maybe<string>;
+    firstName: string;
+    lastName: string;
+    fullName: string;
+    gender?: Types.Maybe<string>;
+    dob?: Types.Maybe<any>;
+    email: string;
+    mobileDetail: { __typename?: 'MobileDetails'; mobileNumber?: Types.Maybe<string> };
+    vendors: Types.Maybe<{
+      __typename?: 'Vendor';
+      company?: Types.Maybe<{
+        __typename?: 'CompanyType';
+        id: string;
+        nameKh: string;
+        nameEn?: Types.Maybe<string>;
+      }>;
+    }>[];
+    employee?: Types.Maybe<{
+      __typename?: 'EmployeeInfoType';
+      hiredAt?: Types.Maybe<any>;
+      company?: Types.Maybe<{
+        __typename?: 'CompanyType';
+        id: string;
+        nameKh: string;
+        nameEn?: Types.Maybe<string>;
+      }>;
+      companyBranch?: Types.Maybe<{
+        __typename?: 'CompanyBranchType';
+        id: string;
+        nameKh?: Types.Maybe<string>;
+        nameEn?: Types.Maybe<string>;
+      }>;
+      job?: Types.Maybe<{ __typename?: 'JobType'; id: string; title: string }>;
+    }>;
+  };
 };
