@@ -1,19 +1,15 @@
-import type * as Types from './operations';
+import * as Types from './operations';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
-
-const defaultOptions = {};
+const defaultOptions =  {}
 
 export const LogoutDocument = gql`
-  mutation logout($accessKey: String!) {
-    logout(accessKey: $accessKey)
-  }
-`;
-export type LogoutMutationFn = Apollo.MutationFunction<
-  Types.LogoutMutation,
-  Types.LogoutMutationVariables
->;
+    mutation logout($accessKey: String!) {
+  logout(accessKey: $accessKey)
+}
+    `;
+export type LogoutMutationFn = Apollo.MutationFunction<Types.LogoutMutation, Types.LogoutMutationVariables>;
 
 /**
  * __useLogoutMutation__
@@ -32,33 +28,22 @@ export type LogoutMutationFn = Apollo.MutationFunction<
  *   },
  * });
  */
-export function useLogoutMutation(
-  baseOptions?: Apollo.MutationHookOptions<Types.LogoutMutation, Types.LogoutMutationVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<Types.LogoutMutation, Types.LogoutMutationVariables>(
-    LogoutDocument,
-    options,
-  );
-}
+export function useLogoutMutation(baseOptions?: Apollo.MutationHookOptions<Types.LogoutMutation, Types.LogoutMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Types.LogoutMutation, Types.LogoutMutationVariables>(LogoutDocument, options);
+      }
 export type LogoutMutationHookResult = ReturnType<typeof useLogoutMutation>;
 export type LogoutMutationResult = Apollo.MutationResult<Types.LogoutMutation>;
-export type LogoutMutationOptions = Apollo.BaseMutationOptions<
-  Types.LogoutMutation,
-  Types.LogoutMutationVariables
->;
+export type LogoutMutationOptions = Apollo.BaseMutationOptions<Types.LogoutMutation, Types.LogoutMutationVariables>;
 export const LoginDocument = gql`
-  mutation login($password: String!, $username: String!) {
-    login(password: $password, username: $username) {
-      token
-      accessKey
-    }
+    mutation login($password: String!, $username: String!) {
+  login(password: $password, username: $username) {
+    token
+    accessKey
   }
-`;
-export type LoginMutationFn = Apollo.MutationFunction<
-  Types.LoginMutation,
-  Types.LoginMutationVariables
->;
+}
+    `;
+export type LoginMutationFn = Apollo.MutationFunction<Types.LoginMutation, Types.LoginMutationVariables>;
 
 /**
  * __useLoginMutation__
@@ -78,32 +63,21 @@ export type LoginMutationFn = Apollo.MutationFunction<
  *   },
  * });
  */
-export function useLoginMutation(
-  baseOptions?: Apollo.MutationHookOptions<Types.LoginMutation, Types.LoginMutationVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<Types.LoginMutation, Types.LoginMutationVariables>(
-    LoginDocument,
-    options,
-  );
-}
+export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<Types.LoginMutation, Types.LoginMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Types.LoginMutation, Types.LoginMutationVariables>(LoginDocument, options);
+      }
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = Apollo.MutationResult<Types.LoginMutation>;
-export type LoginMutationOptions = Apollo.BaseMutationOptions<
-  Types.LoginMutation,
-  Types.LoginMutationVariables
->;
+export type LoginMutationOptions = Apollo.BaseMutationOptions<Types.LoginMutation, Types.LoginMutationVariables>;
 export const RequestApiKeyDocument = gql`
-  mutation requestApiKey($authKey: String!) {
-    requestApiKey(authKey: $authKey) {
-      apiKey
-    }
+    mutation requestApiKey($authKey: String!) {
+  requestApiKey(authKey: $authKey) {
+    apiKey
   }
-`;
-export type RequestApiKeyMutationFn = Apollo.MutationFunction<
-  Types.RequestApiKeyMutation,
-  Types.RequestApiKeyMutationVariables
->;
+}
+    `;
+export type RequestApiKeyMutationFn = Apollo.MutationFunction<Types.RequestApiKeyMutation, Types.RequestApiKeyMutationVariables>;
 
 /**
  * __useRequestApiKeyMutation__
@@ -122,67 +96,56 @@ export type RequestApiKeyMutationFn = Apollo.MutationFunction<
  *   },
  * });
  */
-export function useRequestApiKeyMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    Types.RequestApiKeyMutation,
-    Types.RequestApiKeyMutationVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<Types.RequestApiKeyMutation, Types.RequestApiKeyMutationVariables>(
-    RequestApiKeyDocument,
-    options,
-  );
-}
+export function useRequestApiKeyMutation(baseOptions?: Apollo.MutationHookOptions<Types.RequestApiKeyMutation, Types.RequestApiKeyMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Types.RequestApiKeyMutation, Types.RequestApiKeyMutationVariables>(RequestApiKeyDocument, options);
+      }
 export type RequestApiKeyMutationHookResult = ReturnType<typeof useRequestApiKeyMutation>;
 export type RequestApiKeyMutationResult = Apollo.MutationResult<Types.RequestApiKeyMutation>;
-export type RequestApiKeyMutationOptions = Apollo.BaseMutationOptions<
-  Types.RequestApiKeyMutation,
-  Types.RequestApiKeyMutationVariables
->;
+export type RequestApiKeyMutationOptions = Apollo.BaseMutationOptions<Types.RequestApiKeyMutation, Types.RequestApiKeyMutationVariables>;
 export const GetProfileDocument = gql`
-  query getProfile {
-    getProfile {
-      id
-      type
-      accessKey
-      avatar
-      firstName
-      lastName
-      fullName
-      gender
-      dob
-      email
-      mobileDetail {
-        mobileNumber
-      }
-      vendors {
-        company {
-          id
-          nameKh
-          nameEn
-        }
-      }
-      employee {
-        company {
-          id
-          nameKh
-          nameEn
-        }
-        companyBranch {
-          id
-          nameKh
-          nameEn
-        }
-        job {
-          id
-          title
-        }
-        hiredAt
+    query getProfile {
+  getProfile {
+    id
+    type
+    accessKey
+    avatar
+    firstName
+    lastName
+    fullName
+    gender
+    dob
+    email
+    mobileDetail {
+      mobileNumber
+    }
+    vendors {
+      company {
+        id
+        nameKh
+        nameEn
       }
     }
+    employee {
+      company {
+        id
+        nameKh
+        nameEn
+      }
+      companyBranch {
+        id
+        nameKh
+        nameEn
+      }
+      job {
+        id
+        title
+      }
+      hiredAt
+    }
   }
-`;
+}
+    `;
 
 /**
  * __useGetProfileQuery__
@@ -199,27 +162,14 @@ export const GetProfileDocument = gql`
  *   },
  * });
  */
-export function useGetProfileQuery(
-  baseOptions?: Apollo.QueryHookOptions<Types.GetProfileQuery, Types.GetProfileQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(
-    GetProfileDocument,
-    options,
-  );
-}
-export function useGetProfileLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<Types.GetProfileQuery, Types.GetProfileQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(
-    GetProfileDocument,
-    options,
-  );
-}
+export function useGetProfileQuery(baseOptions?: Apollo.QueryHookOptions<Types.GetProfileQuery, Types.GetProfileQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(GetProfileDocument, options);
+      }
+export function useGetProfileLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Types.GetProfileQuery, Types.GetProfileQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Types.GetProfileQuery, Types.GetProfileQueryVariables>(GetProfileDocument, options);
+        }
 export type GetProfileQueryHookResult = ReturnType<typeof useGetProfileQuery>;
 export type GetProfileLazyQueryHookResult = ReturnType<typeof useGetProfileLazyQuery>;
-export type GetProfileQueryResult = Apollo.QueryResult<
-  Types.GetProfileQuery,
-  Types.GetProfileQueryVariables
->;
+export type GetProfileQueryResult = Apollo.QueryResult<Types.GetProfileQuery, Types.GetProfileQueryVariables>;
