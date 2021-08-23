@@ -16,6 +16,7 @@
     "noUnusedLocals": true,
     "allowJs": true,
     "skipLibCheck": true,
+    "noImplicitAny": false,
     "experimentalDecorators": true,
     "strict": true,
     "paths": {

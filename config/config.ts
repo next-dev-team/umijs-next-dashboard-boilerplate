@@ -1,4 +1,5 @@
 // https://umijs.org/config/
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
@@ -7,10 +8,16 @@ import routes from './routes';
 const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
-  // base: '/umijs-next-dashboard-boilerplate',
-  // publicPath: '/umijs-next-dashboard-boilerplate/',
   antd: {},
   mock: false,
+  extraBabelPlugins: [
+    ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+    [
+      'babel-plugin-import',
+      { libraryName: 'lodash', libraryDirectory: '', camel2DashComponentName: false },
+      'lodash',
+    ],
+  ],
   request: false,
   dva: false,
   locale: { antd: false },
@@ -47,4 +54,8 @@ export default defineConfig({
   mfsu: {},
   webpack5: {},
   exportStatic: {},
+  chainWebpack(config) {
+    config.plugin('dayjs').use(AntdDayjsWebpackPlugin);
+    return config;
+  },
 });
