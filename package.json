@@ -13,6 +13,12 @@
         "build": "umi build",
         "serve": "umi-serve",
         "dev": "npm run start:dev",
+
+        "------------------------- Tools ---------------------------------": "",
+        "clean-all": "yarn clean-yarn && yarn clean-node && yarn clean-umi",
+        "clean-yarn": "rm -rf yarn.lock",
+        "clean-node": "rm -rf node_modules",
+        "clean-umi": "rm -rf .mfsu.dev && rm -rf src/.umi",
         "i18n-remove-zhCh": "pro i18n-remove --locale=zh-CN --write",
         "postinstall": "umi g tmp",
         "lint": "umi g tmp && npm run lint:js && npm run lint:style && npm run lint:prettier",

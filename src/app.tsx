@@ -11,13 +11,15 @@ import { ConfigProvider } from 'antd';
 import 'antd/dist/antd.less';
 import enUS from 'antd/lib/locale/en_US';
 import React from 'react';
+import type { InspectParams } from 'react-dev-inspector';
+import { Inspector } from 'react-dev-inspector';
 import type { RunTimeLayoutConfig } from 'umi';
 import { history, Link } from 'umi';
 import client from './client';
+import { isDev } from './constant';
 import type { GetProfileQuery } from './graphQl/operations';
 import { commonService } from './services/common/auth';
 
-const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
 /** When obtaining user information is slow, a loading */
@@ -85,10 +87,22 @@ const RootApp = (props: any) => {
         }}
       >
         <ApolloProvider client={client}>
-          {React.cloneElement(children, {
-            ...children.props,
-            routes,
-          })}
+          <Inspector
+            disableLaunchEditor={!isDev}
+            keys={['control', 'shift', 'c']}
+            onClickElement={(inspect: InspectParams) => {
+              console.debug(inspect);
+              if (isDev || !inspect.codeInfo?.relativePath) {
+                return null;
+              }
+              return null;
+            }}
+          >
+            {React.cloneElement(children, {
+              ...children.props,
+              routes,
+            })}
+          </Inspector>
         </ApolloProvider>
       </IntlProvider>
     </ConfigProvider>
