@@ -36,3 +36,5 @@ screenshot
 .eslintcache
 
 build
+.mfsu.prod
+.mfsu.dev
