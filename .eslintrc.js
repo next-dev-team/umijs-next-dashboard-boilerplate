@@ -6,6 +6,7 @@ module.exports = {
     REACT_APP_ENV: true,
   },
   rules: {
+    'no-restricted-globals': 0,
     'no-nested-ternary': 0,
     '@typescript-eslint/no-shadow': 0,
     '@typescript-eslint/no-unused-vars': 1,
@@ -26,7 +27,6 @@ module.exports = {
     'react-native/no-inline-styles': 0,
     'react/require-default-props': 0,
     'react/no-array-index-key': 0,
-
     'import/no-unresolved': [
       'error',
       {

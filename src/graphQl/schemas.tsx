@@ -1,5 +1,5 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends Record<string, unknown>> = { [K in keyof T]: T[K] };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
@@ -86,7 +86,7 @@ export type AuthType = {
 
 export type CalculateSaleOrderInput = {
   orderId: Scalars['ID'];
-  paymentReceived: PaymentReceivedInput[];
+  paymentReceived: Array<PaymentReceivedInput>;
   paymentMethod?: Maybe<PaymentTypeEnum>;
   discountId?: Maybe<Scalars['ID']>;
 };
@@ -98,11 +98,11 @@ export type CalculateSaleOrderType = {
   subAmount: Scalars['Float'];
   changedAmount: Scalars['Float'];
   discountAmount: Scalars['Float'];
-  exchangedRateAmount?: Maybe<ExchangedRateAmountType[]>;
+  exchangedRateAmount?: Maybe<Array<ExchangedRateAmountType>>;
 };
 
 export type CategoriesFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -171,7 +171,7 @@ export type CdnUpdate = {
 };
 
 export type CommuneFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   provinceId?: Maybe<Scalars['String']>;
@@ -255,7 +255,7 @@ export type CompanyDetailType = {
 };
 
 export type CompanyFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   userId?: Maybe<Scalars['ID']>;
@@ -270,7 +270,7 @@ export type CompanyInput = {
   nameEn?: Maybe<Scalars['String']>;
   status?: Maybe<StatusEnum>;
   profile: CompanyDetailInput;
-  branches?: Maybe<CompanyBranchInput[]>;
+  branches?: Maybe<Array<CompanyBranchInput>>;
 };
 
 export type CompanyProfileInput = {
@@ -301,7 +301,7 @@ export type CompanyType = {
   isExistedBranch: Scalars['Boolean'];
   status?: Maybe<Scalars['String']>;
   profile?: Maybe<CompanyDetailType>;
-  branches?: Maybe<CompanyBranchType[]>;
+  branches?: Maybe<Array<CompanyBranchType>>;
 };
 
 export type CompanyUpdate = {
@@ -320,7 +320,7 @@ export type ConclusionPaymentType = {
 };
 
 export type CountryFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['ID']>;
@@ -349,7 +349,7 @@ export type CountryUpdate = {
 
 export enum CurrencyCodeEnum {
   Usd = 'USD',
-  Khr = 'KHR',
+  Khr = 'KHR'
 }
 
 export type CurrencyFilter = {
@@ -357,7 +357,7 @@ export type CurrencyFilter = {
   code?: Maybe<CurrencyCodeEnum>;
   name?: Maybe<Scalars['String']>;
   roundType?: Maybe<RoundTypeEnum>;
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
 };
 
 export type CurrencyInput = {
@@ -368,7 +368,7 @@ export type CurrencyInput = {
 };
 
 export type CurrencyRateFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   baseCurrencyCode?: Maybe<CurrencyCodeEnum>;
@@ -461,6 +461,7 @@ export type CustomerUpdate = {
   status?: Maybe<StatusEnum>;
 };
 
+
 export type DeveloperVerifyCodeInput = {
   verifyCode?: Maybe<Scalars['Int']>;
   verifyUrl?: Maybe<Scalars['String']>;
@@ -529,7 +530,7 @@ export type DiscountType = {
 
 export enum DiscountTypeEnum {
   Percentage = 'PERCENTAGE',
-  Price = 'PRICE',
+  Price = 'PRICE'
 }
 
 export type DiscountUpdate = {
@@ -541,7 +542,7 @@ export type DiscountUpdate = {
 };
 
 export type DistrictFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   provinceId?: Maybe<Scalars['String']>;
@@ -577,7 +578,7 @@ export type DistrictUpdate = {
 };
 
 export type EmployeeFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['ID']>;
@@ -661,7 +662,7 @@ export type ExchangedRateAmountType = {
 
 export enum GenderEnum {
   Male = 'MALE',
-  Female = 'FEMALE',
+  Female = 'FEMALE'
 }
 
 export type HistoryType = {
@@ -673,7 +674,7 @@ export type HistoryType = {
 };
 
 export type JobFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['ID']>;
@@ -728,7 +729,7 @@ export type LoginType = {
 };
 
 export type ManufacturerFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -891,424 +892,526 @@ export type Mutation = {
   createSalePayment: TransactionType;
 };
 
+
 export type MutationRegisterDeveloperArgs = {
   input: DevelopersInput;
 };
 
+
 export type MutationVerifyCodeOrUrlDeveloperArgs = {
   input: DeveloperVerifyCodeInput;
 };
+
 
 export type MutationLoginDeveloperArgs = {
   password: Scalars['String'];
   email: Scalars['String'];
 };
 
+
 export type MutationUpdateDeveloperArgs = {
   input: DevelopersUpdate;
   accessKey: Scalars['String'];
 };
 
+
 export type MutationLogoutDeveloperArgs = {
   accessKey: Scalars['String'];
 };
 
+
 export type MutationCreateNewAdminArgs = {
   input: AdminInput;
 };
+
 
 export type MutationUpdateAdminArgs = {
   input: AdminUpdate;
   id: Scalars['String'];
 };
 
+
 export type MutationRequestApiKeyArgs = {
   authKey: Scalars['String'];
 };
+
 
 export type MutationCreateCdnArgs = {
   input: CdnInput;
 };
 
+
 export type MutationUpdateCdnArgs = {
   input: CdnUpdate;
 };
+
 
 export type MutationDeleteCdnArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationUpdateProvinceArgs = {
   input: ProvinceUpdate;
 };
+
 
 export type MutationUpdateDistrictArgs = {
   input: DistrictUpdate;
 };
 
+
 export type MutationUpdateCommuneArgs = {
   input: CommuneUpdate;
 };
+
 
 export type MutationUpdateCountryArgs = {
   input: CountryUpdate;
 };
 
+
 export type MutationUpdateVillageArgs = {
   input: VillageUpdate;
 };
 
+
 export type MutationCreateVendorArgs = {
   input: VendorInput;
 };
+
 
 export type MutationUpdateVendorArgs = {
   input: VendorUpdate;
   id: Scalars['String'];
 };
 
+
 export type MutationAddVendorCompanyArgs = {
   company: VendorCompanyInput;
   id: Scalars['String'];
 };
 
+
 export type MutationRemoveVendorCompanyArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateCompanyArgs = {
   input: CompanyInput;
 };
 
+
 export type MutationUpdateCompanyArgs = {
   input: CompanyUpdate;
 };
 
+
 export type MutationAddBranchCompanyArgs = {
-  companyBranch: CompanyBranchInput[];
+  companyBranch: Array<CompanyBranchInput>;
   id: Scalars['String'];
 };
+
 
 export type MutationUpdateBranchCompanyArgs = {
   companyBranch: CompanyBranchInput;
   id: Scalars['String'];
 };
 
+
 export type MutationRemoveBranchCompanyArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationDeleteCompanyArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateCurrencyRateArgs = {
   input: CurrencyRateInput;
 };
+
 
 export type MutationUpdateCurrencyRateArgs = {
   input: CurrencyRateUpdate;
 };
 
+
 export type MutationDeleteCurrencyRateArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateCurrencyArgs = {
   input: CurrencyInput;
 };
 
+
 export type MutationUpdateCurrencyArgs = {
   input: CurrencyUpdate;
 };
+
 
 export type MutationSetDefaultCurrencyArgs = {
   id: Scalars['ID'];
 };
 
+
 export type MutationDeleteCurrencyArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateNewCustomerArgs = {
   input: CustomerInput;
 };
+
 
 export type MutationUpdateCustomerArgs = {
   input: CustomerUpdate;
   id: Scalars['String'];
 };
 
+
 export type MutationUpdateDiscountArgs = {
   input: DiscountUpdate;
 };
+
 
 export type MutationSetDefaultDiscountArgs = {
   id: Scalars['ID'];
 };
 
+
 export type MutationCreateJobArgs = {
   input: JobInput;
 };
+
 
 export type MutationUpdateJobArgs = {
   input: JobUpdate;
 };
 
+
 export type MutationDeleteJobArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateEmployeeArgs = {
   input: EmployeeInput;
 };
+
 
 export type MutationUpdateEmployeeArgs = {
   input: EmployeeUpdate;
   id: Scalars['String'];
 };
 
+
 export type MutationRemoveEmployeeArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationUpdateRoomUserProfileArgs = {
   input: RoomUserUpdate;
 };
+
 
 export type MutationLoginArgs = {
   password: Scalars['String'];
   username: Scalars['String'];
 };
 
+
 export type MutationLogoutArgs = {
   accessKey: Scalars['String'];
 };
+
 
 export type MutationRegisterVendorArgs = {
   input: VendorRegisterInput;
 };
 
+
 export type MutationVerifyAccountArgs = {
   input: VerifyAccountInput;
 };
+
 
 export type MutationRegisterRoomUserArgs = {
   input: RoomUserRegisterInput;
 };
 
+
 export type MutationVerifyRoomUserAccountArgs = {
   verifyCode: Scalars['String'];
 };
+
 
 export type MutationLoginRoomUserArgs = {
   password: Scalars['String'];
   username: Scalars['String'];
 };
 
+
 export type MutationCreatePaymentMethodArgs = {
   input: PaymentMethodInput;
 };
+
 
 export type MutationUpdatePaymentMethodArgs = {
   input: PaymentMethodUpdate;
 };
 
+
 export type MutationSetDefaultPaymentMethodArgs = {
   id: Scalars['ID'];
 };
+
 
 export type MutationDeletePaymentMethodArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateProductSupplierArgs = {
   input: ProductSupplierInput;
 };
+
 
 export type MutationUpdateProductSupplierArgs = {
   input: ProductSupplierUpdate;
 };
 
+
 export type MutationDeleteProductSupplierArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateCategoryArgs = {
   input: CategoriesInput;
 };
 
+
 export type MutationUpdateCategoryArgs = {
   input: CategoriesUpdate;
 };
+
 
 export type MutationDeleteCategoryArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateManufacturerArgs = {
   input: ManufacturerInput;
 };
+
 
 export type MutationUpdateManufacturerArgs = {
   input: ManufacturerUpdate;
 };
 
+
 export type MutationDeleteManufacturerArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateScaleArgs = {
   input: ScaleInput;
 };
 
+
 export type MutationUpdateScaleArgs = {
   input: ScaleUpdate;
 };
+
 
 export type MutationDeleteScaleArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateTaxArgs = {
   input: TaxesInput;
 };
+
 
 export type MutationUpdateTaxArgs = {
   input: TaxesUpdate;
 };
 
+
 export type MutationDeleteTaxArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateProductArgs = {
   input: ProductInput;
 };
 
+
 export type MutationUpdateProductArgs = {
   input: ProductUpdate;
 };
+
 
 export type MutationRemoveProductArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationRemoveProductImageArgs = {
   input: RemoveProductImageInput;
 };
+
 
 export type MutationRemoveProductThumbnailArgs = {
   input: RemoveProductImageInput;
 };
 
+
 export type MutationAddProductRecorderArgs = {
-  recorders: RecorderInput[];
+  recorders: Array<RecorderInput>;
   productId: Scalars['ID'];
 };
+
 
 export type MutationUpdateProductRecorderArgs = {
   input: ProductRecorderUpdate;
 };
 
+
 export type MutationRemoveProductRecorderArgs = {
   id: Scalars['ID'];
 };
+
 
 export type MutationInDecreaseProductRecorderStockArgs = {
   quantity: Scalars['Int'];
   id: Scalars['ID'];
 };
 
+
 export type MutationCreateSaleOrderArgs = {
   input: SaleOrderInput;
 };
+
 
 export type MutationCalculateSaleOrderArgs = {
   input: CalculateSaleOrderInput;
 };
 
+
 export type MutationCancelSaleOrderArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationHoldSaleOrderArgs = {
   id: Scalars['String'];
 };
 
+
 export type MutationCreateSupplyingArgs = {
   input: SupplyingInput;
 };
+
 
 export type MutationCreateTagArgs = {
   input: TagInput;
 };
 
+
 export type MutationUpdateTagArgs = {
   input: TagUpdate;
 };
 
+
 export type MutationDeleteTagArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationUpdateProfileArgs = {
   input: ProfileUpdate;
   accessKey: Scalars['String'];
 };
 
+
 export type MutationCreateRoomCategoryArgs = {
   input: RoomCategoryInput;
 };
+
 
 export type MutationUpdateRoomCategoryArgs = {
   input: RoomCategoryUpdate;
 };
 
+
 export type MutationDeleteRoomCategoryArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateRoomArgs = {
   input: RoomInput;
 };
 
+
 export type MutationUpdateRoomArgs = {
   input: RoomUpdate;
 };
+
 
 export type MutationAddMemberRoomArgs = {
   userId: Scalars['String'];
   id: Scalars['String'];
 };
 
+
 export type MutationDeleteRoomArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateRoomTransactionArgs = {
   input: RoomTransactionInput;
 };
 
+
 export type MutationDeleteRoomTransactionArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationConfirmPaymentRoomTransactionArgs = {
   input: RoomTransactionConfirmPaymentInput;
 };
 
+
 export type MutationCreateTimeArgs = {
   input: TimeInput;
 };
+
 
 export type MutationUpdateTimeArgs = {
   input: TimeUpdate;
 };
 
+
 export type MutationDeleteTimeArgs = {
   id: Scalars['String'];
 };
+
 
 export type MutationCreateSalePaymentArgs = {
   input: SaleTransactionInput;
@@ -1350,115 +1453,115 @@ export type OrderType = {
   totalAmount: Scalars['Float'];
   vatAmount: Scalars['Float'];
   subAmount: Scalars['Float'];
-  orderDetails: OrderDetailType[];
+  orderDetails: Array<OrderDetailType>;
   status?: Maybe<Scalars['String']>;
 };
 
 export type PaginatedCategoryType = {
   __typename?: 'PaginatedCategoryType';
-  records?: Maybe<CategoriesType[]>;
+  records?: Maybe<Array<CategoriesType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedCommuneType = {
   __typename?: 'PaginatedCommuneType';
-  records?: Maybe<CommuneType[]>;
+  records?: Maybe<Array<CommuneType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedCompanyType = {
   __typename?: 'PaginatedCompanyType';
-  records?: Maybe<CompanyType[]>;
+  records?: Maybe<Array<CompanyType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedCountryType = {
   __typename?: 'PaginatedCountryType';
-  records?: Maybe<CountryType[]>;
+  records?: Maybe<Array<CountryType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedDistrictType = {
   __typename?: 'PaginatedDistrictType';
-  records?: Maybe<DistrictType[]>;
+  records?: Maybe<Array<DistrictType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedEmployeeType = {
   __typename?: 'PaginatedEmployeeType';
-  records?: Maybe<EmployeeType[]>;
+  records?: Maybe<Array<EmployeeType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedJobType = {
   __typename?: 'PaginatedJobType';
-  records?: Maybe<JobType[]>;
+  records?: Maybe<Array<JobType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedManufacturerType = {
   __typename?: 'PaginatedManufacturerType';
-  records?: Maybe<ManufacturerType[]>;
+  records?: Maybe<Array<ManufacturerType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedProductSupplierType = {
   __typename?: 'PaginatedProductSupplierType';
-  records?: Maybe<ProductSupplierType[]>;
+  records?: Maybe<Array<ProductSupplierType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedProductType = {
   __typename?: 'PaginatedProductType';
-  records?: Maybe<ProductType[]>;
+  records?: Maybe<Array<ProductType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedProvinceType = {
   __typename?: 'PaginatedProvinceType';
-  records?: Maybe<ProvinceType[]>;
+  records?: Maybe<Array<ProvinceType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedRoomType = {
   __typename?: 'PaginatedRoomType';
-  records?: Maybe<RoomType[]>;
+  records?: Maybe<Array<RoomType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedScaleType = {
   __typename?: 'PaginatedScaleType';
-  records?: Maybe<ScaleType[]>;
+  records?: Maybe<Array<ScaleType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedTagType = {
   __typename?: 'PaginatedTagType';
-  records?: Maybe<TagType[]>;
+  records?: Maybe<Array<TagType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedTaxType = {
   __typename?: 'PaginatedTaxType';
-  records?: Maybe<TaxesType[]>;
+  records?: Maybe<Array<TaxesType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedTimeType = {
   __typename?: 'PaginatedTimeType';
-  records?: Maybe<TimeType[]>;
+  records?: Maybe<Array<TimeType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedVendorType = {
   __typename?: 'PaginatedVendorType';
-  records?: Maybe<VendorType[]>;
+  records?: Maybe<Array<VendorType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedVillageType = {
   __typename?: 'PaginatedVillageType';
-  records?: Maybe<VillageType[]>;
+  records?: Maybe<Array<VillageType>>;
   metadata?: Maybe<Metadata>;
 };
 
@@ -1466,7 +1569,7 @@ export type PaymentMethodFilter = {
   id?: Maybe<Scalars['ID']>;
   type?: Maybe<PaymentTypeEnum>;
   title?: Maybe<Scalars['String']>;
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
 };
 
 export type PaymentMethodInput = {
@@ -1507,11 +1610,11 @@ export type PaymentReceivedType = {
 
 export enum PaymentTypeEnum {
   Cash = 'CASH',
-  Aba = 'ABA',
+  Aba = 'ABA'
 }
 
 export type ProductFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -1540,13 +1643,13 @@ export type ProductInput = {
   taxId: Scalars['ID'];
   supplierId?: Maybe<Scalars['ID']>;
   manufacturerId?: Maybe<Scalars['ID']>;
-  tags?: Maybe<Scalars['String'][]>;
-  thumbnails?: Maybe<ProductImageInput[]>;
-  images?: Maybe<ProductImageInput[]>;
+  tags?: Maybe<Array<Scalars['String']>>;
+  thumbnails?: Maybe<Array<ProductImageInput>>;
+  images?: Maybe<Array<ProductImageInput>>;
   shortDescription?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   remark?: Maybe<Scalars['String']>;
-  recorders: RecorderInput[];
+  recorders: Array<RecorderInput>;
 };
 
 export type ProductRecorderFilter = {
@@ -1592,7 +1695,7 @@ export type ProductRecorderUpdate = {
 };
 
 export type ProductSaleFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   categoryId?: Maybe<Scalars['ID']>;
@@ -1601,12 +1704,12 @@ export type ProductSaleFilter = {
 
 export type ProductSalePaginatedType = {
   __typename?: 'ProductSalePaginatedType';
-  records?: Maybe<ProductType[]>;
+  records?: Maybe<Array<ProductType>>;
   metadata?: Maybe<Metadata>;
 };
 
 export type ProductSupplierFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   companyName?: Maybe<Scalars['String']>;
@@ -1654,22 +1757,22 @@ export type ProductType = {
   id: Scalars['ID'];
   name: Scalars['String'];
   alternativeName?: Maybe<Scalars['String']>;
-  images?: Maybe<ProductImage[]>;
-  thumbnails?: Maybe<ProductImage[]>;
+  images?: Maybe<Array<ProductImage>>;
+  thumbnails?: Maybe<Array<ProductImage>>;
   categoryId: Scalars['String'];
   category?: Maybe<CategoriesType>;
   taxId?: Maybe<Scalars['String']>;
   tax?: Maybe<TaxesType>;
-  tags?: Maybe<Scalars['String'][]>;
+  tags?: Maybe<Array<Scalars['String']>>;
   manufactureId?: Maybe<Scalars['ID']>;
   manufacturer?: Maybe<ManufacturerType>;
   shortDescription?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  recorders?: Maybe<ProductRecorderType[]>;
-  sourcePrice?: Maybe<Scalars['Float'][]>;
-  wholesalePrice?: Maybe<Scalars['Float'][]>;
-  regularPrice?: Maybe<Scalars['Float'][]>;
-  sellingPrice?: Maybe<Scalars['Float'][]>;
+  recorders?: Maybe<Array<ProductRecorderType>>;
+  sourcePrice?: Maybe<Array<Scalars['Float']>>;
+  wholesalePrice?: Maybe<Array<Scalars['Float']>>;
+  regularPrice?: Maybe<Array<Scalars['Float']>>;
+  sellingPrice?: Maybe<Array<Scalars['Float']>>;
   quantity: Scalars['Int'];
   status?: Maybe<Scalars['String']>;
 };
@@ -1681,9 +1784,9 @@ export type ProductUpdate = {
   categoryId: Scalars['ID'];
   taxId: Scalars['ID'];
   manufacturerId?: Maybe<Scalars['ID']>;
-  tags?: Maybe<Scalars['String'][]>;
-  thumbnails?: Maybe<ProductImageInput[]>;
-  images?: Maybe<ProductImageInput[]>;
+  tags?: Maybe<Array<Scalars['String']>>;
+  thumbnails?: Maybe<Array<ProductImageInput>>;
+  images?: Maybe<Array<ProductImageInput>>;
   shortDescription?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   remark?: Maybe<Scalars['String']>;
@@ -1707,7 +1810,7 @@ export type ProfileType = {
   dob?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   mobileDetail: MobileDetails;
-  vendors: Maybe<Vendor>[];
+  vendors: Array<Maybe<Vendor>>;
   employee?: Maybe<EmployeeInfoType>;
   addressInfo?: Maybe<AddressInfoType>;
   accessKey: Scalars['String'];
@@ -1726,7 +1829,7 @@ export type ProfileUpdate = {
 };
 
 export type ProvinceFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   uId?: Maybe<Scalars['String']>;
@@ -1757,380 +1860,454 @@ export type ProvinceUpdate = {
 export type Query = {
   __typename?: 'Query';
   getCdn: CdnType;
-  getCdns: CdnType[];
+  getCdns: Array<CdnType>;
   getProvince: ProvinceType;
   getProvinces: PaginatedProvinceType;
-  getSuggestedProvinces: ProvinceType[];
-  getActiveProvinces: ProvinceType[];
+  getSuggestedProvinces: Array<ProvinceType>;
+  getActiveProvinces: Array<ProvinceType>;
   getDistrict: DistrictType;
   getDistricts: PaginatedDistrictType;
-  getActiveDistricts: DistrictType[];
-  getSuggestedDistricts: DistrictType[];
+  getActiveDistricts: Array<DistrictType>;
+  getSuggestedDistricts: Array<DistrictType>;
   getCommune: CommuneType;
   getCommunes: PaginatedCommuneType;
-  getActiveCommunes: CommuneType[];
-  getSuggestedCommunes: CommuneType[];
+  getActiveCommunes: Array<CommuneType>;
+  getSuggestedCommunes: Array<CommuneType>;
   getCountry: CountryType;
   getCountries: PaginatedCountryType;
-  getActiveCountries: CountryType[];
-  getSuggestedCountries: CountryType[];
+  getActiveCountries: Array<CountryType>;
+  getSuggestedCountries: Array<CountryType>;
   getVillage: VillageType;
   getVillages: PaginatedVillageType;
-  getActiveVillages: VillageType[];
-  getSuggestedVillages: VillageType[];
+  getActiveVillages: Array<VillageType>;
+  getSuggestedVillages: Array<VillageType>;
   getVendors: PaginatedVendorType;
   getCompanyVendor: VendorType;
   getCompany: CompanyType;
   getCompanies: PaginatedCompanyType;
-  getActiveCompanies: CompanyType[];
+  getActiveCompanies: Array<CompanyType>;
   getCurrencyRate: CurrencyRateType;
-  getCurrencyRates: CurrencyRateType[];
-  getActiveCurrencyRates: CurrencyRateType[];
+  getCurrencyRates: Array<CurrencyRateType>;
+  getActiveCurrencyRates: Array<CurrencyRateType>;
   getCurrency: CurrencyType;
-  getCurrencies: CurrencyType[];
-  getActiveCurrencies: CurrencyType[];
-  getDiscounts: DiscountType[];
-  getActiveDiscounts: DiscountType[];
+  getCurrencies: Array<CurrencyType>;
+  getActiveCurrencies: Array<CurrencyType>;
+  getDiscounts: Array<DiscountType>;
+  getActiveDiscounts: Array<DiscountType>;
   getJob: JobType;
   getJobs: PaginatedJobType;
-  getActiveJobs: JobType[];
+  getActiveJobs: Array<JobType>;
   getEmployees: PaginatedEmployeeType;
   getRoomUserProfile: RoomUserType;
-  getRoomUserList: RoomUserType[];
+  getRoomUserList: Array<RoomUserType>;
   getPaymentMethod: PaymentMethodType;
-  getPaymentMethods: PaymentMethodType[];
-  getActivePaymentMethods: PaymentMethodType[];
+  getPaymentMethods: Array<PaymentMethodType>;
+  getActivePaymentMethods: Array<PaymentMethodType>;
   getProductSupplier: ProductSupplierType;
   getProductSuppliers: PaginatedProductSupplierType;
-  getActiveProductSuppliers: ProductSupplierType[];
+  getActiveProductSuppliers: Array<ProductSupplierType>;
   getCategory: CategoriesType;
   getCategories: PaginatedCategoryType;
-  getActiveCategories: CategoriesType[];
+  getActiveCategories: Array<CategoriesType>;
   getManufacturer: ManufacturerType;
   getManufacturers: PaginatedManufacturerType;
-  getActiveManufacturers: ManufacturerType[];
+  getActiveManufacturers: Array<ManufacturerType>;
   getScale: ScaleType;
   getScales: PaginatedScaleType;
-  getActiveScales: ScaleType[];
+  getActiveScales: Array<ScaleType>;
   getTax: TaxesType;
   getTaxes: PaginatedTaxType;
-  getActiveTaxes: TaxesType[];
+  getActiveTaxes: Array<TaxesType>;
   getProduct: ProductType;
   getProducts: PaginatedProductType;
-  getActiveProducts: ProductType[];
-  getProductRecorders: ProductRecorderType[];
+  getActiveProducts: Array<ProductType>;
+  getProductRecorders: Array<ProductRecorderType>;
   getProductRecorder: ProductRecorderType;
-  searchSuggestedProducts: ProductRecorderType[];
+  searchSuggestedProducts: Array<ProductRecorderType>;
   getPendingOrder: OrderType;
   getTag: TagType;
   getTags: PaginatedTagType;
-  getActiveTags: TagType[];
+  getActiveTags: Array<TagType>;
   getProfile: ProfileType;
   getRoomCategory: RoomCategoryType;
-  getRoomCategories: RoomCategoryType[];
+  getRoomCategories: Array<RoomCategoryType>;
   getRoom: RoomType;
   getRooms: PaginatedRoomType;
-  getUserByRoomId: MemberType[];
-  getDailyTransactions: RoomTransactionGroupType[];
-  getMonthlyTransactions: RoomTransactionGroupByMonthType[];
-  getRoomTransactionReport: RoomTransactionReportType[];
+  getUserByRoomId: Array<MemberType>;
+  getDailyTransactions: Array<RoomTransactionGroupType>;
+  getMonthlyTransactions: Array<RoomTransactionGroupByMonthType>;
+  getRoomTransactionReport: Array<RoomTransactionReportType>;
   getProductSales: ProductSalePaginatedType;
   getTime: TimeType;
   getTimes: PaginatedTimeType;
-  getActiveTimes: TimeType[];
+  getActiveTimes: Array<TimeType>;
 };
+
 
 export type QueryGetCdnArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetCdnsArgs = {
   filter: CdnFilter;
 };
+
 
 export type QueryGetProvinceArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetProvincesArgs = {
   filter: ProvinceFilter;
 };
+
 
 export type QueryGetSuggestedProvincesArgs = {
   name: Scalars['String'];
 };
 
+
 export type QueryGetActiveProvincesArgs = {
   filter: ProvinceFilter;
 };
+
 
 export type QueryGetDistrictArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetDistrictsArgs = {
   filter: DistrictFilter;
 };
+
 
 export type QueryGetActiveDistrictsArgs = {
   filter: DistrictFilter;
 };
 
+
 export type QueryGetSuggestedDistrictsArgs = {
   filter: DistrictSuggestedFilter;
 };
+
 
 export type QueryGetCommuneArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetCommunesArgs = {
   filter: CommuneFilter;
 };
+
 
 export type QueryGetActiveCommunesArgs = {
   filter: CommuneFilter;
 };
 
+
 export type QueryGetSuggestedCommunesArgs = {
   filter: CommuneSuggestedFilter;
 };
+
 
 export type QueryGetCountryArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetCountriesArgs = {
   filter: CountryFilter;
 };
+
 
 export type QueryGetActiveCountriesArgs = {
   filter: CountryFilter;
 };
 
+
 export type QueryGetSuggestedCountriesArgs = {
   name: Scalars['String'];
 };
+
 
 export type QueryGetVillageArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetVillagesArgs = {
   filter: VillageFilter;
 };
+
 
 export type QueryGetActiveVillagesArgs = {
   filter: VillageFilter;
 };
 
+
 export type QueryGetSuggestedVillagesArgs = {
   filter: VillageSuggestedFilter;
 };
+
 
 export type QueryGetVendorsArgs = {
   filter: VendorFilter;
 };
 
+
 export type QueryGetCompanyVendorArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetCompanyArgs = {
   id: Scalars['ID'];
 };
 
+
 export type QueryGetCompaniesArgs = {
   filter: CompanyFilter;
 };
+
 
 export type QueryGetActiveCompaniesArgs = {
   filter: CompanyFilter;
 };
 
+
 export type QueryGetCurrencyRateArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetCurrencyRatesArgs = {
   filter: CurrencyRateFilter;
 };
 
+
 export type QueryGetActiveCurrencyRatesArgs = {
   filter: CurrencyRateFilter;
 };
+
 
 export type QueryGetCurrencyArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetCurrenciesArgs = {
   filter: CurrencyFilter;
 };
+
 
 export type QueryGetActiveCurrenciesArgs = {
   filter: CurrencyFilter;
 };
 
+
 export type QueryGetDiscountsArgs = {
   filter: DiscountFilter;
 };
+
 
 export type QueryGetJobArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetJobsArgs = {
   filter: JobFilter;
 };
+
 
 export type QueryGetActiveJobsArgs = {
   filter: JobFilter;
 };
 
+
 export type QueryGetEmployeesArgs = {
   filter: EmployeeFilter;
 };
+
 
 export type QueryGetRoomUserProfileArgs = {
   accessKey: Scalars['String'];
 };
 
+
 export type QueryGetPaymentMethodArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetPaymentMethodsArgs = {
   filter: PaymentMethodFilter;
 };
 
+
 export type QueryGetActivePaymentMethodsArgs = {
   filter: PaymentMethodFilter;
 };
+
 
 export type QueryGetProductSupplierArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetProductSuppliersArgs = {
   filter: ProductSupplierFilter;
 };
+
 
 export type QueryGetActiveProductSuppliersArgs = {
   filter: ProductSupplierFilter;
 };
 
+
 export type QueryGetCategoryArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetCategoriesArgs = {
   filter: CategoriesFilter;
 };
 
+
 export type QueryGetActiveCategoriesArgs = {
   filter: CategoriesFilter;
 };
+
 
 export type QueryGetManufacturerArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetManufacturersArgs = {
   filter: ManufacturerFilter;
 };
+
 
 export type QueryGetScaleArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetScalesArgs = {
   filter: ScaleFilter;
 };
+
 
 export type QueryGetTaxArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetTaxesArgs = {
   filter: TaxesFilter;
 };
+
 
 export type QueryGetActiveTaxesArgs = {
   filter: TaxesFilter;
 };
 
+
 export type QueryGetProductArgs = {
   id: Scalars['String'];
 };
+
 
 export type QueryGetProductsArgs = {
   filter: ProductFilter;
 };
 
+
 export type QueryGetProductRecordersArgs = {
   filter: ProductRecorderFilter;
 };
+
 
 export type QueryGetProductRecorderArgs = {
   id: Scalars['String'];
 };
 
+
 export type QuerySearchSuggestedProductsArgs = {
   value: Scalars['String'];
 };
+
 
 export type QueryGetTagArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetTagsArgs = {
   filter: TagFilter;
 };
+
 
 export type QueryGetRoomCategoryArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetRoomCategoriesArgs = {
   filter: RoomCategoryFilter;
 };
+
 
 export type QueryGetRoomArgs = {
   id: Scalars['String'];
 };
 
+
 export type QueryGetRoomsArgs = {
   filter: RoomFilter;
 };
+
 
 export type QueryGetUserByRoomIdArgs = {
   roomId: Scalars['String'];
 };
 
+
 export type QueryGetDailyTransactionsArgs = {
   filter: RoomTransactionGroupFilter;
 };
+
 
 export type QueryGetMonthlyTransactionsArgs = {
   filter: RoomTransactionGroupFilter;
 };
 
+
 export type QueryGetRoomTransactionReportArgs = {
   filter: RoomTransactionGroupFilter;
 };
+
 
 export type QueryGetProductSalesArgs = {
   filter: ProductSaleFilter;
 };
 
+
 export type QueryGetTimeArgs = {
   filter: TimeFilter;
 };
 
+
 export type QueryGetTimesArgs = {
   filter: TimeFilter;
 };
+
 
 export type QueryGetActiveTimesArgs = {
   filter: TimeFilter;
@@ -2157,7 +2334,7 @@ export type RemoveProductImageInput = {
 export enum RoomAccountTypeEnum {
   Cash = 'CASH',
   Aba = 'ABA',
-  CreditCard = 'CREDIT_CARD',
+  CreditCard = 'CREDIT_CARD'
 }
 
 export type RoomCategoryFilter = {
@@ -2190,11 +2367,11 @@ export type RoomCategoryUpdate = {
 
 export enum RoomCurrencyCodeEnum {
   Usd = 'USD',
-  Khr = 'KHR',
+  Khr = 'KHR'
 }
 
 export type RoomFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -2204,7 +2381,7 @@ export type RoomInput = {
   name: Scalars['String'];
   image?: Maybe<Scalars['String']>;
   exchangeRate: Scalars['Float'];
-  members: MemberInput[];
+  members: Array<MemberInput>;
   description?: Maybe<Scalars['String']>;
 };
 
@@ -2233,7 +2410,7 @@ export type RoomTransactionGroupType = {
   transactionDate: Scalars['DateTime'];
   month: Scalars['Int'];
   amount: Scalars['Float'];
-  transactions: RoomTransactionType[];
+  transactions: Array<RoomTransactionType>;
   total: Scalars['Int'];
 };
 
@@ -2245,8 +2422,8 @@ export type RoomTransactionInput = {
   type: RoomTransactionTypeEnum;
   currencyCode: RoomCurrencyCodeEnum;
   amount: Scalars['Float'];
-  shareWith: Maybe<ShareWithInput>[];
-  shareFor?: Maybe<Scalars['String'][]>;
+  shareWith: Array<Maybe<ShareWithInput>>;
+  shareFor?: Maybe<Array<Scalars['String']>>;
   image?: Maybe<Scalars['String']>;
   note?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -2259,7 +2436,7 @@ export type RoomTransactionReportType = {
   amount: Scalars['Float'];
   count: Scalars['Int'];
   size: Scalars['Int'];
-  conclusionPayments: ConclusionPaymentType[];
+  conclusionPayments: Array<ConclusionPaymentType>;
 };
 
 export type RoomTransactionType = {
@@ -2277,8 +2454,8 @@ export type RoomTransactionType = {
   type: Scalars['String'];
   currencyCode: Scalars['String'];
   amount: Scalars['Float'];
-  shareWith?: Maybe<ShareWithType[]>;
-  shareFor?: Maybe<ShareForType[]>;
+  shareWith?: Maybe<Array<ShareWithType>>;
+  shareFor?: Maybe<Array<ShareForType>>;
   note?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
   isApproved?: Maybe<Scalars['Boolean']>;
@@ -2290,7 +2467,7 @@ export type RoomTransactionType = {
 export enum RoomTransactionTypeEnum {
   Sharing = 'SHARING',
   Borrowing = 'BORROWING',
-  Returning = 'RETURNING',
+  Returning = 'RETURNING'
 }
 
 export type RoomType = {
@@ -2301,7 +2478,7 @@ export type RoomType = {
   updatedAt: Scalars['DateTime'];
   id: Scalars['ID'];
   name: Scalars['String'];
-  members: MemberType[];
+  members: Array<MemberType>;
   exchangeRate: Scalars['Float'];
   description?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
@@ -2348,7 +2525,7 @@ export type RoomUserUpdate = {
 export enum RoundTypeEnum {
   Up = 'UP',
   Down = 'DOWN',
-  Default = 'DEFAULT',
+  Default = 'DEFAULT'
 }
 
 export type SaleOrderInput = {
@@ -2359,13 +2536,13 @@ export type SaleOrderInput = {
 
 export type SaleTransactionInput = {
   orderId: Scalars['ID'];
-  paymentReceived: PaymentReceivedInput[];
+  paymentReceived: Array<PaymentReceivedInput>;
   paymentMethod?: Maybe<PaymentTypeEnum>;
   discountId?: Maybe<Scalars['ID']>;
 };
 
 export type ScaleFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -2413,7 +2590,7 @@ export type ShareWithType = {
 export enum StatusEnum {
   Active = 'ACTIVE',
   Inactive = 'INACTIVE',
-  Deleted = 'DELETED',
+  Deleted = 'DELETED'
 }
 
 export type StockType = {
@@ -2426,7 +2603,7 @@ export type StockType = {
   productRecorderId: Scalars['ID'];
   productRecorder?: Maybe<ProductRecorderType>;
   quantity: Scalars['Int'];
-  histories?: Maybe<HistoryType[]>;
+  histories?: Maybe<Array<HistoryType>>;
 };
 
 export type SupplierAddressInfoInput = {
@@ -2475,7 +2652,7 @@ export type SupplierContactInfoType = {
 
 export enum SupplierStatusEnum {
   Pending = 'PENDING',
-  Success = 'SUCCESS',
+  Success = 'SUCCESS'
 }
 
 export type SupplyingInput = {
@@ -2508,7 +2685,7 @@ export type SupplyingType = {
 };
 
 export type TagFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
@@ -2540,11 +2717,11 @@ export type TagUpdate = {
 
 export enum TaxTypeEnum {
   Inclusive = 'INCLUSIVE',
-  Exclusive = 'EXCLUSIVE',
+  Exclusive = 'EXCLUSIVE'
 }
 
 export type TaxesFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   type?: Maybe<TaxTypeEnum>;
@@ -2583,7 +2760,7 @@ export type TaxesUpdate = {
 };
 
 export type TimeFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['ID']>;
@@ -2598,7 +2775,7 @@ export type TimeInput = {
   releasedTime: Scalars['String'];
   status?: Maybe<StatusEnum>;
   nameType: NameType;
-  nameTypes: NameType[];
+  nameTypes: Array<NameType>;
 };
 
 export type TimeType = {
@@ -2614,7 +2791,7 @@ export type TimeType = {
   releasedTime: Scalars['String'];
   status?: Maybe<Scalars['String']>;
   nameType: NameTypes;
-  nameTypes: NameTypes[];
+  nameTypes: Array<NameTypes>;
 };
 
 export type TimeUpdate = {
@@ -2648,8 +2825,8 @@ export type TransactionType = {
   vatAmount: Scalars['Float'];
   discountAmount: Scalars['Float'];
   subAmount: Scalars['Float'];
-  receivedAmount?: Maybe<PaymentReceivedType[]>;
-  exchangedRateAmount?: Maybe<ExchangedRateAmountType[]>;
+  receivedAmount?: Maybe<Array<PaymentReceivedType>>;
+  exchangedRateAmount?: Maybe<Array<ExchangedRateAmountType>>;
   paymentStatus?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
@@ -2665,11 +2842,11 @@ export type VendorCompanyInput = {
   nameKh: Scalars['String'];
   nameEn?: Maybe<Scalars['String']>;
   profile: CompanyDetailInput;
-  branches?: Maybe<CompanyBranchInput[]>;
+  branches?: Maybe<Array<CompanyBranchInput>>;
 };
 
 export type VendorFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['ID']>;
@@ -2716,7 +2893,7 @@ export type VendorType = {
   dob?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   mobileDetail?: Maybe<MobileDetails>;
-  vendors: Maybe<Vendor>[];
+  vendors: Array<Maybe<Vendor>>;
   accessKey: Scalars['String'];
   status?: Maybe<Scalars['String']>;
 };
@@ -2740,7 +2917,7 @@ export type VerifyAccountInput = {
 };
 
 export type VillageFilter = {
-  status?: Maybe<StatusEnum[]>;
+  status?: Maybe<Array<StatusEnum>>;
   limit?: Maybe<Scalars['Int']>;
   page?: Maybe<Scalars['Int']>;
   provinceId?: Maybe<Scalars['String']>;

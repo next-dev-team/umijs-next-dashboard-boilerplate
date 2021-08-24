@@ -1,4 +1,5 @@
 // https://umijs.org/config/
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
@@ -7,10 +8,16 @@ import routes from './routes';
 const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
-  // base: '/umijs-next-dashboard-boilerplate',
-  // publicPath: '/umijs-next-dashboard-boilerplate/',
   antd: {},
   mock: false,
+  extraBabelPlugins: [
+    ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+    [
+      'babel-plugin-import',
+      { libraryName: 'lodash', libraryDirectory: '', camel2DashComponentName: false },
+      'lodash',
+    ],
+  ],
   request: false,
   dva: false,
   locale: { antd: false },
@@ -44,7 +51,30 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  mfsu: {},
+  mfsu: { development: { output: './.mfsu.dev' }, production: { output: './.mfsu.prod' } },
   webpack5: {},
   exportStatic: {},
+  chainWebpack(config) {
+    config.plugin('dayjs').use(AntdDayjsWebpackPlugin);
+    return config;
+  },
+  // Configure external
+  externals: {
+    react: 'window.React',
+    'react-dom': 'window.ReactDOM',
+  },
+
+  // Introduce scripts from external libraries
+  // Distinguish development and production, use different products
+  // https://www.jsdelivr.com/
+  scripts:
+    process.env.NODE_ENV === 'development'
+      ? [
+          'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js',
+          'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js',
+        ]
+      : [
+          'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js',
+          'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js',
+        ],
 });
