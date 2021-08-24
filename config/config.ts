@@ -58,4 +58,23 @@ export default defineConfig({
     config.plugin('dayjs').use(AntdDayjsWebpackPlugin);
     return config;
   },
+  // Configure external
+  externals: {
+    react: 'window.React',
+    'react-dom': 'window.ReactDOM',
+  },
+
+  // Introduce scripts from external libraries
+  // Distinguish development and production, use different products
+  // https://www.jsdelivr.com/
+  scripts:
+    process.env.NODE_ENV === 'development'
+      ? [
+          'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js',
+          'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js',
+        ]
+      : [
+          'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js',
+          'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js',
+        ],
 });

@@ -8,6 +8,7 @@ import { ApolloProvider } from '@apollo/client';
 import '@next-dev/component/es/style/index.less';
 import validateMessages from '@next-dev/core/es/validation';
 import { ConfigProvider } from 'antd';
+import 'antd/dist/antd.less';
 import enUS from 'antd/lib/locale/en_US';
 import React from 'react';
 import type { RunTimeLayoutConfig } from 'umi';
