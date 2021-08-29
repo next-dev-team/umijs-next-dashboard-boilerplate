@@ -1,0 +1,45 @@
+query getActiveScales {
+  getActiveScales {
+    id
+    name
+  }
+}
+
+query getScales($filter: ScaleFilter = {}) {
+  getScales(filter: $filter) {
+    metadata {
+      limit
+      page
+      total
+    }
+    records {
+      id
+      name
+      status
+      updatedBy
+    }
+  }
+}
+
+mutation updateScale($input: ScaleUpdate = { id: "" }) {
+  updateScale(input: $input)
+}
+
+mutation createScale($input: ScaleInput = { name: "" }) {
+  createScale(input: $input) {
+    id
+    name
+    status
+  }
+}
+
+mutation deleteScale($id: String = "") {
+  deleteScale(id: $id)
+}
+
+query getActiveScales {
+  getActiveScales {
+    id
+    name
+  }
+}
