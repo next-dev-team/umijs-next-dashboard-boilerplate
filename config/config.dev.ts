@@ -2,7 +2,6 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  crossorigin: true,
   plugins: [
     // https://github.com/zthxxx/react-dev-inspector
     'react-dev-inspector/plugins/umi/react-inspector',
