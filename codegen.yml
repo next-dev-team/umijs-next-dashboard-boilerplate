@@ -9,19 +9,36 @@ hooks:
 
 generates:
   # Get schemas from server
-  src/graphQl/schemas.tsx:
+  src/graphQl/schemas.ts:
     documents: 'src/**/**.gql'
     plugins:
       - typescript
+    config:
+      enumsAsTypes: true
+      maybeValue: T | null | undefined
+      disableDescriptions: true
+      useImplementingTypes: true
+      avoidOptionals: true
+      immutableTypes: true
 
   # Create operations based on queries
-  src/graphQl/operations.tsx:
+  src/graphQl/operations.ts:
     documents: 'src/**/**.gql'
     preset: import-types
     presetConfig:
       typesPath: ./schemas
     plugins:
       - typescript-operations
+    config:
+      avoidOptionals: true
+      declarationKind: 'type'
+      skipTypeNameForRoot: true
+      allowEnumStringTypes: true
+      skipTypename: true
+      useTypeImports: true
+      preResolveTypes: false
+      arrayInputCoercion: false
+      immutableTypes: true
 
   # 1. Export GraphQL documents
   # 2. React interface
@@ -38,3 +55,8 @@ generates:
       withComponent: false
       withHooks: true
       reactApolloVersion: 3
+      # disabled comment
+      addDocBlocks: false
+      dedupeOperationSuffix: true
+      skipTypename: true
+      useTypeImports: true

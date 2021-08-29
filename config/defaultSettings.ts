@@ -15,7 +15,7 @@ const Settings: LayoutSettings & {
   title: 'Next-Dev-Admin',
   pwa: false,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-  iconfontUrl: '',
+  iconfontUrl: '//at.alicdn.com/t/font_2221049_xim4evc6hqf.js',
 };
 
 export default Settings;

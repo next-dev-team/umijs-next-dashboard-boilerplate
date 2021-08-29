@@ -8,6 +8,7 @@ export default [
     ],
   },
   { path: '/welcome', name: 'welcome', icon: 'smile', component: './Welcome' },
+  { path: '/crud', name: 'CRUD', icon: 'smile', component: './Crud' },
 
   { path: '/', redirect: '/welcome' },
   { component: './404' },

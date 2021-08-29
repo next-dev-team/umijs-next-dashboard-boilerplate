@@ -6,6 +6,7 @@ module.exports = {
     REACT_APP_ENV: true,
   },
   rules: {
+    '@typescript-eslint/no-unused-expressions': 0,
     'no-restricted-globals': 0,
     'no-nested-ternary': 0,
     '@typescript-eslint/no-shadow': 0,

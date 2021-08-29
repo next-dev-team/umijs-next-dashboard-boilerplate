@@ -19,6 +19,7 @@ export default defineConfig({
     ],
   ],
   request: false,
+  crossorigin: true,
   dva: false,
   locale: { antd: false },
   layout: {
@@ -51,7 +52,6 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  mfsu: { development: { output: './.mfsu.dev' }, production: { output: './.mfsu.prod' } },
   webpack5: {},
   exportStatic: {},
   chainWebpack(config) {
