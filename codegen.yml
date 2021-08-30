@@ -18,8 +18,6 @@ generates:
       maybeValue: T | null | undefined
       disableDescriptions: true
       useImplementingTypes: true
-      avoidOptionals: true
-      immutableTypes: true
 
   # Create operations based on queries
   src/graphQl/operations.ts:
@@ -38,7 +36,6 @@ generates:
       useTypeImports: true
       preResolveTypes: false
       arrayInputCoercion: false
-      immutableTypes: true
 
   # 1. Export GraphQL documents
   # 2. React interface

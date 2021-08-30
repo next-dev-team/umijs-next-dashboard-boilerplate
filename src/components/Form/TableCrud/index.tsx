@@ -32,7 +32,7 @@ export type ITableState<T> = {
 
 export type ITableList<T = Record<string, any>, U = Record<string, any>, ValueType = 'text'> = {
   colMap?: any;
-  form?: FormInstance<T>;
+  form?: FormInstance;
   operation?: any;
   loadingSubmit?: boolean;
   isHideView?: boolean;
@@ -44,7 +44,7 @@ export type ITableList<T = Record<string, any>, U = Record<string, any>, ValueTy
   onSearchQuery?: (v: BaseQueryFilterProps['optionRender']) => void;
   setMode: (v?: ITableState<T>) => void;
   onResetForm?: () => void;
-  setColMap: (v?: any) => void;
+  setColMap?: (v?: any) => void;
   tabTitleList: string;
   tabTitleCrud: string;
 } & Omit<ProTableProps<T, U, ValueType>, 'beforeSearchSubmit'> & {

@@ -1,7 +1,8 @@
 import type { ITableState } from '.';
 
-declare type ICrudState<T> = Partial<{
+declare type ICrudState<TableState, Filter> = Partial<{
   mutationId: string;
   loadingRefetch: boolean;
+  filter: Filter;
 }> &
-  ITableState<T>;
+  ITableState<TableState>;
