@@ -13,337 +13,337 @@ export type Scalars = {
 };
 
 export type AddressInfoInput = {
-  readonly provinceId: Scalars['ID'];
-  readonly districtId: Scalars['ID'];
-  readonly communeId: Scalars['ID'];
-  readonly villageId: Maybe<Scalars['ID']>;
-  readonly streetNo: Maybe<Scalars['String']>;
-  readonly group: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
+  provinceId: Scalars['ID'];
+  districtId: Scalars['ID'];
+  communeId: Scalars['ID'];
+  villageId?: Maybe<Scalars['ID']>;
+  streetNo?: Maybe<Scalars['String']>;
+  group?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type AddressInfoType = {
-  readonly __typename?: 'AddressInfoType';
-  readonly provinceId: Scalars['ID'];
-  readonly province: Maybe<ProvinceType>;
-  readonly districtId: Maybe<Scalars['ID']>;
-  readonly district: Maybe<DistrictType>;
-  readonly communeId: Maybe<Scalars['ID']>;
-  readonly commune: Maybe<CommuneType>;
-  readonly villageId: Maybe<Scalars['ID']>;
-  readonly village: Maybe<VillageType>;
-  readonly streetNo: Maybe<Scalars['String']>;
-  readonly group: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
+  __typename?: 'AddressInfoType';
+  provinceId: Scalars['ID'];
+  province?: Maybe<ProvinceType>;
+  districtId?: Maybe<Scalars['ID']>;
+  district?: Maybe<DistrictType>;
+  communeId?: Maybe<Scalars['ID']>;
+  commune?: Maybe<CommuneType>;
+  villageId?: Maybe<Scalars['ID']>;
+  village?: Maybe<VillageType>;
+  streetNo?: Maybe<Scalars['String']>;
+  group?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type AdminInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly gender: GenderEnum;
-  readonly dob: Scalars['DateTime'];
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetailInput;
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  gender: GenderEnum;
+  dob: Scalars['DateTime'];
+  email: Scalars['String'];
+  mobileDetail: MobileDetailInput;
 };
 
 export type AdminType = {
-  readonly __typename?: 'AdminType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly username: Maybe<Scalars['String']>;
-  readonly gender: Maybe<Scalars['String']>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetails;
-  readonly mobileNumber: Scalars['String'];
-  readonly accessKey: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'AdminType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  dob?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  mobileDetail: MobileDetails;
+  mobileNumber: Scalars['String'];
+  accessKey: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type AdminUpdate = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Maybe<Scalars['String']>;
-  readonly lastName: Maybe<Scalars['String']>;
-  readonly gender: Maybe<GenderEnum>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly mobileDetail: Maybe<MobileDetailInput>;
-  readonly status: Maybe<StatusEnum>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  gender?: Maybe<GenderEnum>;
+  dob?: Maybe<Scalars['DateTime']>;
+  mobileDetail?: Maybe<MobileDetailInput>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type AuthType = {
-  readonly __typename?: 'AuthType';
-  readonly apiKey: Scalars['String'];
+  __typename?: 'AuthType';
+  apiKey: Scalars['String'];
 };
 
 export type CalculateSaleOrderInput = {
-  readonly orderId: Scalars['ID'];
-  readonly paymentReceived: ReadonlyArray<PaymentReceivedInput>;
-  readonly paymentMethod: Maybe<PaymentTypeEnum>;
-  readonly discountId: Maybe<Scalars['ID']>;
+  orderId: Scalars['ID'];
+  paymentReceived: Array<PaymentReceivedInput>;
+  paymentMethod?: Maybe<PaymentTypeEnum>;
+  discountId?: Maybe<Scalars['ID']>;
 };
 
 export type CalculateSaleOrderType = {
-  readonly __typename?: 'CalculateSaleOrderType';
-  readonly totalAmount: Scalars['Float'];
-  readonly vatAmount: Scalars['Float'];
-  readonly subAmount: Scalars['Float'];
-  readonly changedAmount: Scalars['Float'];
-  readonly discountAmount: Scalars['Float'];
-  readonly exchangedRateAmount: Maybe<ReadonlyArray<ExchangedRateAmountType>>;
+  __typename?: 'CalculateSaleOrderType';
+  totalAmount: Scalars['Float'];
+  vatAmount: Scalars['Float'];
+  subAmount: Scalars['Float'];
+  changedAmount: Scalars['Float'];
+  discountAmount: Scalars['Float'];
+  exchangedRateAmount?: Maybe<Array<ExchangedRateAmountType>>;
 };
 
 export type CategoriesFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly code: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
 };
 
 export type CategoriesInput = {
-  readonly name: Scalars['String'];
-  readonly code: Maybe<Scalars['String']>;
-  readonly icon: Maybe<Scalars['String']>;
-  readonly color: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  code?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
 };
 
 export type CategoriesType = {
-  readonly __typename?: 'CategoriesType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly code: Maybe<Scalars['String']>;
-  readonly icon: Maybe<Scalars['String']>;
-  readonly color: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'CategoriesType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  code?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type CategoriesUpdate = {
-  readonly id: Scalars['ID'];
-  readonly name: Maybe<Scalars['String']>;
-  readonly code: Maybe<Scalars['String']>;
-  readonly icon: Maybe<Scalars['String']>;
-  readonly color: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type CdnFilter = {
-  readonly id: Maybe<Scalars['ID']>;
-  readonly title: Maybe<Scalars['String']>;
-  readonly url: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
 };
 
 export type CdnInput = {
-  readonly title: Maybe<Scalars['String']>;
-  readonly url: Scalars['String'];
+  title?: Maybe<Scalars['String']>;
+  url: Scalars['String'];
 };
 
 export type CdnType = {
-  readonly __typename?: 'CdnType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly title: Maybe<Scalars['String']>;
-  readonly url: Scalars['String'];
+  __typename?: 'CdnType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  url: Scalars['String'];
 };
 
 export type CdnUpdate = {
-  readonly id: Scalars['ID'];
-  readonly title: Maybe<Scalars['String']>;
-  readonly url: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
 };
 
 export type CommuneFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly districtId: Maybe<Scalars['String']>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  provinceId?: Maybe<Scalars['String']>;
+  districtId?: Maybe<Scalars['String']>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type CommuneSuggestedFilter = {
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly districtId: Maybe<Scalars['String']>;
-  readonly name: Scalars['String'];
+  provinceId?: Maybe<Scalars['String']>;
+  districtId?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
 };
 
 export type CommuneType = {
-  readonly __typename?: 'CommuneType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly uId: Maybe<Scalars['String']>;
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly province: Maybe<ProvinceType>;
-  readonly districtId: Maybe<Scalars['String']>;
-  readonly district: Maybe<DistrictType>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'CommuneType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  uId?: Maybe<Scalars['String']>;
+  provinceId?: Maybe<Scalars['String']>;
+  province?: Maybe<ProvinceType>;
+  districtId?: Maybe<Scalars['String']>;
+  district?: Maybe<DistrictType>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type CommuneUpdate = {
-  readonly id: Scalars['ID'];
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  nameKh: Scalars['String'];
+  nameEn: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type CompanyBranchInput = {
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Maybe<Scalars['String']>;
+  nameKh: Scalars['String'];
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type CompanyBranchType = {
-  readonly __typename?: 'CompanyBranchType';
-  readonly id: Scalars['ID'];
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
+  __typename?: 'CompanyBranchType';
+  id: Scalars['ID'];
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type CompanyDetailInput = {
-  readonly countryId: Maybe<Scalars['String']>;
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly districtId: Maybe<Scalars['String']>;
-  readonly communeId: Maybe<Scalars['String']>;
-  readonly villageId: Maybe<Scalars['String']>;
-  readonly mobileNumber: Scalars['String'];
-  readonly phoneNumber: Maybe<Scalars['String']>;
-  readonly webUrl: Maybe<Scalars['String']>;
-  readonly postalCode: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['String']>;
+  provinceId?: Maybe<Scalars['String']>;
+  districtId?: Maybe<Scalars['String']>;
+  communeId?: Maybe<Scalars['String']>;
+  villageId?: Maybe<Scalars['String']>;
+  mobileNumber: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
+  webUrl?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
 };
 
 export type CompanyDetailType = {
-  readonly __typename?: 'CompanyDetailType';
-  readonly countryId: Maybe<Scalars['ID']>;
-  readonly country: Maybe<CountryType>;
-  readonly provinceId: Maybe<Scalars['ID']>;
-  readonly province: Maybe<ProvinceType>;
-  readonly districtId: Maybe<Scalars['ID']>;
-  readonly district: Maybe<DistrictType>;
-  readonly communeId: Maybe<Scalars['ID']>;
-  readonly commune: Maybe<CommuneType>;
-  readonly villageId: Maybe<Scalars['ID']>;
-  readonly village: Maybe<VillageType>;
-  readonly streetNo: Maybe<Scalars['String']>;
-  readonly group: Maybe<Scalars['String']>;
-  readonly phoneNumber: Maybe<Scalars['String']>;
-  readonly mobileNumber: Maybe<Scalars['String']>;
-  readonly webUrl: Maybe<Scalars['String']>;
-  readonly postalCode: Maybe<Scalars['String']>;
+  __typename?: 'CompanyDetailType';
+  countryId?: Maybe<Scalars['ID']>;
+  country?: Maybe<CountryType>;
+  provinceId?: Maybe<Scalars['ID']>;
+  province?: Maybe<ProvinceType>;
+  districtId?: Maybe<Scalars['ID']>;
+  district?: Maybe<DistrictType>;
+  communeId?: Maybe<Scalars['ID']>;
+  commune?: Maybe<CommuneType>;
+  villageId?: Maybe<Scalars['ID']>;
+  village?: Maybe<VillageType>;
+  streetNo?: Maybe<Scalars['String']>;
+  group?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  mobileNumber?: Maybe<Scalars['String']>;
+  webUrl?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
 };
 
 export type CompanyFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly isExistedBranch: Maybe<Scalars['Boolean']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  userId?: Maybe<Scalars['ID']>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  isExistedBranch?: Maybe<Scalars['Boolean']>;
 };
 
 export type CompanyInput = {
-  readonly userId: Scalars['ID'];
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
-  readonly profile: CompanyDetailInput;
-  readonly branches: Maybe<ReadonlyArray<CompanyBranchInput>>;
+  userId: Scalars['ID'];
+  nameKh: Scalars['String'];
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
+  profile: CompanyDetailInput;
+  branches?: Maybe<Array<CompanyBranchInput>>;
 };
 
 export type CompanyProfileInput = {
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly countryId: Maybe<Scalars['ID']>;
-  readonly provinceId: Maybe<Scalars['ID']>;
-  readonly districtId: Maybe<Scalars['ID']>;
-  readonly communeId: Maybe<Scalars['ID']>;
-  readonly villageId: Maybe<Scalars['ID']>;
-  readonly streetNo: Maybe<Scalars['String']>;
-  readonly group: Maybe<Scalars['String']>;
-  readonly phoneNumber: Maybe<Scalars['ID']>;
-  readonly mobileNumber: Maybe<Scalars['ID']>;
-  readonly postalCode: Maybe<Scalars['ID']>;
+  nameKh: Scalars['String'];
+  nameEn?: Maybe<Scalars['String']>;
+  countryId?: Maybe<Scalars['ID']>;
+  provinceId?: Maybe<Scalars['ID']>;
+  districtId?: Maybe<Scalars['ID']>;
+  communeId?: Maybe<Scalars['ID']>;
+  villageId?: Maybe<Scalars['ID']>;
+  streetNo?: Maybe<Scalars['String']>;
+  group?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['ID']>;
+  mobileNumber?: Maybe<Scalars['ID']>;
+  postalCode?: Maybe<Scalars['ID']>;
 };
 
 export type CompanyType = {
-  readonly __typename?: 'CompanyType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly user: Maybe<VendorType>;
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly isExistedBranch: Scalars['Boolean'];
-  readonly status: Maybe<Scalars['String']>;
-  readonly profile: Maybe<CompanyDetailType>;
-  readonly branches: Maybe<ReadonlyArray<CompanyBranchType>>;
+  __typename?: 'CompanyType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  user?: Maybe<VendorType>;
+  nameKh: Scalars['String'];
+  nameEn?: Maybe<Scalars['String']>;
+  isExistedBranch: Scalars['Boolean'];
+  status?: Maybe<Scalars['String']>;
+  profile?: Maybe<CompanyDetailType>;
+  branches?: Maybe<Array<CompanyBranchType>>;
 };
 
 export type CompanyUpdate = {
-  readonly id: Scalars['ID'];
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type ConclusionPaymentType = {
-  readonly __typename?: 'ConclusionPaymentType';
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly user: Maybe<RoomUserType>;
-  readonly totalPaid: Maybe<Scalars['Float']>;
-  readonly receivedOrOwedAmount: Maybe<Scalars['Float']>;
+  __typename?: 'ConclusionPaymentType';
+  userId?: Maybe<Scalars['ID']>;
+  user?: Maybe<RoomUserType>;
+  totalPaid?: Maybe<Scalars['Float']>;
+  receivedOrOwedAmount?: Maybe<Scalars['Float']>;
 };
 
 export type CountryFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly id: Maybe<Scalars['ID']>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['ID']>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type CountryType = {
-  readonly __typename?: 'CountryType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'CountryType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type CountryUpdate = {
-  readonly id: Scalars['ID'];
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  nameKh: Scalars['String'];
+  nameEn: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type CurrencyCodeEnum =
@@ -351,179 +351,179 @@ export type CurrencyCodeEnum =
   | 'KHR';
 
 export type CurrencyFilter = {
-  readonly id: Maybe<Scalars['ID']>;
-  readonly code: Maybe<CurrencyCodeEnum>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly roundType: Maybe<RoundTypeEnum>;
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
+  id?: Maybe<Scalars['ID']>;
+  code?: Maybe<CurrencyCodeEnum>;
+  name?: Maybe<Scalars['String']>;
+  roundType?: Maybe<RoundTypeEnum>;
+  status?: Maybe<Array<StatusEnum>>;
 };
 
 export type CurrencyInput = {
-  readonly code: Maybe<CurrencyCodeEnum>;
-  readonly name: Scalars['String'];
-  readonly roundType: Maybe<RoundTypeEnum>;
-  readonly decimal: Scalars['Float'];
+  code?: Maybe<CurrencyCodeEnum>;
+  name: Scalars['String'];
+  roundType?: Maybe<RoundTypeEnum>;
+  decimal: Scalars['Float'];
 };
 
 export type CurrencyRateFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly baseCurrencyCode: Maybe<CurrencyCodeEnum>;
-  readonly exchangeCurrencyCode: Maybe<CurrencyCodeEnum>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  baseCurrencyCode?: Maybe<CurrencyCodeEnum>;
+  exchangeCurrencyCode?: Maybe<CurrencyCodeEnum>;
 };
 
 export type CurrencyRateInput = {
-  readonly baseCurrencyCode: CurrencyCodeEnum;
-  readonly exchangeCurrencyCode: CurrencyCodeEnum;
-  readonly rate: Scalars['Float'];
+  baseCurrencyCode: CurrencyCodeEnum;
+  exchangeCurrencyCode: CurrencyCodeEnum;
+  rate: Scalars['Float'];
 };
 
 export type CurrencyRateType = {
-  readonly __typename?: 'CurrencyRateType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly baseCurrencyCode: Scalars['String'];
-  readonly exchangeCurrencyCode: Scalars['String'];
-  readonly rate: Scalars['Float'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'CurrencyRateType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  baseCurrencyCode: Scalars['String'];
+  exchangeCurrencyCode: Scalars['String'];
+  rate: Scalars['Float'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type CurrencyRateUpdate = {
-  readonly id: Scalars['ID'];
-  readonly baseCurrencyCode: Maybe<CurrencyCodeEnum>;
-  readonly exchangeCurrencyCode: Maybe<CurrencyCodeEnum>;
-  readonly rate: Maybe<Scalars['Float']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  baseCurrencyCode?: Maybe<CurrencyCodeEnum>;
+  exchangeCurrencyCode?: Maybe<CurrencyCodeEnum>;
+  rate?: Maybe<Scalars['Float']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type CurrencyType = {
-  readonly __typename?: 'CurrencyType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly code: Scalars['String'];
-  readonly name: Scalars['String'];
-  readonly roundType: Scalars['String'];
-  readonly decimal: Scalars['Float'];
-  readonly isDefault: Scalars['Boolean'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'CurrencyType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  code: Scalars['String'];
+  name: Scalars['String'];
+  roundType: Scalars['String'];
+  decimal: Scalars['Float'];
+  isDefault: Scalars['Boolean'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type CurrencyUpdate = {
-  readonly id: Scalars['ID'];
-  readonly code: Maybe<CurrencyCodeEnum>;
-  readonly name: Scalars['String'];
-  readonly roundType: Maybe<RoundTypeEnum>;
-  readonly decimal: Maybe<Scalars['Float']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  code?: Maybe<CurrencyCodeEnum>;
+  name: Scalars['String'];
+  roundType?: Maybe<RoundTypeEnum>;
+  decimal?: Maybe<Scalars['Float']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type CustomerInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly gender: GenderEnum;
-  readonly mobileDetail: MobileDetailInput;
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  gender: GenderEnum;
+  mobileDetail: MobileDetailInput;
 };
 
 export type CustomerType = {
-  readonly __typename?: 'CustomerType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly gender: Maybe<Scalars['String']>;
-  readonly mobileDetail: MobileDetails;
-  readonly mobileNumber: Scalars['String'];
-  readonly accessKey: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'CustomerType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  gender?: Maybe<Scalars['String']>;
+  mobileDetail: MobileDetails;
+  mobileNumber: Scalars['String'];
+  accessKey: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type CustomerUpdate = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Maybe<Scalars['String']>;
-  readonly lastName: Maybe<Scalars['String']>;
-  readonly gender: Maybe<GenderEnum>;
-  readonly mobileDetail: Maybe<MobileDetailInput>;
-  readonly status: Maybe<StatusEnum>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  gender?: Maybe<GenderEnum>;
+  mobileDetail?: Maybe<MobileDetailInput>;
+  status?: Maybe<StatusEnum>;
 };
 
 
 export type DeveloperVerifyCodeInput = {
-  readonly verifyCode: Maybe<Scalars['Int']>;
-  readonly verifyUrl: Maybe<Scalars['String']>;
+  verifyCode?: Maybe<Scalars['Int']>;
+  verifyUrl?: Maybe<Scalars['String']>;
 };
 
 export type DevelopersInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly gender: GenderEnum;
-  readonly dob: Scalars['DateTime'];
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetailInput;
-  readonly password: Scalars['String'];
-  readonly passwordConfirm: Scalars['String'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  gender: GenderEnum;
+  dob: Scalars['DateTime'];
+  email: Scalars['String'];
+  mobileDetail: MobileDetailInput;
+  password: Scalars['String'];
+  passwordConfirm: Scalars['String'];
 };
 
 export type DevelopersType = {
-  readonly __typename?: 'DevelopersType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly gender: Scalars['String'];
-  readonly dob: Scalars['DateTime'];
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetails;
-  readonly authKey: Scalars['String'];
-  readonly accessKey: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'DevelopersType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  gender: Scalars['String'];
+  dob: Scalars['DateTime'];
+  email: Scalars['String'];
+  mobileDetail: MobileDetails;
+  authKey: Scalars['String'];
+  accessKey: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type DevelopersUpdate = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Maybe<Scalars['String']>;
-  readonly lastName: Maybe<Scalars['String']>;
-  readonly gender: Maybe<GenderEnum>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly mobileDetail: Maybe<MobileDetailInput>;
-  readonly status: Maybe<StatusEnum>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  gender?: Maybe<GenderEnum>;
+  dob?: Maybe<Scalars['DateTime']>;
+  mobileDetail?: Maybe<MobileDetailInput>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type DiscountFilter = {
-  readonly type: Maybe<DiscountTypeEnum>;
-  readonly title: Maybe<Scalars['String']>;
+  type?: Maybe<DiscountTypeEnum>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type DiscountType = {
-  readonly __typename?: 'DiscountType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly type: Scalars['String'];
-  readonly title: Scalars['String'];
-  readonly value: Scalars['Float'];
-  readonly isDefault: Scalars['Boolean'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'DiscountType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  type: Scalars['String'];
+  title: Scalars['String'];
+  value: Scalars['Float'];
+  isDefault: Scalars['Boolean'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type DiscountTypeEnum =
@@ -531,130 +531,130 @@ export type DiscountTypeEnum =
   | 'PRICE';
 
 export type DiscountUpdate = {
-  readonly id: Scalars['ID'];
-  readonly type: Maybe<DiscountTypeEnum>;
-  readonly title: Scalars['String'];
-  readonly value: Scalars['Float'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  type?: Maybe<DiscountTypeEnum>;
+  title: Scalars['String'];
+  value: Scalars['Float'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type DistrictFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  provinceId?: Maybe<Scalars['String']>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type DistrictSuggestedFilter = {
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly name: Scalars['String'];
+  provinceId?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
 };
 
 export type DistrictType = {
-  readonly __typename?: 'DistrictType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly uId: Scalars['String'];
-  readonly provinceId: Scalars['String'];
-  readonly province: Maybe<ProvinceType>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'DistrictType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  uId: Scalars['String'];
+  provinceId: Scalars['String'];
+  province?: Maybe<ProvinceType>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type DistrictUpdate = {
-  readonly id: Scalars['ID'];
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  nameKh: Scalars['String'];
+  nameEn: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type EmployeeFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly id: Maybe<Scalars['ID']>;
-  readonly fullName: Maybe<Scalars['String']>;
-  readonly email: Maybe<Scalars['String']>;
-  readonly mobileNumber: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['ID']>;
+  fullName?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  mobileNumber?: Maybe<Scalars['String']>;
 };
 
 export type EmployeeInfoInput = {
-  readonly companyId: Scalars['ID'];
-  readonly companyBranchId: Maybe<Scalars['ID']>;
-  readonly jobId: Scalars['ID'];
-  readonly hiredAt: Maybe<Scalars['DateTime']>;
+  companyId: Scalars['ID'];
+  companyBranchId?: Maybe<Scalars['ID']>;
+  jobId: Scalars['ID'];
+  hiredAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type EmployeeInfoType = {
-  readonly __typename?: 'EmployeeInfoType';
-  readonly companyId: Scalars['ID'];
-  readonly company: Maybe<CompanyType>;
-  readonly companyBranchId: Maybe<Scalars['ID']>;
-  readonly companyBranch: Maybe<CompanyBranchType>;
-  readonly jobId: Maybe<Scalars['ID']>;
-  readonly job: Maybe<JobType>;
-  readonly hiredAt: Maybe<Scalars['DateTime']>;
+  __typename?: 'EmployeeInfoType';
+  companyId: Scalars['ID'];
+  company?: Maybe<CompanyType>;
+  companyBranchId?: Maybe<Scalars['ID']>;
+  companyBranch?: Maybe<CompanyBranchType>;
+  jobId?: Maybe<Scalars['ID']>;
+  job?: Maybe<JobType>;
+  hiredAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type EmployeeInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly gender: GenderEnum;
-  readonly dob: Scalars['DateTime'];
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetailInput;
-  readonly employee: EmployeeInfoInput;
-  readonly addressInfo: AddressInfoInput;
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  gender: GenderEnum;
+  dob: Scalars['DateTime'];
+  email: Scalars['String'];
+  mobileDetail: MobileDetailInput;
+  employee: EmployeeInfoInput;
+  addressInfo: AddressInfoInput;
 };
 
 export type EmployeeType = {
-  readonly __typename?: 'EmployeeType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly username: Maybe<Scalars['String']>;
-  readonly gender: Maybe<Scalars['String']>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetails;
-  readonly employee: Maybe<EmployeeInfoType>;
-  readonly addressInfo: Maybe<AddressInfoType>;
-  readonly accessKey: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'EmployeeType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  dob?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  mobileDetail: MobileDetails;
+  employee?: Maybe<EmployeeInfoType>;
+  addressInfo?: Maybe<AddressInfoType>;
+  accessKey: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type EmployeeUpdate = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Maybe<Scalars['String']>;
-  readonly lastName: Maybe<Scalars['String']>;
-  readonly gender: Maybe<GenderEnum>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly mobileDetail: Maybe<MobileDetailInput>;
-  readonly employee: Maybe<EmployeeInfoInput>;
-  readonly addressInfo: Maybe<AddressInfoInput>;
-  readonly status: Maybe<StatusEnum>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  gender?: Maybe<GenderEnum>;
+  dob?: Maybe<Scalars['DateTime']>;
+  mobileDetail?: Maybe<MobileDetailInput>;
+  employee?: Maybe<EmployeeInfoInput>;
+  addressInfo?: Maybe<AddressInfoInput>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type ExchangedRateAmountType = {
-  readonly __typename?: 'ExchangedRateAmountType';
-  readonly baseCurrencyCode: Scalars['String'];
-  readonly exchangedCurrencyCode: Scalars['String'];
-  readonly exchangeRate: Scalars['Float'];
-  readonly changedAmount: Scalars['Float'];
-  readonly subAmount: Scalars['Float'];
+  __typename?: 'ExchangedRateAmountType';
+  baseCurrencyCode: Scalars['String'];
+  exchangedCurrencyCode: Scalars['String'];
+  exchangeRate: Scalars['Float'];
+  changedAmount: Scalars['Float'];
+  subAmount: Scalars['Float'];
 };
 
 export type GenderEnum =
@@ -662,230 +662,230 @@ export type GenderEnum =
   | 'FEMALE';
 
 export type HistoryType = {
-  readonly __typename?: 'HistoryType';
-  readonly id: Scalars['ID'];
-  readonly quantity: Scalars['Int'];
-  readonly type: Maybe<Scalars['String']>;
-  readonly createdAt: Maybe<Scalars['DateTime']>;
+  __typename?: 'HistoryType';
+  id: Scalars['ID'];
+  quantity: Scalars['Int'];
+  type?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type JobFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly id: Maybe<Scalars['ID']>;
-  readonly title: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type JobInput = {
-  readonly title: Scalars['String'];
-  readonly grossSalary: Scalars['Float'];
-  readonly status: Maybe<StatusEnum>;
+  title: Scalars['String'];
+  grossSalary: Scalars['Float'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type JobType = {
-  readonly __typename?: 'JobType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly title: Scalars['String'];
-  readonly grossSalary: Scalars['Float'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'JobType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  title: Scalars['String'];
+  grossSalary: Scalars['Float'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type JobUpdate = {
-  readonly id: Scalars['ID'];
-  readonly title: Maybe<Scalars['String']>;
-  readonly grossSalary: Maybe<Scalars['Float']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  grossSalary?: Maybe<Scalars['Float']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type LoginType = {
-  readonly __typename?: 'LoginType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Scalars['String'];
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly username: Maybe<Scalars['String']>;
-  readonly gender: Maybe<Scalars['String']>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetails;
-  readonly mobileNumber: Scalars['String'];
-  readonly accessKey: Scalars['String'];
-  readonly token: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'LoginType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar: Scalars['String'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  dob?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  mobileDetail: MobileDetails;
+  mobileNumber: Scalars['String'];
+  accessKey: Scalars['String'];
+  token?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ManufacturerFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type ManufacturerInput = {
-  readonly name: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type ManufacturerType = {
-  readonly __typename?: 'ManufacturerType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'ManufacturerType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ManufacturerUpdate = {
-  readonly id: Scalars['ID'];
-  readonly name: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type MemberInput = {
-  readonly userId: Scalars['ID'];
+  userId: Scalars['ID'];
 };
 
 export type MemberType = {
-  readonly __typename?: 'MemberType';
-  readonly userId: Scalars['ID'];
-  readonly user: Maybe<RoomUserType>;
+  __typename?: 'MemberType';
+  userId: Scalars['ID'];
+  user?: Maybe<RoomUserType>;
 };
 
 export type Metadata = {
-  readonly __typename?: 'Metadata';
-  readonly total: Scalars['Int'];
-  readonly limit: Scalars['Int'];
-  readonly page: Scalars['Int'];
+  __typename?: 'Metadata';
+  total: Scalars['Int'];
+  limit: Scalars['Int'];
+  page: Scalars['Int'];
 };
 
 export type MobileDetailInput = {
-  readonly countryCode: Scalars['String'];
-  readonly localNumber: Scalars['String'];
+  countryCode: Scalars['String'];
+  localNumber: Scalars['String'];
 };
 
 export type MobileDetails = {
-  readonly __typename?: 'MobileDetails';
-  readonly countryCode: Maybe<Scalars['String']>;
-  readonly localNumber: Maybe<Scalars['String']>;
-  readonly mobileNumber: Maybe<Scalars['String']>;
+  __typename?: 'MobileDetails';
+  countryCode?: Maybe<Scalars['String']>;
+  localNumber?: Maybe<Scalars['String']>;
+  mobileNumber?: Maybe<Scalars['String']>;
 };
 
 export type Mutation = {
-  readonly __typename?: 'Mutation';
-  readonly registerDeveloper: DevelopersType;
-  readonly verifyCodeOrUrlDeveloper: Scalars['Boolean'];
-  readonly loginDeveloper: DevelopersType;
-  readonly updateDeveloper: DevelopersType;
-  readonly logoutDeveloper: Scalars['Boolean'];
-  readonly createNewAdmin: AdminType;
-  readonly updateAdmin: AdminType;
-  readonly requestApiKey: AuthType;
-  readonly createCdn: CdnType;
-  readonly updateCdn: CdnType;
-  readonly deleteCdn: Scalars['Boolean'];
-  readonly updateProvince: ProvinceType;
-  readonly updateDistrict: DistrictType;
-  readonly updateCommune: CommuneType;
-  readonly updateCountry: CountryType;
-  readonly updateVillage: VillageType;
-  readonly createVendor: VendorType;
-  readonly updateVendor: VendorType;
-  readonly addVendorCompany: Scalars['Boolean'];
-  readonly removeVendorCompany: Scalars['Boolean'];
-  readonly createCompany: CompanyType;
-  readonly updateCompany: CompanyType;
-  readonly addBranchCompany: Scalars['Boolean'];
-  readonly updateBranchCompany: Scalars['Boolean'];
-  readonly removeBranchCompany: Scalars['Boolean'];
-  readonly deleteCompany: Scalars['Boolean'];
-  readonly createCurrencyRate: CurrencyRateType;
-  readonly updateCurrencyRate: CurrencyRateType;
-  readonly deleteCurrencyRate: CurrencyRateType;
-  readonly createCurrency: CurrencyType;
-  readonly updateCurrency: CurrencyType;
-  readonly setDefaultCurrency: Scalars['Boolean'];
-  readonly deleteCurrency: Scalars['Boolean'];
-  readonly createNewCustomer: CustomerType;
-  readonly updateCustomer: CustomerType;
-  readonly updateDiscount: Scalars['Boolean'];
-  readonly setDefaultDiscount: Scalars['Boolean'];
-  readonly createJob: JobType;
-  readonly updateJob: Scalars['Boolean'];
-  readonly deleteJob: Scalars['Boolean'];
-  readonly createEmployee: EmployeeType;
-  readonly updateEmployee: EmployeeType;
-  readonly removeEmployee: Scalars['Boolean'];
-  readonly updateRoomUserProfile: RoomUserType;
-  readonly setDefaultAdmin: Scalars['Boolean'];
-  readonly login: LoginType;
-  readonly logout: Scalars['Boolean'];
-  readonly registerVendor: VendorType;
-  readonly verifyAccount: Scalars['Boolean'];
-  readonly registerRoomUser: RoomUserType;
-  readonly verifyRoomUserAccount: Scalars['Boolean'];
-  readonly loginRoomUser: RoomUserType;
-  readonly createPaymentMethod: PaymentMethodType;
-  readonly updatePaymentMethod: Scalars['Boolean'];
-  readonly setDefaultPaymentMethod: Scalars['Boolean'];
-  readonly deletePaymentMethod: Scalars['Boolean'];
-  readonly createProductSupplier: ProductSupplierType;
-  readonly updateProductSupplier: ProductSupplierType;
-  readonly deleteProductSupplier: Scalars['Boolean'];
-  readonly createCategory: CategoriesType;
-  readonly updateCategory: Scalars['Boolean'];
-  readonly deleteCategory: Scalars['Boolean'];
-  readonly createManufacturer: ManufacturerType;
-  readonly updateManufacturer: Scalars['Boolean'];
-  readonly deleteManufacturer: Scalars['Boolean'];
-  readonly createScale: ScaleType;
-  readonly updateScale: Scalars['Boolean'];
-  readonly deleteScale: Scalars['Boolean'];
-  readonly createTax: TaxesType;
-  readonly updateTax: TaxesType;
-  readonly deleteTax: Scalars['Boolean'];
-  readonly createProduct: Scalars['Boolean'];
-  readonly updateProduct: Scalars['Boolean'];
-  readonly removeProduct: Scalars['Boolean'];
-  readonly removeProductImage: Scalars['Boolean'];
-  readonly removeProductThumbnail: Scalars['Boolean'];
-  readonly addProductRecorder: Scalars['Boolean'];
-  readonly updateProductRecorder: Scalars['Boolean'];
-  readonly removeProductRecorder: Scalars['Boolean'];
-  readonly inDecreaseProductRecorderStock: Scalars['Boolean'];
-  readonly createSaleOrder: Scalars['Boolean'];
-  readonly calculateSaleOrder: CalculateSaleOrderType;
-  readonly cancelSaleOrder: Scalars['Boolean'];
-  readonly holdSaleOrder: Scalars['Boolean'];
-  readonly createSupplying: Scalars['Boolean'];
-  readonly createTag: TagType;
-  readonly updateTag: TagType;
-  readonly deleteTag: Scalars['Boolean'];
-  readonly updateProfile: ProfileType;
-  readonly createRoomCategory: RoomCategoryType;
-  readonly updateRoomCategory: Scalars['Boolean'];
-  readonly deleteRoomCategory: Scalars['Boolean'];
-  readonly createRoom: RoomType;
-  readonly updateRoom: Scalars['Boolean'];
-  readonly addMemberRoom: Scalars['Boolean'];
-  readonly deleteRoom: Scalars['Boolean'];
-  readonly createRoomTransaction: Scalars['Boolean'];
-  readonly deleteRoomTransaction: Scalars['Boolean'];
-  readonly confirmPaymentRoomTransaction: Scalars['Boolean'];
-  readonly createTime: TimeType;
-  readonly updateTime: TimeType;
-  readonly deleteTime: TimeType;
-  readonly createSalePayment: TransactionType;
+  __typename?: 'Mutation';
+  registerDeveloper: DevelopersType;
+  verifyCodeOrUrlDeveloper: Scalars['Boolean'];
+  loginDeveloper: DevelopersType;
+  updateDeveloper: DevelopersType;
+  logoutDeveloper: Scalars['Boolean'];
+  createNewAdmin: AdminType;
+  updateAdmin: AdminType;
+  requestApiKey: AuthType;
+  createCdn: CdnType;
+  updateCdn: CdnType;
+  deleteCdn: Scalars['Boolean'];
+  updateProvince: ProvinceType;
+  updateDistrict: DistrictType;
+  updateCommune: CommuneType;
+  updateCountry: CountryType;
+  updateVillage: VillageType;
+  createVendor: VendorType;
+  updateVendor: VendorType;
+  addVendorCompany: Scalars['Boolean'];
+  removeVendorCompany: Scalars['Boolean'];
+  createCompany: CompanyType;
+  updateCompany: CompanyType;
+  addBranchCompany: Scalars['Boolean'];
+  updateBranchCompany: Scalars['Boolean'];
+  removeBranchCompany: Scalars['Boolean'];
+  deleteCompany: Scalars['Boolean'];
+  createCurrencyRate: CurrencyRateType;
+  updateCurrencyRate: CurrencyRateType;
+  deleteCurrencyRate: CurrencyRateType;
+  createCurrency: CurrencyType;
+  updateCurrency: CurrencyType;
+  setDefaultCurrency: Scalars['Boolean'];
+  deleteCurrency: Scalars['Boolean'];
+  createNewCustomer: CustomerType;
+  updateCustomer: CustomerType;
+  updateDiscount: Scalars['Boolean'];
+  setDefaultDiscount: Scalars['Boolean'];
+  createJob: JobType;
+  updateJob: Scalars['Boolean'];
+  deleteJob: Scalars['Boolean'];
+  createEmployee: EmployeeType;
+  updateEmployee: EmployeeType;
+  removeEmployee: Scalars['Boolean'];
+  updateRoomUserProfile: RoomUserType;
+  setDefaultAdmin: Scalars['Boolean'];
+  login: LoginType;
+  logout: Scalars['Boolean'];
+  registerVendor: VendorType;
+  verifyAccount: Scalars['Boolean'];
+  registerRoomUser: RoomUserType;
+  verifyRoomUserAccount: Scalars['Boolean'];
+  loginRoomUser: RoomUserType;
+  createPaymentMethod: PaymentMethodType;
+  updatePaymentMethod: Scalars['Boolean'];
+  setDefaultPaymentMethod: Scalars['Boolean'];
+  deletePaymentMethod: Scalars['Boolean'];
+  createProductSupplier: ProductSupplierType;
+  updateProductSupplier: ProductSupplierType;
+  deleteProductSupplier: Scalars['Boolean'];
+  createCategory: CategoriesType;
+  updateCategory: Scalars['Boolean'];
+  deleteCategory: Scalars['Boolean'];
+  createManufacturer: ManufacturerType;
+  updateManufacturer: Scalars['Boolean'];
+  deleteManufacturer: Scalars['Boolean'];
+  createScale: ScaleType;
+  updateScale: Scalars['Boolean'];
+  deleteScale: Scalars['Boolean'];
+  createTax: TaxesType;
+  updateTax: TaxesType;
+  deleteTax: Scalars['Boolean'];
+  createProduct: Scalars['Boolean'];
+  updateProduct: Scalars['Boolean'];
+  removeProduct: Scalars['Boolean'];
+  removeProductImage: Scalars['Boolean'];
+  removeProductThumbnail: Scalars['Boolean'];
+  addProductRecorder: Scalars['Boolean'];
+  updateProductRecorder: Scalars['Boolean'];
+  removeProductRecorder: Scalars['Boolean'];
+  inDecreaseProductRecorderStock: Scalars['Boolean'];
+  createSaleOrder: Scalars['Boolean'];
+  calculateSaleOrder: CalculateSaleOrderType;
+  cancelSaleOrder: Scalars['Boolean'];
+  holdSaleOrder: Scalars['Boolean'];
+  createSupplying: Scalars['Boolean'];
+  createTag: TagType;
+  updateTag: TagType;
+  deleteTag: Scalars['Boolean'];
+  updateProfile: ProfileType;
+  createRoomCategory: RoomCategoryType;
+  updateRoomCategory: Scalars['Boolean'];
+  deleteRoomCategory: Scalars['Boolean'];
+  createRoom: RoomType;
+  updateRoom: Scalars['Boolean'];
+  addMemberRoom: Scalars['Boolean'];
+  deleteRoom: Scalars['Boolean'];
+  createRoomTransaction: Scalars['Boolean'];
+  deleteRoomTransaction: Scalars['Boolean'];
+  confirmPaymentRoomTransaction: Scalars['Boolean'];
+  createTime: TimeType;
+  updateTime: TimeType;
+  deleteTime: TimeType;
+  createSalePayment: TransactionType;
 };
 
 
@@ -1005,7 +1005,7 @@ export type MutationUpdateCompanyArgs = {
 
 
 export type MutationAddBranchCompanyArgs = {
-  companyBranch: ReadonlyArray<CompanyBranchInput>;
+  companyBranch: Array<CompanyBranchInput>;
   id: Scalars['String'];
 };
 
@@ -1276,7 +1276,7 @@ export type MutationRemoveProductThumbnailArgs = {
 
 
 export type MutationAddProductRecorderArgs = {
-  recorders: ReadonlyArray<RecorderInput>;
+  recorders: Array<RecorderInput>;
   productId: Scalars['ID'];
 };
 
@@ -1414,194 +1414,194 @@ export type MutationCreateSalePaymentArgs = {
 };
 
 export type NameType = {
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
 };
 
 export type NameTypes = {
-  readonly __typename?: 'NameTypes';
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
+  __typename?: 'NameTypes';
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
 };
 
 export type OrderDetailType = {
-  readonly __typename?: 'OrderDetailType';
-  readonly productRecorderId: Scalars['ID'];
-  readonly productRecorder: ProductRecorderType;
-  readonly productId: Scalars['ID'];
-  readonly product: ProductType;
-  readonly quantity: Scalars['Int'];
-  readonly totalAmount: Scalars['Float'];
-  readonly vatAmount: Scalars['Float'];
-  readonly subAmount: Scalars['Float'];
+  __typename?: 'OrderDetailType';
+  productRecorderId: Scalars['ID'];
+  productRecorder: ProductRecorderType;
+  productId: Scalars['ID'];
+  product: ProductType;
+  quantity: Scalars['Int'];
+  totalAmount: Scalars['Float'];
+  vatAmount: Scalars['Float'];
+  subAmount: Scalars['Float'];
 };
 
 export type OrderType = {
-  readonly __typename?: 'OrderType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly user: Maybe<CustomerType>;
-  readonly currencyCode: Maybe<Scalars['String']>;
-  readonly totalAmount: Scalars['Float'];
-  readonly vatAmount: Scalars['Float'];
-  readonly subAmount: Scalars['Float'];
-  readonly orderDetails: ReadonlyArray<OrderDetailType>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'OrderType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  userId?: Maybe<Scalars['ID']>;
+  user?: Maybe<CustomerType>;
+  currencyCode?: Maybe<Scalars['String']>;
+  totalAmount: Scalars['Float'];
+  vatAmount: Scalars['Float'];
+  subAmount: Scalars['Float'];
+  orderDetails: Array<OrderDetailType>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type PaginatedCategoryType = {
-  readonly __typename?: 'PaginatedCategoryType';
-  readonly records: Maybe<ReadonlyArray<CategoriesType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedCategoryType';
+  records?: Maybe<Array<CategoriesType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedCommuneType = {
-  readonly __typename?: 'PaginatedCommuneType';
-  readonly records: Maybe<ReadonlyArray<CommuneType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedCommuneType';
+  records?: Maybe<Array<CommuneType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedCompanyType = {
-  readonly __typename?: 'PaginatedCompanyType';
-  readonly records: Maybe<ReadonlyArray<CompanyType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedCompanyType';
+  records?: Maybe<Array<CompanyType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedCountryType = {
-  readonly __typename?: 'PaginatedCountryType';
-  readonly records: Maybe<ReadonlyArray<CountryType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedCountryType';
+  records?: Maybe<Array<CountryType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedDistrictType = {
-  readonly __typename?: 'PaginatedDistrictType';
-  readonly records: Maybe<ReadonlyArray<DistrictType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedDistrictType';
+  records?: Maybe<Array<DistrictType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedEmployeeType = {
-  readonly __typename?: 'PaginatedEmployeeType';
-  readonly records: Maybe<ReadonlyArray<EmployeeType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedEmployeeType';
+  records?: Maybe<Array<EmployeeType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedJobType = {
-  readonly __typename?: 'PaginatedJobType';
-  readonly records: Maybe<ReadonlyArray<JobType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedJobType';
+  records?: Maybe<Array<JobType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedManufacturerType = {
-  readonly __typename?: 'PaginatedManufacturerType';
-  readonly records: Maybe<ReadonlyArray<ManufacturerType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedManufacturerType';
+  records?: Maybe<Array<ManufacturerType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedProductSupplierType = {
-  readonly __typename?: 'PaginatedProductSupplierType';
-  readonly records: Maybe<ReadonlyArray<ProductSupplierType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedProductSupplierType';
+  records?: Maybe<Array<ProductSupplierType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedProductType = {
-  readonly __typename?: 'PaginatedProductType';
-  readonly records: Maybe<ReadonlyArray<ProductType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedProductType';
+  records?: Maybe<Array<ProductType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedProvinceType = {
-  readonly __typename?: 'PaginatedProvinceType';
-  readonly records: Maybe<ReadonlyArray<ProvinceType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedProvinceType';
+  records?: Maybe<Array<ProvinceType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedRoomType = {
-  readonly __typename?: 'PaginatedRoomType';
-  readonly records: Maybe<ReadonlyArray<RoomType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedRoomType';
+  records?: Maybe<Array<RoomType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedScaleType = {
-  readonly __typename?: 'PaginatedScaleType';
-  readonly records: Maybe<ReadonlyArray<ScaleType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedScaleType';
+  records?: Maybe<Array<ScaleType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedTagType = {
-  readonly __typename?: 'PaginatedTagType';
-  readonly records: Maybe<ReadonlyArray<TagType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedTagType';
+  records?: Maybe<Array<TagType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedTaxType = {
-  readonly __typename?: 'PaginatedTaxType';
-  readonly records: Maybe<ReadonlyArray<TaxesType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedTaxType';
+  records?: Maybe<Array<TaxesType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedTimeType = {
-  readonly __typename?: 'PaginatedTimeType';
-  readonly records: Maybe<ReadonlyArray<TimeType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedTimeType';
+  records?: Maybe<Array<TimeType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedVendorType = {
-  readonly __typename?: 'PaginatedVendorType';
-  readonly records: Maybe<ReadonlyArray<VendorType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedVendorType';
+  records?: Maybe<Array<VendorType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaginatedVillageType = {
-  readonly __typename?: 'PaginatedVillageType';
-  readonly records: Maybe<ReadonlyArray<VillageType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'PaginatedVillageType';
+  records?: Maybe<Array<VillageType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type PaymentMethodFilter = {
-  readonly id: Maybe<Scalars['ID']>;
-  readonly type: Maybe<PaymentTypeEnum>;
-  readonly title: Maybe<Scalars['String']>;
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
+  id?: Maybe<Scalars['ID']>;
+  type?: Maybe<PaymentTypeEnum>;
+  title?: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
 };
 
 export type PaymentMethodInput = {
-  readonly type: Maybe<PaymentTypeEnum>;
-  readonly title: Scalars['String'];
+  type?: Maybe<PaymentTypeEnum>;
+  title: Scalars['String'];
 };
 
 export type PaymentMethodType = {
-  readonly __typename?: 'PaymentMethodType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly type: Scalars['String'];
-  readonly title: Scalars['String'];
-  readonly isDefault: Scalars['Boolean'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'PaymentMethodType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  type: Scalars['String'];
+  title: Scalars['String'];
+  isDefault: Scalars['Boolean'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethodUpdate = {
-  readonly id: Scalars['ID'];
-  readonly type: Maybe<PaymentTypeEnum>;
-  readonly title: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  type?: Maybe<PaymentTypeEnum>;
+  title: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type PaymentReceivedInput = {
-  readonly currencyCode: CurrencyCodeEnum;
-  readonly amount: Scalars['Float'];
+  currencyCode: CurrencyCodeEnum;
+  amount: Scalars['Float'];
 };
 
 export type PaymentReceivedType = {
-  readonly __typename?: 'PaymentReceivedType';
-  readonly currencyCode: CurrencyCodeEnum;
-  readonly amount: Scalars['Float'];
+  __typename?: 'PaymentReceivedType';
+  currencyCode: CurrencyCodeEnum;
+  amount: Scalars['Float'];
 };
 
 export type PaymentTypeEnum =
@@ -1609,333 +1609,333 @@ export type PaymentTypeEnum =
   | 'ABA';
 
 export type ProductFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly alternativeName: Maybe<Scalars['String']>;
-  readonly categoryId: Maybe<Scalars['String']>;
-  readonly taxId: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  alternativeName?: Maybe<Scalars['String']>;
+  categoryId?: Maybe<Scalars['String']>;
+  taxId?: Maybe<Scalars['String']>;
 };
 
 export type ProductImage = {
-  readonly __typename?: 'ProductImage';
-  readonly title: Maybe<Scalars['String']>;
-  readonly subtitle: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
+  __typename?: 'ProductImage';
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
 };
 
 export type ProductImageInput = {
-  readonly title: Maybe<Scalars['String']>;
-  readonly subtitle: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
 };
 
 export type ProductInput = {
-  readonly name: Scalars['String'];
-  readonly alternativeName: Maybe<Scalars['String']>;
-  readonly categoryId: Scalars['ID'];
-  readonly taxId: Scalars['ID'];
-  readonly supplierId: Maybe<Scalars['ID']>;
-  readonly manufacturerId: Maybe<Scalars['ID']>;
-  readonly tags: Maybe<ReadonlyArray<Scalars['String']>>;
-  readonly thumbnails: Maybe<ReadonlyArray<ProductImageInput>>;
-  readonly images: Maybe<ReadonlyArray<ProductImageInput>>;
-  readonly shortDescription: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly remark: Maybe<Scalars['String']>;
-  readonly recorders: ReadonlyArray<RecorderInput>;
+  name: Scalars['String'];
+  alternativeName?: Maybe<Scalars['String']>;
+  categoryId: Scalars['ID'];
+  taxId: Scalars['ID'];
+  supplierId?: Maybe<Scalars['ID']>;
+  manufacturerId?: Maybe<Scalars['ID']>;
+  tags?: Maybe<Array<Scalars['String']>>;
+  thumbnails?: Maybe<Array<ProductImageInput>>;
+  images?: Maybe<Array<ProductImageInput>>;
+  shortDescription?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  remark?: Maybe<Scalars['String']>;
+  recorders: Array<RecorderInput>;
 };
 
 export type ProductRecorderFilter = {
-  readonly productId: Scalars['ID'];
-  readonly barcode: Maybe<Scalars['String']>;
-  readonly weight: Maybe<Scalars['Float']>;
-  readonly size: Maybe<Scalars['String']>;
+  productId: Scalars['ID'];
+  barcode?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['String']>;
 };
 
 export type ProductRecorderType = {
-  readonly __typename?: 'ProductRecorderType';
-  readonly id: Scalars['ID'];
-  readonly productId: Scalars['ID'];
-  readonly product: Maybe<ProductType>;
-  readonly barcode: Maybe<Scalars['String']>;
-  readonly sourcePrice: Scalars['Float'];
-  readonly wholesalePrice: Scalars['Float'];
-  readonly regularPrice: Scalars['Float'];
-  readonly sellingPrice: Scalars['Float'];
-  readonly weight: Maybe<Scalars['Float']>;
-  readonly scaleId: Maybe<Scalars['ID']>;
-  readonly scale: Maybe<ScaleType>;
-  readonly producedAt: Maybe<Scalars['DateTime']>;
-  readonly expiredAt: Maybe<Scalars['DateTime']>;
-  readonly stockAble: Maybe<Scalars['Boolean']>;
-  readonly stock: Maybe<StockType>;
-  readonly status: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
+  __typename?: 'ProductRecorderType';
+  id: Scalars['ID'];
+  productId: Scalars['ID'];
+  product?: Maybe<ProductType>;
+  barcode?: Maybe<Scalars['String']>;
+  sourcePrice: Scalars['Float'];
+  wholesalePrice: Scalars['Float'];
+  regularPrice: Scalars['Float'];
+  sellingPrice: Scalars['Float'];
+  weight?: Maybe<Scalars['Float']>;
+  scaleId?: Maybe<Scalars['ID']>;
+  scale?: Maybe<ScaleType>;
+  producedAt?: Maybe<Scalars['DateTime']>;
+  expiredAt?: Maybe<Scalars['DateTime']>;
+  stockAble?: Maybe<Scalars['Boolean']>;
+  stock?: Maybe<StockType>;
+  status?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
 };
 
 export type ProductRecorderUpdate = {
-  readonly id: Scalars['ID'];
-  readonly barcode: Scalars['String'];
-  readonly modifyQuantity: Maybe<Scalars['Int']>;
-  readonly sourcePrice: Scalars['Float'];
-  readonly wholesalePrice: Scalars['Float'];
-  readonly regularPrice: Scalars['Float'];
-  readonly sellingPrice: Scalars['Float'];
-  readonly weight: Maybe<Scalars['Float']>;
-  readonly scaleId: Maybe<Scalars['ID']>;
-  readonly producedAt: Maybe<Scalars['DateTime']>;
-  readonly expiredAt: Maybe<Scalars['DateTime']>;
+  id: Scalars['ID'];
+  barcode: Scalars['String'];
+  modifyQuantity?: Maybe<Scalars['Int']>;
+  sourcePrice: Scalars['Float'];
+  wholesalePrice: Scalars['Float'];
+  regularPrice: Scalars['Float'];
+  sellingPrice: Scalars['Float'];
+  weight?: Maybe<Scalars['Float']>;
+  scaleId?: Maybe<Scalars['ID']>;
+  producedAt?: Maybe<Scalars['DateTime']>;
+  expiredAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProductSaleFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly categoryId: Maybe<Scalars['ID']>;
-  readonly name: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  categoryId?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type ProductSalePaginatedType = {
-  readonly __typename?: 'ProductSalePaginatedType';
-  readonly records: Maybe<ReadonlyArray<ProductType>>;
-  readonly metadata: Maybe<Metadata>;
+  __typename?: 'ProductSalePaginatedType';
+  records?: Maybe<Array<ProductType>>;
+  metadata?: Maybe<Metadata>;
 };
 
 export type ProductSupplierFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly companyName: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  companyName?: Maybe<Scalars['String']>;
 };
 
 export type ProductSupplierInput = {
-  readonly userId: Maybe<Scalars['String']>;
-  readonly companyName: Scalars['String'];
-  readonly contactInfo: SupplierContactInfoInput;
-  readonly addressInfo: Maybe<SupplierAddressInfoInput>;
-  readonly description: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  companyName: Scalars['String'];
+  contactInfo: SupplierContactInfoInput;
+  addressInfo?: Maybe<SupplierAddressInfoInput>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type ProductSupplierType = {
-  readonly __typename?: 'ProductSupplierType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly userId: Maybe<Scalars['String']>;
-  readonly companyName: Scalars['String'];
-  readonly contactInfo: SupplierContactInfoType;
-  readonly addressInfo: Maybe<SupplierAddressInfoType>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'ProductSupplierType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  userId?: Maybe<Scalars['String']>;
+  companyName: Scalars['String'];
+  contactInfo: SupplierContactInfoType;
+  addressInfo?: Maybe<SupplierAddressInfoType>;
+  description?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ProductSupplierUpdate = {
-  readonly id: Scalars['ID'];
-  readonly userId: Maybe<Scalars['String']>;
-  readonly companyName: Maybe<Scalars['String']>;
-  readonly contactInfo: Maybe<SupplierContactInfoInput>;
-  readonly addressInfo: Maybe<SupplierAddressInfoInput>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  userId?: Maybe<Scalars['String']>;
+  companyName?: Maybe<Scalars['String']>;
+  contactInfo?: Maybe<SupplierContactInfoInput>;
+  addressInfo?: Maybe<SupplierAddressInfoInput>;
+  description?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type ProductType = {
-  readonly __typename?: 'ProductType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly alternativeName: Maybe<Scalars['String']>;
-  readonly images: Maybe<ReadonlyArray<ProductImage>>;
-  readonly thumbnails: Maybe<ReadonlyArray<ProductImage>>;
-  readonly categoryId: Scalars['String'];
-  readonly category: Maybe<CategoriesType>;
-  readonly taxId: Maybe<Scalars['String']>;
-  readonly tax: Maybe<TaxesType>;
-  readonly tags: Maybe<ReadonlyArray<Scalars['String']>>;
-  readonly manufactureId: Maybe<Scalars['ID']>;
-  readonly manufacturer: Maybe<ManufacturerType>;
-  readonly shortDescription: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly recorders: Maybe<ReadonlyArray<ProductRecorderType>>;
-  readonly sourcePrice: Maybe<ReadonlyArray<Scalars['Float']>>;
-  readonly wholesalePrice: Maybe<ReadonlyArray<Scalars['Float']>>;
-  readonly regularPrice: Maybe<ReadonlyArray<Scalars['Float']>>;
-  readonly sellingPrice: Maybe<ReadonlyArray<Scalars['Float']>>;
-  readonly quantity: Scalars['Int'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'ProductType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  alternativeName?: Maybe<Scalars['String']>;
+  images?: Maybe<Array<ProductImage>>;
+  thumbnails?: Maybe<Array<ProductImage>>;
+  categoryId: Scalars['String'];
+  category?: Maybe<CategoriesType>;
+  taxId?: Maybe<Scalars['String']>;
+  tax?: Maybe<TaxesType>;
+  tags?: Maybe<Array<Scalars['String']>>;
+  manufactureId?: Maybe<Scalars['ID']>;
+  manufacturer?: Maybe<ManufacturerType>;
+  shortDescription?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  recorders?: Maybe<Array<ProductRecorderType>>;
+  sourcePrice?: Maybe<Array<Scalars['Float']>>;
+  wholesalePrice?: Maybe<Array<Scalars['Float']>>;
+  regularPrice?: Maybe<Array<Scalars['Float']>>;
+  sellingPrice?: Maybe<Array<Scalars['Float']>>;
+  quantity: Scalars['Int'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ProductUpdate = {
-  readonly id: Scalars['ID'];
-  readonly name: Maybe<Scalars['String']>;
-  readonly alternativeName: Maybe<Scalars['String']>;
-  readonly categoryId: Scalars['ID'];
-  readonly taxId: Scalars['ID'];
-  readonly manufacturerId: Maybe<Scalars['ID']>;
-  readonly tags: Maybe<ReadonlyArray<Scalars['String']>>;
-  readonly thumbnails: Maybe<ReadonlyArray<ProductImageInput>>;
-  readonly images: Maybe<ReadonlyArray<ProductImageInput>>;
-  readonly shortDescription: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly remark: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  alternativeName?: Maybe<Scalars['String']>;
+  categoryId: Scalars['ID'];
+  taxId: Scalars['ID'];
+  manufacturerId?: Maybe<Scalars['ID']>;
+  tags?: Maybe<Array<Scalars['String']>>;
+  thumbnails?: Maybe<Array<ProductImageInput>>;
+  images?: Maybe<Array<ProductImageInput>>;
+  shortDescription?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  remark?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type ProfileType = {
-  readonly __typename?: 'ProfileType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly type: Scalars['String'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly username: Maybe<Scalars['String']>;
-  readonly gender: Maybe<Scalars['String']>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetails;
-  readonly vendors: ReadonlyArray<Maybe<Vendor>>;
-  readonly employee: Maybe<EmployeeInfoType>;
-  readonly addressInfo: Maybe<AddressInfoType>;
-  readonly accessKey: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'ProfileType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  type: Scalars['String'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  dob?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  mobileDetail: MobileDetails;
+  vendors: Array<Maybe<Vendor>>;
+  employee?: Maybe<EmployeeInfoType>;
+  addressInfo?: Maybe<AddressInfoType>;
+  accessKey: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ProfileUpdate = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Maybe<Scalars['String']>;
-  readonly lastName: Maybe<Scalars['String']>;
-  readonly gender: Maybe<GenderEnum>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly mobileDetail: Maybe<MobileDetailInput>;
-  readonly employee: Maybe<EmployeeInfoInput>;
-  readonly addressInfo: Maybe<AddressInfoInput>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  gender?: Maybe<GenderEnum>;
+  dob?: Maybe<Scalars['DateTime']>;
+  mobileDetail?: Maybe<MobileDetailInput>;
+  employee?: Maybe<EmployeeInfoInput>;
+  addressInfo?: Maybe<AddressInfoInput>;
 };
 
 export type ProvinceFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly uId: Maybe<Scalars['String']>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  uId?: Maybe<Scalars['String']>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type ProvinceType = {
-  readonly __typename?: 'ProvinceType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly uId: Scalars['String'];
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'ProvinceType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  uId: Scalars['String'];
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ProvinceUpdate = {
-  readonly id: Scalars['ID'];
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  nameKh: Scalars['String'];
+  nameEn: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type Query = {
-  readonly __typename?: 'Query';
-  readonly getCdn: CdnType;
-  readonly getCdns: ReadonlyArray<CdnType>;
-  readonly getProvince: ProvinceType;
-  readonly getProvinces: PaginatedProvinceType;
-  readonly getSuggestedProvinces: ReadonlyArray<ProvinceType>;
-  readonly getActiveProvinces: ReadonlyArray<ProvinceType>;
-  readonly getDistrict: DistrictType;
-  readonly getDistricts: PaginatedDistrictType;
-  readonly getActiveDistricts: ReadonlyArray<DistrictType>;
-  readonly getSuggestedDistricts: ReadonlyArray<DistrictType>;
-  readonly getCommune: CommuneType;
-  readonly getCommunes: PaginatedCommuneType;
-  readonly getActiveCommunes: ReadonlyArray<CommuneType>;
-  readonly getSuggestedCommunes: ReadonlyArray<CommuneType>;
-  readonly getCountry: CountryType;
-  readonly getCountries: PaginatedCountryType;
-  readonly getActiveCountries: ReadonlyArray<CountryType>;
-  readonly getSuggestedCountries: ReadonlyArray<CountryType>;
-  readonly getVillage: VillageType;
-  readonly getVillages: PaginatedVillageType;
-  readonly getActiveVillages: ReadonlyArray<VillageType>;
-  readonly getSuggestedVillages: ReadonlyArray<VillageType>;
-  readonly getVendors: PaginatedVendorType;
-  readonly getCompanyVendor: VendorType;
-  readonly getCompany: CompanyType;
-  readonly getCompanies: PaginatedCompanyType;
-  readonly getActiveCompanies: ReadonlyArray<CompanyType>;
-  readonly getCurrencyRate: CurrencyRateType;
-  readonly getCurrencyRates: ReadonlyArray<CurrencyRateType>;
-  readonly getActiveCurrencyRates: ReadonlyArray<CurrencyRateType>;
-  readonly getCurrency: CurrencyType;
-  readonly getCurrencies: ReadonlyArray<CurrencyType>;
-  readonly getActiveCurrencies: ReadonlyArray<CurrencyType>;
-  readonly getDiscounts: ReadonlyArray<DiscountType>;
-  readonly getActiveDiscounts: ReadonlyArray<DiscountType>;
-  readonly getJob: JobType;
-  readonly getJobs: PaginatedJobType;
-  readonly getActiveJobs: ReadonlyArray<JobType>;
-  readonly getEmployees: PaginatedEmployeeType;
-  readonly getRoomUserProfile: RoomUserType;
-  readonly getRoomUserList: ReadonlyArray<RoomUserType>;
-  readonly getPaymentMethod: PaymentMethodType;
-  readonly getPaymentMethods: ReadonlyArray<PaymentMethodType>;
-  readonly getActivePaymentMethods: ReadonlyArray<PaymentMethodType>;
-  readonly getProductSupplier: ProductSupplierType;
-  readonly getProductSuppliers: PaginatedProductSupplierType;
-  readonly getActiveProductSuppliers: ReadonlyArray<ProductSupplierType>;
-  readonly getCategory: CategoriesType;
-  readonly getCategories: PaginatedCategoryType;
-  readonly getActiveCategories: ReadonlyArray<CategoriesType>;
-  readonly getManufacturer: ManufacturerType;
-  readonly getManufacturers: PaginatedManufacturerType;
-  readonly getActiveManufacturers: ReadonlyArray<ManufacturerType>;
-  readonly getScale: ScaleType;
-  readonly getScales: PaginatedScaleType;
-  readonly getActiveScales: ReadonlyArray<ScaleType>;
-  readonly getTax: TaxesType;
-  readonly getTaxes: PaginatedTaxType;
-  readonly getActiveTaxes: ReadonlyArray<TaxesType>;
-  readonly getProduct: ProductType;
-  readonly getProducts: PaginatedProductType;
-  readonly getActiveProducts: ReadonlyArray<ProductType>;
-  readonly getProductRecorders: ReadonlyArray<ProductRecorderType>;
-  readonly getProductRecorder: ProductRecorderType;
-  readonly searchSuggestedProducts: ReadonlyArray<ProductRecorderType>;
-  readonly getPendingOrder: OrderType;
-  readonly getTag: TagType;
-  readonly getTags: PaginatedTagType;
-  readonly getActiveTags: ReadonlyArray<TagType>;
-  readonly getProfile: ProfileType;
-  readonly getRoomCategory: RoomCategoryType;
-  readonly getRoomCategories: ReadonlyArray<RoomCategoryType>;
-  readonly getRoom: RoomType;
-  readonly getRooms: PaginatedRoomType;
-  readonly getUserByRoomId: ReadonlyArray<MemberType>;
-  readonly getDailyTransactions: ReadonlyArray<RoomTransactionGroupType>;
-  readonly getMonthlyTransactions: ReadonlyArray<RoomTransactionGroupByMonthType>;
-  readonly getRoomTransactionReport: ReadonlyArray<RoomTransactionReportType>;
-  readonly getProductSales: ProductSalePaginatedType;
-  readonly getTime: TimeType;
-  readonly getTimes: PaginatedTimeType;
-  readonly getActiveTimes: ReadonlyArray<TimeType>;
+  __typename?: 'Query';
+  getCdn: CdnType;
+  getCdns: Array<CdnType>;
+  getProvince: ProvinceType;
+  getProvinces: PaginatedProvinceType;
+  getSuggestedProvinces: Array<ProvinceType>;
+  getActiveProvinces: Array<ProvinceType>;
+  getDistrict: DistrictType;
+  getDistricts: PaginatedDistrictType;
+  getActiveDistricts: Array<DistrictType>;
+  getSuggestedDistricts: Array<DistrictType>;
+  getCommune: CommuneType;
+  getCommunes: PaginatedCommuneType;
+  getActiveCommunes: Array<CommuneType>;
+  getSuggestedCommunes: Array<CommuneType>;
+  getCountry: CountryType;
+  getCountries: PaginatedCountryType;
+  getActiveCountries: Array<CountryType>;
+  getSuggestedCountries: Array<CountryType>;
+  getVillage: VillageType;
+  getVillages: PaginatedVillageType;
+  getActiveVillages: Array<VillageType>;
+  getSuggestedVillages: Array<VillageType>;
+  getVendors: PaginatedVendorType;
+  getCompanyVendor: VendorType;
+  getCompany: CompanyType;
+  getCompanies: PaginatedCompanyType;
+  getActiveCompanies: Array<CompanyType>;
+  getCurrencyRate: CurrencyRateType;
+  getCurrencyRates: Array<CurrencyRateType>;
+  getActiveCurrencyRates: Array<CurrencyRateType>;
+  getCurrency: CurrencyType;
+  getCurrencies: Array<CurrencyType>;
+  getActiveCurrencies: Array<CurrencyType>;
+  getDiscounts: Array<DiscountType>;
+  getActiveDiscounts: Array<DiscountType>;
+  getJob: JobType;
+  getJobs: PaginatedJobType;
+  getActiveJobs: Array<JobType>;
+  getEmployees: PaginatedEmployeeType;
+  getRoomUserProfile: RoomUserType;
+  getRoomUserList: Array<RoomUserType>;
+  getPaymentMethod: PaymentMethodType;
+  getPaymentMethods: Array<PaymentMethodType>;
+  getActivePaymentMethods: Array<PaymentMethodType>;
+  getProductSupplier: ProductSupplierType;
+  getProductSuppliers: PaginatedProductSupplierType;
+  getActiveProductSuppliers: Array<ProductSupplierType>;
+  getCategory: CategoriesType;
+  getCategories: PaginatedCategoryType;
+  getActiveCategories: Array<CategoriesType>;
+  getManufacturer: ManufacturerType;
+  getManufacturers: PaginatedManufacturerType;
+  getActiveManufacturers: Array<ManufacturerType>;
+  getScale: ScaleType;
+  getScales: PaginatedScaleType;
+  getActiveScales: Array<ScaleType>;
+  getTax: TaxesType;
+  getTaxes: PaginatedTaxType;
+  getActiveTaxes: Array<TaxesType>;
+  getProduct: ProductType;
+  getProducts: PaginatedProductType;
+  getActiveProducts: Array<ProductType>;
+  getProductRecorders: Array<ProductRecorderType>;
+  getProductRecorder: ProductRecorderType;
+  searchSuggestedProducts: Array<ProductRecorderType>;
+  getPendingOrder: OrderType;
+  getTag: TagType;
+  getTags: PaginatedTagType;
+  getActiveTags: Array<TagType>;
+  getProfile: ProfileType;
+  getRoomCategory: RoomCategoryType;
+  getRoomCategories: Array<RoomCategoryType>;
+  getRoom: RoomType;
+  getRooms: PaginatedRoomType;
+  getUserByRoomId: Array<MemberType>;
+  getDailyTransactions: Array<RoomTransactionGroupType>;
+  getMonthlyTransactions: Array<RoomTransactionGroupByMonthType>;
+  getRoomTransactionReport: Array<RoomTransactionReportType>;
+  getProductSales: ProductSalePaginatedType;
+  getTime: TimeType;
+  getTimes: PaginatedTimeType;
+  getActiveTimes: Array<TimeType>;
 };
 
 
@@ -2309,21 +2309,21 @@ export type QueryGetActiveTimesArgs = {
 };
 
 export type RecorderInput = {
-  readonly barcode: Maybe<Scalars['String']>;
-  readonly quantity: Scalars['Int'];
-  readonly sourcePrice: Scalars['Float'];
-  readonly wholesalePrice: Scalars['Float'];
-  readonly regularPrice: Scalars['Float'];
-  readonly sellingPrice: Scalars['Float'];
-  readonly weight: Maybe<Scalars['Float']>;
-  readonly scaleId: Maybe<Scalars['ID']>;
-  readonly producedAt: Maybe<Scalars['DateTime']>;
-  readonly expiredAt: Maybe<Scalars['DateTime']>;
+  barcode?: Maybe<Scalars['String']>;
+  quantity: Scalars['Int'];
+  sourcePrice: Scalars['Float'];
+  wholesalePrice: Scalars['Float'];
+  regularPrice: Scalars['Float'];
+  sellingPrice: Scalars['Float'];
+  weight?: Maybe<Scalars['Float']>;
+  scaleId?: Maybe<Scalars['ID']>;
+  producedAt?: Maybe<Scalars['DateTime']>;
+  expiredAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type RemoveProductImageInput = {
-  readonly productId: Scalars['ID'];
-  readonly imageId: Scalars['ID'];
+  productId: Scalars['ID'];
+  imageId: Scalars['ID'];
 };
 
 export type RoomAccountTypeEnum =
@@ -2332,31 +2332,31 @@ export type RoomAccountTypeEnum =
   | 'CREDIT_CARD';
 
 export type RoomCategoryFilter = {
-  readonly name: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type RoomCategoryInput = {
-  readonly name: Scalars['String'];
-  readonly image: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  image?: Maybe<Scalars['String']>;
 };
 
 export type RoomCategoryType = {
-  readonly __typename?: 'RoomCategoryType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly image: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'RoomCategoryType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  image?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type RoomCategoryUpdate = {
-  readonly id: Scalars['ID'];
-  readonly image: Maybe<Scalars['String']>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  image?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type RoomCurrencyCodeEnum =
@@ -2364,97 +2364,97 @@ export type RoomCurrencyCodeEnum =
   | 'KHR';
 
 export type RoomFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type RoomInput = {
-  readonly name: Scalars['String'];
-  readonly image: Maybe<Scalars['String']>;
-  readonly exchangeRate: Scalars['Float'];
-  readonly members: ReadonlyArray<MemberInput>;
-  readonly description: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  image?: Maybe<Scalars['String']>;
+  exchangeRate: Scalars['Float'];
+  members: Array<MemberInput>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type RoomTransactionConfirmPaymentInput = {
-  readonly roomId: Scalars['ID'];
-  readonly year: Scalars['Int'];
-  readonly month: Scalars['Int'];
+  roomId: Scalars['ID'];
+  year: Scalars['Int'];
+  month: Scalars['Int'];
 };
 
 export type RoomTransactionGroupByMonthType = {
-  readonly __typename?: 'RoomTransactionGroupByMonthType';
-  readonly year: Scalars['Int'];
-  readonly month: Scalars['Int'];
-  readonly amount: Scalars['Float'];
-  readonly total: Scalars['Int'];
+  __typename?: 'RoomTransactionGroupByMonthType';
+  year: Scalars['Int'];
+  month: Scalars['Int'];
+  amount: Scalars['Float'];
+  total: Scalars['Int'];
 };
 
 export type RoomTransactionGroupFilter = {
-  readonly roomId: Scalars['ID'];
-  readonly startedAt: Maybe<Scalars['DateTime']>;
-  readonly endedAt: Maybe<Scalars['DateTime']>;
+  roomId: Scalars['ID'];
+  startedAt?: Maybe<Scalars['DateTime']>;
+  endedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type RoomTransactionGroupType = {
-  readonly __typename?: 'RoomTransactionGroupType';
-  readonly transactionDate: Scalars['DateTime'];
-  readonly month: Scalars['Int'];
-  readonly amount: Scalars['Float'];
-  readonly transactions: ReadonlyArray<RoomTransactionType>;
-  readonly total: Scalars['Int'];
+  __typename?: 'RoomTransactionGroupType';
+  transactionDate: Scalars['DateTime'];
+  month: Scalars['Int'];
+  amount: Scalars['Float'];
+  transactions: Array<RoomTransactionType>;
+  total: Scalars['Int'];
 };
 
 export type RoomTransactionInput = {
-  readonly roomId: Maybe<Scalars['ID']>;
-  readonly categoryId: Scalars['ID'];
-  readonly createdTransactionAt: Maybe<Scalars['DateTime']>;
-  readonly accountType: Maybe<RoomAccountTypeEnum>;
-  readonly type: RoomTransactionTypeEnum;
-  readonly currencyCode: RoomCurrencyCodeEnum;
-  readonly amount: Scalars['Float'];
-  readonly shareWith: ReadonlyArray<Maybe<ShareWithInput>>;
-  readonly shareFor: Maybe<ReadonlyArray<Scalars['String']>>;
-  readonly image: Maybe<Scalars['String']>;
-  readonly note: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
+  roomId?: Maybe<Scalars['ID']>;
+  categoryId: Scalars['ID'];
+  createdTransactionAt?: Maybe<Scalars['DateTime']>;
+  accountType?: Maybe<RoomAccountTypeEnum>;
+  type: RoomTransactionTypeEnum;
+  currencyCode: RoomCurrencyCodeEnum;
+  amount: Scalars['Float'];
+  shareWith: Array<Maybe<ShareWithInput>>;
+  shareFor?: Maybe<Array<Scalars['String']>>;
+  image?: Maybe<Scalars['String']>;
+  note?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type RoomTransactionReportType = {
-  readonly __typename?: 'RoomTransactionReportType';
-  readonly year: Scalars['Int'];
-  readonly month: Scalars['Int'];
-  readonly amount: Scalars['Float'];
-  readonly count: Scalars['Int'];
-  readonly size: Scalars['Int'];
-  readonly conclusionPayments: ReadonlyArray<ConclusionPaymentType>;
+  __typename?: 'RoomTransactionReportType';
+  year: Scalars['Int'];
+  month: Scalars['Int'];
+  amount: Scalars['Float'];
+  count: Scalars['Int'];
+  size: Scalars['Int'];
+  conclusionPayments: Array<ConclusionPaymentType>;
 };
 
 export type RoomTransactionType = {
-  readonly __typename?: 'RoomTransactionType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly roomId: Maybe<Scalars['ID']>;
-  readonly categoryId: Scalars['ID'];
-  readonly category: Maybe<RoomCategoryType>;
-  readonly createdTransactionAt: Scalars['DateTime'];
-  readonly accountType: Scalars['String'];
-  readonly type: Scalars['String'];
-  readonly currencyCode: Scalars['String'];
-  readonly amount: Scalars['Float'];
-  readonly shareWith: Maybe<ReadonlyArray<ShareWithType>>;
-  readonly shareFor: Maybe<ReadonlyArray<ShareForType>>;
-  readonly note: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
-  readonly isApproved: Maybe<Scalars['Boolean']>;
-  readonly isReturned: Maybe<Scalars['Boolean']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'RoomTransactionType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  roomId?: Maybe<Scalars['ID']>;
+  categoryId: Scalars['ID'];
+  category?: Maybe<RoomCategoryType>;
+  createdTransactionAt: Scalars['DateTime'];
+  accountType: Scalars['String'];
+  type: Scalars['String'];
+  currencyCode: Scalars['String'];
+  amount: Scalars['Float'];
+  shareWith?: Maybe<Array<ShareWithType>>;
+  shareFor?: Maybe<Array<ShareForType>>;
+  note?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  isApproved?: Maybe<Scalars['Boolean']>;
+  isReturned?: Maybe<Scalars['Boolean']>;
+  description?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type RoomTransactionTypeEnum =
@@ -2463,55 +2463,55 @@ export type RoomTransactionTypeEnum =
   | 'RETURNING';
 
 export type RoomType = {
-  readonly __typename?: 'RoomType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly members: ReadonlyArray<MemberType>;
-  readonly exchangeRate: Scalars['Float'];
-  readonly description: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'RoomType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  members: Array<MemberType>;
+  exchangeRate: Scalars['Float'];
+  description?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type RoomUpdate = {
-  readonly id: Scalars['ID'];
-  readonly image: Maybe<Scalars['String']>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly exchangeRate: Maybe<Scalars['Float']>;
-  readonly description: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  image?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  exchangeRate?: Maybe<Scalars['Float']>;
+  description: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };
 
 export type RoomUserRegisterInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly fullName: Scalars['String'];
-  readonly email: Scalars['String'];
-  readonly username: Scalars['String'];
-  readonly password: Scalars['String'];
-  readonly passwordConfirm: Scalars['String'];
+  avatar?: Maybe<Scalars['String']>;
+  fullName: Scalars['String'];
+  email: Scalars['String'];
+  username: Scalars['String'];
+  password: Scalars['String'];
+  passwordConfirm: Scalars['String'];
 };
 
 export type RoomUserType = {
-  readonly __typename?: 'RoomUserType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly fullName: Scalars['String'];
-  readonly email: Scalars['String'];
-  readonly username: Scalars['String'];
-  readonly token: Maybe<Scalars['String']>;
+  __typename?: 'RoomUserType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  fullName: Scalars['String'];
+  email: Scalars['String'];
+  username: Scalars['String'];
+  token?: Maybe<Scalars['String']>;
 };
 
 export type RoomUserUpdate = {
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly fullName: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  fullName?: Maybe<Scalars['String']>;
 };
 
 export type RoundTypeEnum =
@@ -2520,62 +2520,62 @@ export type RoundTypeEnum =
   | 'DEFAULT';
 
 export type SaleOrderInput = {
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly productRecorderId: Scalars['String'];
-  readonly quantity: Scalars['Int'];
+  userId?: Maybe<Scalars['ID']>;
+  productRecorderId: Scalars['String'];
+  quantity: Scalars['Int'];
 };
 
 export type SaleTransactionInput = {
-  readonly orderId: Scalars['ID'];
-  readonly paymentReceived: ReadonlyArray<PaymentReceivedInput>;
-  readonly paymentMethod: Maybe<PaymentTypeEnum>;
-  readonly discountId: Maybe<Scalars['ID']>;
+  orderId: Scalars['ID'];
+  paymentReceived: Array<PaymentReceivedInput>;
+  paymentMethod?: Maybe<PaymentTypeEnum>;
+  discountId?: Maybe<Scalars['ID']>;
 };
 
 export type ScaleFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type ScaleInput = {
-  readonly name: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type ScaleType = {
-  readonly __typename?: 'ScaleType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'ScaleType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type ScaleUpdate = {
-  readonly id: Scalars['ID'];
-  readonly name: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type ShareForType = {
-  readonly __typename?: 'ShareForType';
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly user: Maybe<RoomUserType>;
+  __typename?: 'ShareForType';
+  userId?: Maybe<Scalars['ID']>;
+  user?: Maybe<RoomUserType>;
 };
 
 export type ShareWithInput = {
-  readonly userId: Scalars['ID'];
-  readonly amount: Scalars['Float'];
+  userId: Scalars['ID'];
+  amount: Scalars['Float'];
 };
 
 export type ShareWithType = {
-  readonly __typename?: 'ShareWithType';
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly user: Maybe<RoomUserType>;
-  readonly amount: Maybe<Scalars['Float']>;
+  __typename?: 'ShareWithType';
+  userId?: Maybe<Scalars['ID']>;
+  user?: Maybe<RoomUserType>;
+  amount?: Maybe<Scalars['Float']>;
 };
 
 export type StatusEnum =
@@ -2584,60 +2584,60 @@ export type StatusEnum =
   | 'DELETED';
 
 export type StockType = {
-  readonly __typename?: 'StockType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly productRecorderId: Scalars['ID'];
-  readonly productRecorder: Maybe<ProductRecorderType>;
-  readonly quantity: Scalars['Int'];
-  readonly histories: Maybe<ReadonlyArray<HistoryType>>;
+  __typename?: 'StockType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  productRecorderId: Scalars['ID'];
+  productRecorder?: Maybe<ProductRecorderType>;
+  quantity: Scalars['Int'];
+  histories?: Maybe<Array<HistoryType>>;
 };
 
 export type SupplierAddressInfoInput = {
-  readonly country: Maybe<Scalars['String']>;
-  readonly province: Maybe<Scalars['String']>;
-  readonly district: Maybe<Scalars['String']>;
-  readonly commune: Maybe<Scalars['String']>;
-  readonly village: Maybe<Scalars['String']>;
-  readonly streetNo: Maybe<Scalars['String']>;
-  readonly group: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  province?: Maybe<Scalars['String']>;
+  district?: Maybe<Scalars['String']>;
+  commune?: Maybe<Scalars['String']>;
+  village?: Maybe<Scalars['String']>;
+  streetNo?: Maybe<Scalars['String']>;
+  group?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type SupplierAddressInfoType = {
-  readonly __typename?: 'SupplierAddressInfoType';
-  readonly countryId: Maybe<Scalars['ID']>;
-  readonly country: Maybe<CountryType>;
-  readonly provinceId: Maybe<Scalars['ID']>;
-  readonly province: Maybe<ProvinceType>;
-  readonly districtId: Maybe<Scalars['ID']>;
-  readonly district: Maybe<DistrictType>;
-  readonly communeId: Maybe<Scalars['ID']>;
-  readonly commune: Maybe<CommuneType>;
-  readonly villageId: Maybe<Scalars['ID']>;
-  readonly village: Maybe<VillageType>;
-  readonly streetNo: Maybe<Scalars['String']>;
-  readonly group: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
+  __typename?: 'SupplierAddressInfoType';
+  countryId?: Maybe<Scalars['ID']>;
+  country?: Maybe<CountryType>;
+  provinceId?: Maybe<Scalars['ID']>;
+  province?: Maybe<ProvinceType>;
+  districtId?: Maybe<Scalars['ID']>;
+  district?: Maybe<DistrictType>;
+  communeId?: Maybe<Scalars['ID']>;
+  commune?: Maybe<CommuneType>;
+  villageId?: Maybe<Scalars['ID']>;
+  village?: Maybe<VillageType>;
+  streetNo?: Maybe<Scalars['String']>;
+  group?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type SupplierContactInfoInput = {
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly mobileNumber: Scalars['String'];
-  readonly phoneNumber: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  mobileNumber: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
 };
 
 export type SupplierContactInfoType = {
-  readonly __typename?: 'SupplierContactInfoType';
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly mobileNumber: Scalars['String'];
-  readonly phoneNumber: Maybe<Scalars['String']>;
+  __typename?: 'SupplierContactInfoType';
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  mobileNumber: Scalars['String'];
+  phoneNumber?: Maybe<Scalars['String']>;
 };
 
 export type SupplierStatusEnum =
@@ -2645,63 +2645,63 @@ export type SupplierStatusEnum =
   | 'SUCCESS';
 
 export type SupplyingInput = {
-  readonly productRecorderId: Scalars['ID'];
-  readonly supplierId: Scalars['ID'];
-  readonly quantity: Scalars['Int'];
-  readonly discount: Scalars['Float'];
-  readonly currencyCode: Maybe<CurrencyCodeEnum>;
-  readonly paymentMethod: PaymentTypeEnum;
-  readonly amount: Scalars['Float'];
-  readonly orderedAt: Maybe<Scalars['DateTime']>;
-  readonly arriveAt: Maybe<Scalars['DateTime']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly status: Maybe<SupplierStatusEnum>;
+  productRecorderId: Scalars['ID'];
+  supplierId: Scalars['ID'];
+  quantity: Scalars['Int'];
+  discount: Scalars['Float'];
+  currencyCode?: Maybe<CurrencyCodeEnum>;
+  paymentMethod: PaymentTypeEnum;
+  amount: Scalars['Float'];
+  orderedAt?: Maybe<Scalars['DateTime']>;
+  arriveAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  status?: Maybe<SupplierStatusEnum>;
 };
 
 export type SupplyingType = {
-  readonly __typename?: 'SupplyingType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly supplierId: Scalars['ID'];
-  readonly supplier: Maybe<ProductSupplierType>;
-  readonly quantity: Scalars['Int'];
-  readonly orderedAt: Maybe<Scalars['DateTime']>;
-  readonly arriveAt: Maybe<Scalars['DateTime']>;
-  readonly isArrived: Maybe<Scalars['Boolean']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'SupplyingType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  supplierId: Scalars['ID'];
+  supplier?: Maybe<ProductSupplierType>;
+  quantity: Scalars['Int'];
+  orderedAt?: Maybe<Scalars['DateTime']>;
+  arriveAt?: Maybe<Scalars['DateTime']>;
+  isArrived?: Maybe<Scalars['Boolean']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type TagFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly name: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type TagInput = {
-  readonly name: Scalars['String'];
-  readonly slug: Scalars['String'];
+  name: Scalars['String'];
+  slug: Scalars['String'];
 };
 
 export type TagType = {
-  readonly __typename?: 'TagType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly slug: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'TagType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  slug: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type TagUpdate = {
-  readonly id: Scalars['ID'];
-  readonly name: Maybe<Scalars['String']>;
-  readonly slug: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type TaxTypeEnum =
@@ -2709,241 +2709,241 @@ export type TaxTypeEnum =
   | 'EXCLUSIVE';
 
 export type TaxesFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly type: Maybe<TaxTypeEnum>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly caption: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  type?: Maybe<TaxTypeEnum>;
+  name?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
 };
 
 export type TaxesInput = {
-  readonly type: TaxTypeEnum;
-  readonly name: Scalars['String'];
-  readonly caption: Maybe<Scalars['String']>;
-  readonly decimal: Scalars['Float'];
+  type: TaxTypeEnum;
+  name: Scalars['String'];
+  caption?: Maybe<Scalars['String']>;
+  decimal: Scalars['Float'];
 };
 
 export type TaxesType = {
-  readonly __typename?: 'TaxesType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly type: Scalars['String'];
-  readonly name: Scalars['String'];
-  readonly caption: Maybe<Scalars['String']>;
-  readonly decimal: Scalars['Float'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'TaxesType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  type: Scalars['String'];
+  name: Scalars['String'];
+  caption?: Maybe<Scalars['String']>;
+  decimal: Scalars['Float'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type TaxesUpdate = {
-  readonly id: Scalars['ID'];
-  readonly type: Maybe<TaxTypeEnum>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly caption: Maybe<Scalars['String']>;
-  readonly decimal: Maybe<Scalars['Float']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  type?: Maybe<TaxTypeEnum>;
+  name?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
+  decimal?: Maybe<Scalars['Float']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type TimeFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly id: Maybe<Scalars['ID']>;
-  readonly name: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type TimeInput = {
-  readonly otherId: Scalars['String'];
-  readonly name: Scalars['String'];
-  readonly startedTime: Maybe<Scalars['String']>;
-  readonly endedTime: Scalars['String'];
-  readonly releasedTime: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
-  readonly nameType: NameType;
-  readonly nameTypes: ReadonlyArray<NameType>;
+  otherId: Scalars['String'];
+  name: Scalars['String'];
+  startedTime?: Maybe<Scalars['String']>;
+  endedTime: Scalars['String'];
+  releasedTime: Scalars['String'];
+  status?: Maybe<StatusEnum>;
+  nameType: NameType;
+  nameTypes: Array<NameType>;
 };
 
 export type TimeType = {
-  readonly __typename?: 'TimeType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly name: Scalars['String'];
-  readonly startedTime: Maybe<Scalars['String']>;
-  readonly endedTime: Scalars['String'];
-  readonly releasedTime: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
-  readonly nameType: NameTypes;
-  readonly nameTypes: ReadonlyArray<NameTypes>;
+  __typename?: 'TimeType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  startedTime?: Maybe<Scalars['String']>;
+  endedTime: Scalars['String'];
+  releasedTime: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
+  nameType: NameTypes;
+  nameTypes: Array<NameTypes>;
 };
 
 export type TimeUpdate = {
-  readonly id: Scalars['ID'];
-  readonly name: Maybe<Scalars['String']>;
-  readonly startedTime: Maybe<Scalars['String']>;
-  readonly endedTime: Maybe<Scalars['String']>;
-  readonly releasedTime: Maybe<Scalars['String']>;
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  startedTime?: Maybe<Scalars['String']>;
+  endedTime?: Maybe<Scalars['String']>;
+  releasedTime?: Maybe<Scalars['String']>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type TransactionType = {
-  readonly __typename?: 'TransactionType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly receiptNo: Scalars['Int'];
-  readonly orderId: Scalars['ID'];
-  readonly order: Maybe<OrderType>;
-  readonly userId: Maybe<Scalars['ID']>;
-  readonly user: Maybe<CustomerType>;
-  readonly taxId: Maybe<Scalars['ID']>;
-  readonly tax: Maybe<TaxesType>;
-  readonly discountId: Maybe<Scalars['ID']>;
-  readonly discount: Maybe<DiscountType>;
-  readonly currencyCode: Maybe<Scalars['String']>;
-  readonly paymentMethod: Scalars['String'];
-  readonly totalAmount: Scalars['Float'];
-  readonly vatAmount: Scalars['Float'];
-  readonly discountAmount: Scalars['Float'];
-  readonly subAmount: Scalars['Float'];
-  readonly receivedAmount: Maybe<ReadonlyArray<PaymentReceivedType>>;
-  readonly exchangedRateAmount: Maybe<ReadonlyArray<ExchangedRateAmountType>>;
-  readonly paymentStatus: Maybe<Scalars['Float']>;
-  readonly status: Maybe<Scalars['Float']>;
+  __typename?: 'TransactionType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  receiptNo: Scalars['Int'];
+  orderId: Scalars['ID'];
+  order?: Maybe<OrderType>;
+  userId?: Maybe<Scalars['ID']>;
+  user?: Maybe<CustomerType>;
+  taxId?: Maybe<Scalars['ID']>;
+  tax?: Maybe<TaxesType>;
+  discountId?: Maybe<Scalars['ID']>;
+  discount?: Maybe<DiscountType>;
+  currencyCode?: Maybe<Scalars['String']>;
+  paymentMethod: Scalars['String'];
+  totalAmount: Scalars['Float'];
+  vatAmount: Scalars['Float'];
+  discountAmount: Scalars['Float'];
+  subAmount: Scalars['Float'];
+  receivedAmount?: Maybe<Array<PaymentReceivedType>>;
+  exchangedRateAmount?: Maybe<Array<ExchangedRateAmountType>>;
+  paymentStatus?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
 };
 
 export type Vendor = {
-  readonly __typename?: 'Vendor';
-  readonly id: Scalars['ID'];
-  readonly companyId: Scalars['String'];
-  readonly company: Maybe<CompanyType>;
+  __typename?: 'Vendor';
+  id: Scalars['ID'];
+  companyId: Scalars['String'];
+  company?: Maybe<CompanyType>;
 };
 
 export type VendorCompanyInput = {
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly profile: CompanyDetailInput;
-  readonly branches: Maybe<ReadonlyArray<CompanyBranchInput>>;
+  nameKh: Scalars['String'];
+  nameEn?: Maybe<Scalars['String']>;
+  profile: CompanyDetailInput;
+  branches?: Maybe<Array<CompanyBranchInput>>;
 };
 
 export type VendorFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly id: Maybe<Scalars['ID']>;
-  readonly fullName: Maybe<Scalars['String']>;
-  readonly email: Maybe<Scalars['String']>;
-  readonly mobileNumber: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['ID']>;
+  fullName?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  mobileNumber?: Maybe<Scalars['String']>;
 };
 
 export type VendorInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly gender: GenderEnum;
-  readonly dob: Scalars['DateTime'];
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetailInput;
-  readonly companyProfile: VendorCompanyInput;
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  gender: GenderEnum;
+  dob: Scalars['DateTime'];
+  email: Scalars['String'];
+  mobileDetail: MobileDetailInput;
+  companyProfile: VendorCompanyInput;
 };
 
 export type VendorRegisterInput = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly gender: GenderEnum;
-  readonly dob: Scalars['DateTime'];
-  readonly email: Scalars['String'];
-  readonly mobileDetail: MobileDetailInput;
-  readonly companyProfile: Maybe<CompanyProfileInput>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  gender: GenderEnum;
+  dob: Scalars['DateTime'];
+  email: Scalars['String'];
+  mobileDetail: MobileDetailInput;
+  companyProfile?: Maybe<CompanyProfileInput>;
 };
 
 export type VendorType = {
-  readonly __typename?: 'VendorType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Scalars['String'];
-  readonly lastName: Scalars['String'];
-  readonly fullName: Scalars['String'];
-  readonly username: Maybe<Scalars['String']>;
-  readonly gender: Maybe<Scalars['String']>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly email: Scalars['String'];
-  readonly mobileDetail: Maybe<MobileDetails>;
-  readonly vendors: ReadonlyArray<Maybe<Vendor>>;
-  readonly accessKey: Scalars['String'];
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'VendorType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  avatar?: Maybe<Scalars['String']>;
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  fullName: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  dob?: Maybe<Scalars['DateTime']>;
+  email: Scalars['String'];
+  mobileDetail?: Maybe<MobileDetails>;
+  vendors: Array<Maybe<Vendor>>;
+  accessKey: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
 };
 
 export type VendorUpdate = {
-  readonly avatar: Maybe<Scalars['String']>;
-  readonly firstName: Maybe<Scalars['String']>;
-  readonly lastName: Maybe<Scalars['String']>;
-  readonly gender: Maybe<GenderEnum>;
-  readonly dob: Maybe<Scalars['DateTime']>;
-  readonly mobileDetail: Maybe<MobileDetailInput>;
-  readonly status: Maybe<StatusEnum>;
+  avatar?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+  gender?: Maybe<GenderEnum>;
+  dob?: Maybe<Scalars['DateTime']>;
+  mobileDetail?: Maybe<MobileDetailInput>;
+  status?: Maybe<StatusEnum>;
 };
 
 export type VerifyAccountInput = {
-  readonly verifyCode: Maybe<Scalars['Int']>;
-  readonly verifyUrl: Maybe<Scalars['String']>;
-  readonly username: Scalars['String'];
-  readonly password: Scalars['String'];
-  readonly passwordConfirm: Scalars['String'];
+  verifyCode?: Maybe<Scalars['Int']>;
+  verifyUrl?: Maybe<Scalars['String']>;
+  username: Scalars['String'];
+  password: Scalars['String'];
+  passwordConfirm: Scalars['String'];
 };
 
 export type VillageFilter = {
-  readonly status: Maybe<ReadonlyArray<StatusEnum>>;
-  readonly limit: Maybe<Scalars['Int']>;
-  readonly page: Maybe<Scalars['Int']>;
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly districtId: Maybe<Scalars['String']>;
-  readonly communeId: Maybe<Scalars['String']>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
+  status?: Maybe<Array<StatusEnum>>;
+  limit?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  provinceId?: Maybe<Scalars['String']>;
+  districtId?: Maybe<Scalars['String']>;
+  communeId?: Maybe<Scalars['String']>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
 };
 
 export type VillageSuggestedFilter = {
-  readonly provinceId: Maybe<Scalars['String']>;
-  readonly districtId: Maybe<Scalars['String']>;
-  readonly communeId: Maybe<Scalars['String']>;
-  readonly name: Scalars['String'];
+  provinceId?: Maybe<Scalars['String']>;
+  districtId?: Maybe<Scalars['String']>;
+  communeId?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
 };
 
 export type VillageType = {
-  readonly __typename?: 'VillageType';
-  readonly createdBy: Maybe<Scalars['String']>;
-  readonly createdAt: Scalars['DateTime'];
-  readonly updatedBy: Maybe<Scalars['String']>;
-  readonly updatedAt: Scalars['DateTime'];
-  readonly id: Scalars['ID'];
-  readonly uId: Scalars['String'];
-  readonly provinceId: Scalars['String'];
-  readonly province: Maybe<ProvinceType>;
-  readonly districtId: Scalars['String'];
-  readonly district: Maybe<DistrictType>;
-  readonly communeId: Scalars['String'];
-  readonly commune: Maybe<CommuneType>;
-  readonly nameKh: Maybe<Scalars['String']>;
-  readonly nameEn: Maybe<Scalars['String']>;
-  readonly status: Maybe<Scalars['String']>;
+  __typename?: 'VillageType';
+  createdBy?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  updatedBy?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  uId: Scalars['String'];
+  provinceId: Scalars['String'];
+  province?: Maybe<ProvinceType>;
+  districtId: Scalars['String'];
+  district?: Maybe<DistrictType>;
+  communeId: Scalars['String'];
+  commune?: Maybe<CommuneType>;
+  nameKh?: Maybe<Scalars['String']>;
+  nameEn?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
 };
 
 export type VillageUpdate = {
-  readonly id: Scalars['ID'];
-  readonly nameKh: Scalars['String'];
-  readonly nameEn: Scalars['String'];
-  readonly status: Maybe<StatusEnum>;
+  id: Scalars['ID'];
+  nameKh: Scalars['String'];
+  nameEn: Scalars['String'];
+  status?: Maybe<StatusEnum>;
 };

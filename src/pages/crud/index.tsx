@@ -2,14 +2,14 @@ import { TableListCrud } from '@/components/Form/TableCrud';
 import { FormLayout } from '@/components/NextLayout';
 import { getFormWidth } from '@/utils/form';
 import type { ProColumns } from '@ant-design/pro-table';
-import type { IScaleType } from './useIndex';
+import type { IType } from './useIndex';
 import { useScale } from './useIndex';
 
 export default () => {
   const scaleProps = useScale();
   const { tableProps } = scaleProps || {};
 
-  const columns: ProColumns<IScaleType['scaleRecord']>[] = [
+  const columns: ProColumns<IType['record']>[] = [
     {
       title: 'No',
       dataIndex: 'id',

@@ -9,39 +9,46 @@ import {
   useGetScalesQuery,
   useUpdateScaleMutation,
 } from '@/graphQl/hooks';
-import type { ScaleType } from '@/graphQl/schemas';
 import { getOnlyValue } from '@/utils/arrObj';
-import type { PageInfo } from '@ant-design/pro-table/lib/typing';
 import { useCreation } from 'ahooks';
-import { useLocalStorageState, useReactive } from 'ahooks/es';
+import { useReactive } from 'ahooks/es';
 import { Form } from 'antd';
 import isEmpty from 'lodash/isEmpty';
 
-type IState = Partial<ICrudState<ScaleType>>;
+/**
+ * all interface here
+ */
+export type IType = {
+  filter: IST.ScaleFilter;
+  createInput: IST.ScaleInput;
+  updateInput: IST.ScaleUpdate;
+  input: IST.ScaleInput & IST.ScaleUpdate;
+  scalesData: IOT.GetScalesQuery['getScales'];
+  record: Pick<IST.ScaleType, 'id' | 'name' | 'status' | 'updatedBy'>;
+  metadata: IOT.GetScalesQuery['getScales']['metadata'];
+  state: ICrudState<IType['record'], IType['filter']>;
+  table: ITableList<IType['record'], IType['input']>;
+};
 
 export const useScale = () => {
   /**
-   * ----------------------- State and Function ----------------------
+   * ----------------- State & Init & declare ----------------------
    */
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<IType['input']>();
 
-  const [columnsStateMap, setColMap] = useLocalStorageState('scaleColumn', {});
-
-  const defaultFilter: Partial<IOT.GetScalesQueryVariables['filter'] & PageInfo> = {
+  const defaultFilter: IType['filter'] = {
     limit: 10,
     page: 1,
   };
 
-  const filterValue = useReactive<{ filter: typeof defaultFilter }>({
+  const state = useReactive<IType['state']>({
+    type: 'table',
+    add: true,
     filter: defaultFilter,
   });
 
-  const state = useReactive<IState>({
-    type: 'table',
-    add: true,
-  });
+  const { type, filter } = state;
 
-  const { type } = state;
   const isModifyMode = type === 'form';
 
   /**
@@ -53,19 +60,22 @@ export const useScale = () => {
     refetch: refetchScales,
   } = useGetScalesQuery({
     variables: {
-      // filter
+      filter,
     },
   });
 
-  const afterSuccessAction = (params?: ISuccessAction) => {
-    successAction({ form, state: state as any, refetch: refetchScales, ...params });
+  /**
+   * after success will refetch
+   */
+  const onSuccess = (params?: ISuccessAction) => {
+    successAction({ form, state, refetch: refetchScales, ...params });
   };
   /**
    * ----------------------- deleteScaleMutation ----------------------
    */
   const [deleteScaleMutation, { loading: loadingDeleteScale }] = useDeleteScaleMutation({
     onCompleted: (res) => {
-      res?.deleteScale && afterSuccessAction();
+      res?.deleteScale && onSuccess();
     },
   });
   /**
@@ -73,7 +83,7 @@ export const useScale = () => {
    */
   const [updateScaleMutation, { loading: loadingUpdateScale }] = useUpdateScaleMutation({
     onCompleted: (res) => {
-      res?.updateScale && afterSuccessAction();
+      res?.updateScale && onSuccess();
     },
   });
 
@@ -82,7 +92,7 @@ export const useScale = () => {
    */
   const [createScaleMutation, { loading: loadingCreateScale }] = useCreateScaleMutation({
     onCompleted: (res) => {
-      res?.createScale && afterSuccessAction();
+      res?.createScale && onSuccess();
     },
   });
 
@@ -90,7 +100,7 @@ export const useScale = () => {
    * ----------------------- Return State& Props ----------------------
    */
   const dataSource = useCreation(
-    () => dataScales?.getScales?.records as IST.ScaleType[],
+    () => dataScales?.getScales?.records as IType['record'][],
     [dataScales?.getScales],
   );
 
@@ -111,8 +121,7 @@ export const useScale = () => {
     loadingSubmit: loadingGetScale || loadingUpdateScale || loadingCreateScale,
   };
 
-  const tableProps: ITableList<IST.ScaleType, IST.ScaleType> = {
-    setColMap,
+  const tableProps: IType['table'] = {
     setMode: (v) => {
       if (state.isDelete) {
         deleteScaleMutation({ variables: { id: v?.record?.id } });
@@ -121,32 +130,30 @@ export const useScale = () => {
     tabTitleList: `List ${pageName}`,
     tabTitleCrud: `${tabTitleCrud} ${pageName}`,
     dataSource,
-    columnsStateMap,
     form,
     state,
     loading: loadingGetScale || loadingDeleteScale || state.loadingRefetch,
     options: {
       reload: () => {
-        afterSuccessAction({ isReload: true });
+        onSuccess({ isReload: true });
       },
     },
     onSubmit: (record) => {
       if (!isEmpty(record)) {
         const input = getOnlyValue(record);
         if (state.edit) {
-          updateScaleMutation({ variables: { input } });
+          updateScaleMutation({ variables: { input } as any });
         }
         if (state.add) {
-          createScaleMutation({ variables: { input } as any });
+          createScaleMutation({ variables: { input } });
         }
       }
     },
     beforeSearchSubmit: (params) => {
       const newParam = getOnlyValue(params);
-      // console.log('ss', params);
       if (!isEmpty(params)) {
-        filterValue.filter = {
-          ...filterValue.filter,
+        state.filter = {
+          ...state.filter,
           limit: newParam?.pageSize,
           page: newParam?.current,
           name: newParam?.name,
@@ -155,8 +162,8 @@ export const useScale = () => {
     },
     onChange: (pagination) => {
       const { pageSize, current } = pagination;
-      filterValue.filter = {
-        ...filterValue.filter,
+      state.filter = {
+        ...state.filter,
         limit: pageSize,
         page: current,
       };
