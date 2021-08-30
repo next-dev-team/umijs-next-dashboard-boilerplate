@@ -4,7 +4,7 @@ import type { ArgsProps } from 'antd/lib/message';
 import message from 'antd/lib/message';
 import type { ICrudState } from './TableCrud';
 
-export type ISuccessAction<> = Partial<{
+export type ISuccessAction = Partial<{
   msg: ArgsProps['content'] | boolean;
   isReload: boolean;
 }> & {
