@@ -3,7 +3,7 @@
 ## Online Demo
 [umijs-next-dashboard](https://umijs-next-dashboard-boilerplate.netlify.app/) demo here
 
-Noted: Our Api testing using NestJs with mongoDb with heriku server free so the first time it will be abit slow loading due to heriku might be sleep.
+Note: Our [API](https://github.com/next-dev-team/nestjs-next-boilerplate) using NestJs with mongoDb with heroku server free so the first time it will be abit slow loading due to heroku might be sleep for the first request.
 
 ## Online dev environment
 
