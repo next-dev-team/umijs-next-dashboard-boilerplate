@@ -1,7 +1,11 @@
 
 
 ## Online Demo
-[umijs-next-dashboard](https://umijs-next-dashboard-boilerplate.netlify.app/) demo here
+
+ Demo linke [here](https://umijs-next-dashboard-boilerplate.netlify.app) 
+
+username: admin <br/>
+pass: admin
 
 Note: Our [API](https://github.com/next-dev-team/nestjs-next-boilerplate) using NestJs with mongoDb with heroku server free so the first time it will be abit slow loading due to heroku might be sleep for the first request.
 
