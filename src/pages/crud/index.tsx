@@ -7,7 +7,7 @@ import { useScale } from './useIndex';
 
 export default () => {
   const scaleProps = useScale();
-  const { tableProps } = scaleProps || {};
+  const { tableProps, loadingSubmit } = scaleProps || {};
 
   const columns: ProColumns<IType['record']>[] = [
     {
@@ -29,7 +29,7 @@ export default () => {
   ];
   return (
     <>
-      <FormLayout>
+      <FormLayout loadingModal={loadingSubmit}>
         <TableListCrud {...{ ...tableProps, columns }} />
       </FormLayout>
     </>

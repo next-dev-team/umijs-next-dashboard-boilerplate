@@ -25,9 +25,9 @@ module.exports = {
     'global-require': 0,
     'no-new-require': 0,
     'no-empty-pattern': 0,
-    'react-native/no-inline-styles': 0,
     'react/require-default-props': 0,
     'react/no-array-index-key': 0,
+    'react/react-in-jsx-scope': 'off',
     'import/no-unresolved': [
       'error',
       {
@@ -39,7 +39,6 @@ module.exports = {
           '@next-component',
           '@next-provider',
           '@next-hooks',
-          'shared',
         ],
       },
     ],

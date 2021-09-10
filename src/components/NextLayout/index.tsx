@@ -4,6 +4,7 @@ import type { PageContainerProps } from '@ant-design/pro-layout';
 import { PageContainer } from '@ant-design/pro-layout';
 import type { CSSProperties, ReactNode } from 'react';
 import { memo } from 'react';
+import { LoadingModal } from '../FeedBack/LoadingModal';
 import css from './index.less';
 import { NextSettingDrawer } from './NextSettingDrawer';
 
@@ -15,6 +16,7 @@ type ILayout = {
   isShowBreadcrumb?: boolean;
   isNormal?: boolean;
   IS_PRE?: boolean;
+  loadingModal?: boolean;
 } & PageContainerProps;
 
 const Layout = memo((props: ILayout) => {
@@ -26,12 +28,14 @@ const Layout = memo((props: ILayout) => {
     isShowBreadcrumb = false,
     isNormal,
     IS_PRE,
+    loadingModal,
     ...rest
   } = props;
   const breadcrumb = isShowBreadcrumb ? {} : { breadcrumb: undefined };
 
   return (
     <>
+      <LoadingModal isLoading={loadingModal} />
       <PageContainer
         {...{
           ...breadcrumb,

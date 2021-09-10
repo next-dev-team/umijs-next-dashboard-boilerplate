@@ -1,5 +1,4 @@
 import { Modal, Spin } from 'antd';
-import React from 'react';
 
 export const LoadingModal = ({ isLoading }: { isLoading: boolean | undefined }) => {
   return (
