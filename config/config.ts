@@ -21,10 +21,10 @@ export default defineConfig({
   request: false,
   crossorigin: true,
   dva: false,
-  locale: { antd: false },
+  locale: { antd: true },
   layout: {
     // https://umijs.org/plugins/plugin-layout
-    locale: false,
+    locale: true,
     siderWidth: 208,
     ...defaultSettings,
   },
@@ -70,11 +70,11 @@ export default defineConfig({
   scripts:
     process.env.NODE_ENV === 'development'
       ? [
-          'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js',
-          'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js',
-        ]
+        'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js',
+        'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js',
+      ]
       : [
-          'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js',
-          'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js',
-        ],
+        'https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js',
+        'https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js',
+      ],
 });

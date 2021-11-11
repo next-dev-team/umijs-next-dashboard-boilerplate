@@ -1,22 +1,25 @@
+import { MinusCircleFilled, PlusCircleFilled } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Alert, Card, Typography } from 'antd';
-import React from 'react';
-import styles from './Welcome.less';
+import { Alert, Button, Card, Divider, Space } from 'antd';
+import Text from 'antd/lib/typography/Text';
+import Title from 'antd/lib/typography/Title';
+import { useIntl, useModel } from 'umi';
 
-const CodePreview: React.FC = ({ children }) => (
-  <pre className={styles.pre}>
-    <code>
-      <Typography.Text copyable>{children}</Typography.Text>
-    </code>
-  </pre>
-);
+export default () => {
+  const { counter, decrement } = useModel('useCounter', (m) => ({
+    counter: m.counter,
+    decrement: m.decrement,
+    increment: m.increment,
+  }));
+  const { formatMessage } = useIntl();
 
-export default (): React.ReactNode => {
   return (
     <PageContainer>
       <Card>
+        <Title>I18n</Title>
+
         <Alert
-          message={'A faster and stronger heavy-duty component has been released. '}
+          message={formatMessage({ id: 'pages.layouts.userLayout.title' })}
           type="success"
           showIcon
           banner
@@ -25,33 +28,17 @@ export default (): React.ReactNode => {
             marginBottom: 24,
           }}
         />
-        <Typography.Text strong>
-          Advanced form{''}
-          <a
-            href="https://procomponents.ant.design/components/table"
-            rel="noopener noreferrer"
-            target="__blank"
-          >
-            welcome
-          </a>
-        </Typography.Text>
-        <CodePreview>yarn add @ant-design/pro-table</CodePreview>
-        <Typography.Text
-          strong
-          style={{
-            marginBottom: 12,
-          }}
-        >
-          Advanced layout{''}
-          <a
-            href="https://procomponents.ant.design/components/layout"
-            rel="noopener noreferrer"
-            target="__blank"
-          >
-            welcome
-          </a>
-        </Typography.Text>
-        <CodePreview>yarn add @ant-design/pro-layout</CodePreview>
+        <Divider />
+        <Title>Global State</Title>
+        <Space>
+          <Button size="large" style={{ color: 'red' }} onClick={() => decrement(10)}>
+            <MinusCircleFilled style={{ fontSize: 30 }} />
+          </Button>
+          <Text>{counter}</Text>
+          <Button size="large" style={{ color: 'green' }} onClick={() => decrement(10)}>
+            <PlusCircleFilled style={{ fontSize: 30 }} />
+          </Button>
+        </Space>
       </Card>
     </PageContainer>
   );

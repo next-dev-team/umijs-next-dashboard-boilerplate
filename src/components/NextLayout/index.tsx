@@ -4,8 +4,9 @@ import type { PageContainerProps } from '@ant-design/pro-layout';
 import { PageContainer } from '@ant-design/pro-layout';
 import type { CSSProperties, ReactNode } from 'react';
 import { memo } from 'react';
+import { useHistory } from 'umi';
+import { LoadingModal } from '../FeedBack/LoadingModal';
 import css from './index.less';
-import { NextSettingDrawer } from './NextSettingDrawer';
 
 type ILayout = {
   children?: ReactNode;
@@ -13,8 +14,8 @@ type ILayout = {
   cardProps?: ProCardProps;
   isEmptyLayout?: boolean;
   isShowBreadcrumb?: boolean;
+  loadingModal?: boolean;
   isNormal?: boolean;
-  IS_PRE?: boolean;
 } & PageContainerProps;
 
 const Layout = memo((props: ILayout) => {
@@ -25,18 +26,21 @@ const Layout = memo((props: ILayout) => {
     isEmptyLayout,
     isShowBreadcrumb = false,
     isNormal,
-    IS_PRE,
+    loadingModal,
     ...rest
   } = props;
   const breadcrumb = isShowBreadcrumb ? {} : { breadcrumb: undefined };
+  const { goBack } = useHistory();
 
   return (
     <>
+      <LoadingModal isLoading={loadingModal} />
       <PageContainer
         {...{
           ...breadcrumb,
           className: isEmptyLayout ? css.next_layout : '',
           title: isEmptyLayout,
+          onBack: goBack,
           ...rest,
         }}
       >
@@ -49,7 +53,6 @@ const Layout = memo((props: ILayout) => {
                 layout: 'center',
                 style: {
                   minHeight: '80vh',
-                  backgroundColor: 'transparent',
                   ...contentInnerStyle,
                 },
                 ...cardProps,
@@ -60,7 +63,6 @@ const Layout = memo((props: ILayout) => {
           </ProCard>
         )}
       </PageContainer>
-      {IS_PRE && <NextSettingDrawer />}
     </>
   );
 });
@@ -75,14 +77,16 @@ export const FormLayout = memo((props: ILayout) => {
   const { children, ...rest } = props;
 
   return (
-    <Layout
-      {...{
-        isNormal: true,
-        isShowBreadcrumb: true,
-        ...rest,
-      }}
-    >
-      {children}
-    </Layout>
+    <>
+      <Layout
+        {...{
+          isNormal: true,
+          isShowBreadcrumb: true,
+          ...rest,
+        }}
+      >
+        {children}
+      </Layout>
+    </>
   );
 });
