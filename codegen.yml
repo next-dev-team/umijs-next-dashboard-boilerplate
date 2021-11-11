@@ -1,5 +1,6 @@
 # Endpoint API, the following URL is a example
-schema: https://ybiztech-pos-api.herokuapp.com/graphql
+
+schema: ${NEXT_PUBLIC_GRAPHQL_API_ENDPOINT}
 overwrite: true
 
 # Format files
@@ -10,7 +11,7 @@ hooks:
 generates:
   # Get schemas from server
   src/graphQl/schemas.ts:
-    documents: 'src/**/**.gql'
+    documents: "src/**/**.gql"
     plugins:
       - typescript
     config:
@@ -21,7 +22,7 @@ generates:
 
   # Create operations based on queries
   src/graphQl/operations.ts:
-    documents: 'src/**/**.gql'
+    documents: "src/**/**.gql"
     preset: import-types
     presetConfig:
       typesPath: ./schemas
@@ -29,7 +30,7 @@ generates:
       - typescript-operations
     config:
       avoidOptionals: true
-      declarationKind: 'type'
+      declarationKind: "type"
       skipTypeNameForRoot: true
       allowEnumStringTypes: true
       skipTypename: true
@@ -40,7 +41,7 @@ generates:
   # 1. Export GraphQL documents
   # 2. React interface
   src/graphQl/hooks.tsx:
-    documents: 'src/**/**.gql'
+    documents: "src/**/**.gql"
     preset: import-types
     presetConfig:
       typesPath: ./operations

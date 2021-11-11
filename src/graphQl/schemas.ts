@@ -12,6 +12,11 @@ export type Scalars = {
   DateTime: any;
 };
 
+
+
+
+
+
 export type AddressInfoInput = {
   provinceId: Scalars['ID'];
   districtId: Scalars['ID'];
@@ -1854,6 +1859,7 @@ export type ProvinceUpdate = {
 
 export type Query = {
   __typename?: 'Query';
+  _service: _Service;
   getCdn: CdnType;
   getCdns: Array<CdnType>;
   getProvince: ProvinceType;
@@ -2946,4 +2952,9 @@ export type VillageUpdate = {
   nameKh: Scalars['String'];
   nameEn: Scalars['String'];
   status?: Maybe<StatusEnum>;
+};
+
+export type _Service = {
+  __typename?: '_Service';
+  sdl?: Maybe<Scalars['String']>;
 };

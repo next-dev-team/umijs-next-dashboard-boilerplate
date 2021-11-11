@@ -6,7 +6,7 @@
     "scripts": {
         "-------------------------graph ---------------------------------": "",
         "genApi": "yarn schemas",
-        "schemas": "graphql-codegen --config codegen.yml",
+        "schemas": "DOTENV_CONFIG_PATH=./.env graphql-codegen -r dotenv/config --config codegen.yml",
         "schemas:watch": "npm run schemas -- --watch",
         "start": "yarn start:dev",
         "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none UMI_ENV=dev umi dev",
@@ -63,6 +63,7 @@
         "not ie <= 10"
     ],
     "dependencies": {
+        "dotenv": "^10.0.0",
         "@ant-design/icons": "^4.6.3",
         "@ant-design/pro-descriptions": "^1.9.6",
         "@ant-design/pro-form": "^1.35.0",
